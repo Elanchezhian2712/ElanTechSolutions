@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
+// import { HoverBorderGradient } from "../components/ui/hover-border-gradient";
 import { cn } from "@/lib/utils";
 
 const navItemsLeft = [
@@ -23,62 +23,120 @@ const Navbar = () => {
 
   const linkBaseStyle = "flex items-center justify-center uppercase font-medium text-[11px] sm:text-xs md:text-sm tracking-normal sm:tracking-wider transition-colors duration-200 ease-in-out whitespace-nowrap px-0.5 sm:px-1";
 
-  return (
-    <div className={cn("fixed top-12 inset-x-0 max-w-4xl lg:max-w-5xl mx-auto z-50 px-2 sm:px-4")}>
-      <HoverBorderGradient
-        containerClassName="rounded-full w-full overflow-hidden"
-        as="div"
-        className="bg-black text-white flex items-center justify-between w-full py-3 sm:py-4 md:py-5 px-1.5 sm:px-2 md:px-3 rounded-full"
-      >
-        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
-          {navItemsLeft.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                linkBaseStyle,
-                pathname === item.href ? 'text-white font-semibold' : 'text-neutral-400 hover:text-white'
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
+//   return (
+//     <div className={cn("fixed top-12 inset-x-0 max-w-4xl lg:max-w-5xl mx-auto z-50 px-2 sm:px-4")}>
+//       <HoverBorderGradient
+//         containerClassName="rounded-full w-full overflow-hidden"
+//         as="div"
+//         className="bg-black text-white flex items-center justify-between w-full py-3 sm:py-4 md:py-5 px-1.5 sm:px-2 md:px-3 rounded-full"
+//       >
+//         <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+//           {navItemsLeft.map((item) => (
+//             <Link
+//               key={item.href}
+//               href={item.href}
+//               className={cn(
+//                 linkBaseStyle,
+//                 pathname === item.href ? 'text-white font-semibold' : 'text-neutral-400 hover:text-white'
+//               )}
+//             >
+//               {item.label}
+//             </Link>
+//           ))}
+//         </div>
 
-        <Link href="/" className="flex items-center shrink-0 mx-1 sm:mx-2 md:mx-3">
-          <Image
-            src="/logo.png"
-            alt="ElanTech Icon"
-            width={32}
-            height={24}
-            className="mr-1 sm:mr-2"
-          />
-          <Image
-            src="/logo-elantech.png"
-            alt="ElanTech Solutions"
-            width={270}
-            height={90}
-            className="hidden md:block cursor-pointer h-auto"
-          />
-        </Link>
+//         <Link href="/" className="flex items-center shrink-0 mx-1 sm:mx-2 md:mx-3">
+//           <Image
+//             src="/logo.png"
+//             alt="ElanTech Icon"
+//             width={32}
+//             height={24}
+//             className="mr-1 sm:mr-2"
+//           />
+//           <Image
+//             src="/logo-elantech.png"
+//             alt="ElanTech Solutions"
+//             width={270}
+//             height={90}
+//             className="hidden md:block cursor-pointer h-auto"
+//           />
+//         </Link>
 
-        <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
-          {navItemsRight.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                linkBaseStyle,
-                pathname === item.href ? 'text-white font-semibold' : 'text-neutral-400 hover:text-white'
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </HoverBorderGradient>
+//         <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+//           {navItemsRight.map((item) => (
+//             <Link
+//               key={item.href}
+//               href={item.href}
+//               className={cn(
+//                 linkBaseStyle,
+//                 pathname === item.href ? 'text-white font-semibold' : 'text-neutral-400 hover:text-white'
+//               )}
+//             >
+//               {item.label}
+//             </Link>
+//           ))}
+//         </div>
+//       </HoverBorderGradient>
+//     </div>
+//   );
+// };
+
+
+return (
+  <div className={cn("fixed top-12 inset-x-0 max-w-4xl lg:max-w-5xl mx-auto z-50 px-2 sm:px-4")}>
+    <div className="bg-black text-white flex items-center justify-between w-full py-3 sm:py-4 md:py-5 px-1.5 sm:px-2 md:px-3 rounded-full">
+      {/* Left Navigation Links */}
+      <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+        {navItemsLeft.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn(
+              linkBaseStyle,
+              pathname === item.href ? 'text-white font-semibold' : 'text-neutral-400 hover:text-white'
+            )}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+
+      {/* Center Logo */}
+      <Link href="/" className="flex items-center shrink-0 mx-1 sm:mx-2 md:mx-3">
+        <Image
+          src="/logo.png"
+          alt="ElanTech Icon"
+          width={32}
+          height={24}
+          className="mr-1 sm:mr-2"
+        />
+        <Image
+          src="/logo-elantech.png"
+          alt="ElanTech Solutions"
+          width={270}
+          height={90}
+          className="hidden md:block cursor-pointer h-auto"
+        />
+      </Link>
+
+      {/* Right Navigation Links */}
+      <div className="flex items-center space-x-1 sm:space-x-2 md:space-x-3">
+        {navItemsRight.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn(
+              linkBaseStyle,
+              pathname === item.href ? 'text-white font-semibold' : 'text-neutral-400 hover:text-white'
+            )}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default Navbar;

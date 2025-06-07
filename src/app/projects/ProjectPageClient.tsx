@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Dynamically import heavy UI components
@@ -19,18 +19,18 @@ const DynamicTracingBeam = dynamic(() =>
 );
 
 
-const CardBody = dynamic(() =>
-  import('../components/ui/3d-card').then((mod) => mod.CardBody),
-  { ssr: false }
-);
-const CardContainer = dynamic(() =>
-  import('../components/ui/3d-card').then((mod) => mod.CardContainer),
-  { ssr: false }
-);
-const CardItem = dynamic(() =>
-  import('../components/ui/3d-card').then((mod) => mod.CardItem),
-  { ssr: false }
-);
+// const CardBody = dynamic(() =>
+//   import('../components/ui/3d-card').then((mod) => mod.CardBody),
+//   { ssr: false }
+// );
+// const CardContainer = dynamic(() =>
+//   import('../components/ui/3d-card').then((mod) => mod.CardContainer),
+//   { ssr: false }
+// );
+// const CardItem = dynamic(() =>
+//   import('../components/ui/3d-card').then((mod) => mod.CardItem),
+//   { ssr: false }
+// );
 
 
 
@@ -125,7 +125,7 @@ const ProjectPage = () => {
                       flex items-center justify-center 
                       md:pl-6 lg:pl-8 
                       ">
-                <CardContainer containerClassName="py-0" className="inter-var">
+                {/* <CardContainer containerClassName="py-0" className="inter-var">
                   <CardBody className="bg-transparent relative group/card dark:hover:shadow-2xl dark:hover:shadow-purple-500/[0.2] w-auto sm:w-[30rem] md:w-full h-auto rounded-xl p-0 md:p-2 border-0">
                     <CardItem
                       translateZ="80"
@@ -143,7 +143,7 @@ const ProjectPage = () => {
 
                     </CardItem>
                   </CardBody>
-                </CardContainer>
+                </CardContainer> */}
               </div>
             </div>
           </div>
