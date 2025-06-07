@@ -5,7 +5,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { AuroraBackground } from './ui/aurora-background';
-import { motion as framerMotion } from 'framer-motion'; 
+import { motion as framerMotion } from 'framer-motion';
 
 import React from "react";
 import dynamic from "next/dynamic";
@@ -454,8 +454,8 @@ const Footer = () => {
     return (
         <>
 
-            <footer className={`bg-black text-gray-400`}>
-                <section className="py-16 md:py-24 text-center bg-black">
+            <footer className={`text-white-400`}>
+                <section className="py-16 md:py-24 text-center">
                     <div className="container mx-auto px-4">
                         <AuroraBackground>
                             <div className="md:flex w-full h-full items-center">
@@ -475,8 +475,8 @@ const Footer = () => {
                                             text-center md:text-left
                                             pb-2 md:pb-0 
                                             "
-                                    >
-                                   <h1 className="text-3xl md:text-5xl font-bold text-black dark:text-white mt-6 mb-2">
+                                >
+                                    <h1 className="text-3xl md:text-5xl font-bold text-black dark:text-white mt-6 mb-2">
                                         Let&apos;s Work Together !
                                     </h1>
                                     <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-200">
@@ -509,8 +509,8 @@ const Footer = () => {
                                     <Image
                                         src="/logo.png"
                                         alt="Elan Tech Solutions Small Logo"
-                                        width={60}
-                                        height={50}
+                                        width={40}
+                                        height={40}
                                         priority
                                     />
                                 </Link>
@@ -524,14 +524,14 @@ const Footer = () => {
                                     />
                                 </Link>
                             </div>
-                            <p className="text-xs sm:text-sm leading-relaxed text-gray-300 text-justify">
+                            <p className="text-xs sm:text-sm leading-relaxed text-white-300 text-justify">
                                 At Elan Tech Solutions, we are dedicated to transforming ideas into impactful digital experiences. From full-scale software development and DevOps automation to intuitive UI/UX design and modern web solutions, we empower businesses to thrive in a rapidly evolving tech landscape. Our team combines innovation with deep technical expertise in Machine Learning and Artificial Intelligence to create smart, scalable, and future-ready solutions. We believe in technology that drives progress and builds stronger, more connected communities.
                             </p>
                         </div>
                         <div className="md:col-span-8 lg:col-span-7 py-4 md:pl-6 lg:pl-8">
                             <div className="mb-8 md:mb-10">
                                 <nav aria-label="Footer Quick Links">
-                                    <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 sm:gap-x-6 gap-y-2 text-sm sm:text-base text-gray-300">
+                                    <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 sm:gap-x-6 gap-y-2 text-sm sm:text-base text-white-300">
                                         <li><Link href="/" className="hover:text-purple-500 transition-colors">Home</Link></li>
                                         <li><Link href="/about" className="hover:text-purple-500 transition-colors">About us</Link></li>
                                         <li><Link href="/projects" className="hover:text-purple-500 transition-colors">Projects</Link></li>
@@ -545,54 +545,72 @@ const Footer = () => {
                             <div className={`border-t ${borderStyle} pt-8 md:pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4`}>
                                 {/* Head Office */}
                                 <div className={`group py-4 sm:pr-4 lg:border-r ${borderStyle} flex flex-col items-center text-center mb-6 sm:mb-0 transition-transform hover:scale-105`}>
-                                    <div className="w-11 h-11 bg-neutral-800 group-hover:bg-purple-500 rounded-full flex items-center justify-center mb-3 transition duration-300">
-                                        <GlobeEuropeAfricaIcon />
-                                    </div>
-                                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-gray-100 transition duration-300">Our Head Office</h4>
-                                    <p className="text-xs sm:text-sm text-gray-300 group-hover:text-white transition duration-300">
-                                        Salem, Tamil Nadu, India.
-                                    </p>
+                                    <a
+                                        href="https://www.google.com/maps?q=J4RV+2VV,+5,+Trichy+Branch+Rd,+Valluvar+Nagar,+Annathanapatti,+Police+Quarters,+Salem,+Tamil+Nadu+636002"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`group py-4 sm:px-2 flex flex-col items-center text-center mb-6 sm:mb-0 transition-transform hover:scale-105`}>
+                                        <div className="w-11 h-11 bg-neutral-800 group-hover:bg-purple-500 rounded-full flex items-center justify-center mb-3 transition duration-300">
+                                            <GlobeEuropeAfricaIcon />
+                                        </div>
+                                        <h4 className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-gray-100 transition duration-300">Our Head Office</h4>
+                                        <p className="text-xs sm:text-sm text-white-300 group-hover:text-white transition duration-300">
+                                            Salem, Tamil Nadu, India.
+                                        </p>
+                                    </a>
                                 </div>
 
                                 {/* Hotline */}
                                 <div className={`group py-4 sm:px-2 lg:border-r ${borderStyle} flex flex-col items-center text-center mb-6 sm:mb-0 transition-transform hover:scale-105`}>
-                                    <div className="w-11 h-11 bg-neutral-800 group-hover:bg-purple-500 rounded-full flex items-center justify-center mb-3 transition duration-300">
-                                        <PhoneIcon />
-                                    </div>
-                                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-gray-100 transition duration-300">Our Hotline</h4>
                                     <a
-                                        href="tel:+919789382712"
-                                        className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 block"
-                                    >
-                                        +91 978 938 2712
+                                        href="https://wa.me/919789382712?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`group py-4 sm:px-2 flex flex-col items-center text-center mb-6 sm:mb-0 transition-transform hover:scale-105`}>
+
+                                        <div className="w-11 h-11 bg-neutral-800 group-hover:bg-purple-500 rounded-full flex items-center justify-center mb-3 transition duration-300">
+                                            <PhoneIcon />
+                                        </div>
+                                        <h4 className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-gray-100 transition duration-300">Our Hotline</h4>
+                                        <p className="text-xs sm:text-sm text-white-300 group-hover:text-white transition duration-300">
+                                            +91 978 938 2712
+                                        </p>
                                     </a>
+
                                 </div>
 
                                 {/* Email */}
                                 <div className="group py-4 sm:pl-4 flex flex-col items-center text-center transition-transform hover:scale-105">
-                                    <div className="w-11 h-11 bg-neutral-800 group-hover:bg-purple-500 rounded-full flex items-center justify-center mb-3 transition duration-300">
-                                        <PaperAirplaneIcon />
-                                    </div>
-                                    <h4 className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-gray-100 transition duration-300">Mail Us</h4>
                                     <a
                                         href="mailto:elantechsolutions@gmail.com"
-                                        className="text-xs sm:text-sm text-gray-300 hover:text-white transition-colors duration-300 block"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group py-4 sm:pl-4 flex flex-col items-center text-center transition-transform hover:scale-105"
                                     >
-                                        elantechsolutions@gmail.com
+                                        <div className="w-11 h-11 bg-neutral-800 group-hover:bg-purple-500 rounded-full flex items-center justify-center mb-3 transition duration-300">
+                                            <PaperAirplaneIcon />
+                                        </div>
+                                        <h4 className="text-base sm:text-lg font-semibold text-white mb-1 group-hover:text-gray-100 transition duration-300">
+                                            Mail Us
+                                        </h4>
+                                        <p className="text-xs sm:text-sm text-white-300 group-hover:text-white transition-colors duration-300">
+                                            elantechsolutions@gmail.com
+                                        </p>
                                     </a>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className={`border-t ${borderStyle} mt-8 py-8 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-gray-500 ${horizontalPadding}`}>
+                    <div className={`border-t ${borderStyle} mt-8 py-8 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-white ${horizontalPadding}`}>
                         <p className="mb-4 sm:mb-0 text-center sm:text-left">
                             Copyright © {new Date().getFullYear()}. All rights reserved by Elan Tech Solutions.
                         </p>
                         <div className="flex space-x-5 sm:space-x-4">
-                            <a href="#" aria-label="Instagram" className="hover:text-white transition-colors"><InstagramIcon /></a>
-                            <a href="#" aria-label="Twitter" className="hover:text-white transition-colors"><TwitterIcon /></a>
-                            <a href="#" aria-label="Facebook" className="hover:text-white transition-colors"><FacebookIcon /></a>
-                            <a href="#" aria-label="LinkedIn" className="hover:text-white transition-colors"><LinkedInIcon /></a>
+                            <a href="#" aria-label="Instagram" className="hover:text-purple-500 transition-colors"><InstagramIcon /></a>
+                            <a href="#" aria-label="Twitter" className="hover:text-purple-500 transition-colors"><TwitterIcon /></a>
+                            <a href="#" aria-label="Facebook" className="hover:text-purple-500 transition-colors"><FacebookIcon /></a>
+                            <a href="#" aria-label="LinkedIn" className="hover:text-purple-500 transition-colors"><LinkedInIcon /></a>
                         </div>
                     </div>
                 </div>

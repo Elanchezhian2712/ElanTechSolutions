@@ -7,9 +7,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic'; 
 
 // Dynamically import heavy UI components
-const DynamicBackgroundBeams = dynamic(() =>
-  import('../components/ui/background-beams').then((mod) => mod.BackgroundBeams)
-);
+
 
 const DynamicTypewriterEffect = dynamic(() =>
   import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
@@ -87,7 +85,7 @@ const ServicesPage = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-black">
+      <div className="h-screen w-full flex items-center justify-center ">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
       </div>
     );
@@ -95,30 +93,30 @@ const ServicesPage = () => {
 
 
   return (
-    <div className="bg-black">
+    <div >
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
             <DynamicTypewriterEffect words={words} />
           </h1>
-          <nav className="relative z-10 mt-4 text-sm md:text-base text-gray-400">
+          <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
             <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
               <li>
                 <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
               </li>
               <li>/</li>
-              <li className="text-gray-300">Services</li>
+              <li className="text-white-300">Services</li>
             </ol>
           </nav>
-          <p className="relative z-10 mt-8 text-lg md:text-xl text-gray-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
+          <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
             We offer a comprehensive range of services including AI solutions, UI/UX design, Digital Marketing, Data Engineering, SaaS development, E-Commerce solutions, and Web Development. Our team delivers innovative, scalable, and user-centric solutions to help your business thrive in the digital world.
           </p>
         </div>
-        <DynamicBackgroundBeams /> 
+        
       </div>
       <DynamicTracingBeam className="max-w-7xl">
         <section
-          className={`bg-black text-white py-16 md:py-20 border-b ${sectionBorderStyle}`}
+          className={` text-white py-16 md:py-20 border-b ${sectionBorderStyle}`}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
             {servicesPosts.slice(0, 3).map((post) => (
@@ -127,12 +125,12 @@ const ServicesPage = () => {
                 className="flex flex-col items-start justify-center text-left p-4"
               >
                 <Image
-        src={post.imageUrl}
-        alt={post.title}
-        width={64}
-        height={64}
-        className="w-16 h-16 object-contain mb-4 self-end"
-      />
+                    src={post.imageUrl}
+                    alt={post.title}
+                    width={64}
+                    height={64}
+                    className="w-16 h-16 object-contain mb-4 self-end"
+                  />
                 <h3 className="text-white font-bold text-lg mb-2">{post.title}</h3>
                 <p className="text-sm text-neutral-300 mb-4 text-justify">{post.description}</p>
               </DynamicGlareCard>

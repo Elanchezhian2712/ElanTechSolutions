@@ -6,9 +6,6 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic'; 
 
 // Dynamically import heavy UI components
-const DynamicBackgroundBeams = dynamic(() =>
-  import('../components/ui/background-beams').then((mod) => mod.BackgroundBeams)
-);
 
 const DynamicTypewriterEffect = dynamic(() =>
   import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
@@ -85,36 +82,36 @@ const CareersPage = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-black">
+      <div className="h-screen w-full flex items-center justify-center">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
       </div>
     );
   }
   return (
-    <div className="bg-black">
+    <div >
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
             <DynamicTypewriterEffect words={words} />
           </h1>
-          <nav className="relative z-10 mt-4 text-sm md:text-base text-gray-400">
+          <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
             <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
               <li>
                 <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
               </li>
               <li>/</li>
-              <li className="text-gray-300">Careers</li>
+              <li className="text-white-300">Careers</li>
             </ol>
           </nav>
-          <p className="relative z-10 mt-8 text-lg md:text-xl text-gray-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
+          <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
             Ready to kickstart your career? At Elan Tech Solutions, we offer a supportive, inclusive space where creativity and growth thrive. Join our team in Software Development, DevOps, UI/UX Design, Web Development, Machine Learning, or AI. Whether you&apos;re experienced or just starting out, if you&apos;re passionate about tech, we&apos;d love to hear from you. Let&apos;s build the future—together.
           </p>
         </div>
-        <DynamicBackgroundBeams /> 
+        
       </div>
 
       <DynamicTracingBeam className="max-w-7xl">
-        <section className={`py-16 md:py-24 text-center bg-black border-b ${sectionBorderStyle}`}>
+        <section className={`py-16 md:py-24 text-center border-b ${sectionBorderStyle}`}>
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
               <div className="md:w-1/3 w-full text-center md:text-left">
@@ -147,10 +144,10 @@ const CareersPage = () => {
                           {job.title}
                         </h3>
                         <div className="flex space-x-2 justify-center md:justify-start">
-                          <span className="bg-gray-800 text-gray-300 text-xs font-medium px-2.5 py-1 rounded-full">
+                          <span className="bg-gray-800 text-white-300 text-xs font-medium px-2.5 py-1 rounded-full">
                             {job.type}
                           </span>
-                          <span className="bg-gray-800 text-gray-300 text-xs font-medium px-2.5 py-1 rounded-full">
+                          <span className="bg-gray-800 text-white-300 text-xs font-medium px-2.5 py-1 rounded-full">
                             {job.location}
                           </span>
                         </div>

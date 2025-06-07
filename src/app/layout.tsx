@@ -5,6 +5,7 @@ import "./globals.css";
 
 import Navbar from '../app/components/Navbar'; 
 import Footer from '../app/components/Footer'; 
+import StarsCanvas from "../app/components/StarBackground";
 
 const geistSans = Geist({ 
   variable: "--font-geist-sans",
@@ -29,8 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-brandDark text-gray-300 antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} text-white-300 antialiased flex flex-col min-h-screen`}
       >
+        <StarsCanvas /> 
         <Navbar />
         <main className="flex-grow flex flex-col"> 
           {children}

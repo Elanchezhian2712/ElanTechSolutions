@@ -2,14 +2,12 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image'; // Import next/image
+import Image from 'next/image'; 
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic'; // Import next/dynamic
-
+import dynamic from 'next/dynamic'; 
+import Lottie from "lottie-react";
+import animationData from "./Singing Contract.json";
 // Dynamically import heavy UI components
-const DynamicBackgroundBeams = dynamic(() =>
-  import('../components/ui/background-beams').then((mod) => mod.BackgroundBeams)
-);
 
 const DynamicTypewriterEffect = dynamic(() =>
   import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
@@ -63,7 +61,7 @@ const ContactPage = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-black">
+      <div className="h-screen w-full flex items-center justify-center ">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
       </div>
     );
@@ -71,34 +69,34 @@ const ContactPage = () => {
 
 
   return (
-    <div className="bg-black">
+    <div >
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
             <DynamicTypewriterEffect words={words} />
           </h1>
-          <nav className="relative z-10 mt-4 text-sm md:text-base text-gray-400">
+          <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
             <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
               <li>
-                <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
+                <Link href="/" className="hover:text-purple-500 transition-colors">Home</Link>
               </li>
               <li>/</li>
-              <li className="text-gray-300">Contact Us</li>
+              <li className="text-white-300">Contact Us</li>
             </ol>
           </nav>
-          <p className="relative z-10 mt-8 text-lg md:text-xl text-gray-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
+          <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
             We&apos;re just one step away from connecting with you! Whether you have questions about our services, need expert support, or are looking to collaborate on something innovative, our team is here to help. Reach out via phone, email, or our contact form — and let&rsquo;s start a conversation that drives meaningful impact and lasting success for your business.
           </p>
         </div>
-        <DynamicBackgroundBeams /> 
+        
       </div>
 
       <DynamicTracingBeam className="max-w-7xl">
-        <section className={`w-full mt-0 my-16 bg-black border-b ${sectionBorderStyle}`}>
+        <section className={`w-full mt-0 my-16  border-b ${sectionBorderStyle}`}>
           <div className="container mx-auto mt-16 px-4 pb-24">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-50 items-center">
 
-              <div className="w-full h-full ">
+              {/* <div className="w-full h-full ">
                 <Image
                   src="/22.png"
                   alt="Contact illustration"
@@ -107,13 +105,21 @@ const ContactPage = () => {
                   loading="lazy"
                   className="w-full h-auto rounded-2xl shadow-lg object-cover"
                 />
+              </div> */}
+              <div className="w-full h-full">
+                <Lottie
+                  animationData={animationData}
+                  loop
+                  autoplay
+                  className="w-full h-auto rounded-2xl shadow-lg object-cover"
+                />
               </div>
 
               {/* Right Side: Form */}
-              <div className="w-full bg-black-900 rounded-2xl p-8 shadow-xl border border-white-800">
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="w-full -900 rounded-2xl p-8 shadow-xl border border-white-1000">
+                <form onSubmit={handleSubmit} className="space-y-2">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-white-300 mb-1">
                       Name :
                     </label>
                     <input
@@ -124,11 +130,11 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="Enter your name"
                       required
-                      className="mt-1 block w-full px-4 py-3 bg-black border border-gray-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
+                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-white-300 mb-1">
                       Email :
                     </label>
                     <input
@@ -139,11 +145,11 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="yourgmail@mail.com"
                       required
-                      className="mt-1 block w-full px-4 py-3 bg-black border border-gray-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
+                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
                     />
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
+                    <label htmlFor="subject" className="block text-sm font-medium text-white-300 mb-1">
                       Subject :
                     </label>
                     <input
@@ -154,11 +160,11 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="I want to..."
                       required
-                      className="mt-1 block w-full px-4 py-3 bg-black border border-gray-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
+                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-white-300 mb-1">
                       Message :
                     </label>
                     <textarea
@@ -169,7 +175,7 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="Hello,..."
                       required
-                      className="mt-1 block w-full px-4 py-3 bg-black border border-gray-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300 min-h-[120px]"
+                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300 min-h-[120px]"
                     ></textarea>
                   </div>
                   <div>

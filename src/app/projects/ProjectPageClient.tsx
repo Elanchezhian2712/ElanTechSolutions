@@ -7,9 +7,7 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Dynamically import heavy UI components
-const DynamicBackgroundBeams = dynamic(() =>
-  import('../components/ui/background-beams').then((mod) => mod.BackgroundBeams)
-);
+
 
 const DynamicTypewriterEffect = dynamic(() =>
   import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
@@ -66,7 +64,7 @@ const ProjectPage = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-black">
+      <div className="h-screen w-full flex items-center justify-center ">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
       </div>
     );
@@ -74,30 +72,29 @@ const ProjectPage = () => {
 
 
   return (
-    <div className="bg-black">
+    <div >
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
             <DynamicTypewriterEffect words={words} />
           </h1>
-          <nav className="relative z-10 mt-4 text-sm md:text-base text-gray-400">
+          <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
             <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
               <li>
                 <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
               </li>
               <li>/</li>
-              <li className="text-gray-300">Products</li>
+              <li className="text-white-300">Products</li>
             </ol>
           </nav>
-          <p className="relative z-10 mt-8 text-lg md:text-xl text-gray-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
+          <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
             Our advanced products leverage the latest in Data Engineering and AI to deliver real-world impact. Built for business growth and social good, they combine cutting-edge tech with seamless user experience. From scalable data pipelines to AI-powered insights, we help organizations innovate, optimize, and thrive in today’s connected world.
           </p>
         </div>
-        <DynamicBackgroundBeams />
       </div>
 
       <DynamicTracingBeam className="max-w-7xl">
-        <section className={`bg-black text-white py-16 md:py-20 border-b ${sectionBorderStyle}`}>
+        <section className={` text-white py-16 md:py-20 border-b ${sectionBorderStyle}`}>
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row md:items-stretch gap-10 md:gap-0">
               <div className="md:w-1/2 lg:w-5/12 text-center md:text-left
@@ -110,7 +107,7 @@ const ProjectPage = () => {
                   <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                     {projectData.title}
                   </h2>
-                  <p className="text-gray-300 leading-relaxed mb-8 text-sm md:text-base whitespace-pre-line text-justify">
+                  <p className="text-white-300 leading-relaxed mb-8 text-sm md:text-base whitespace-pre-line text-justify">
                     {projectData.description}
                   </p>
                   <Link

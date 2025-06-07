@@ -7,10 +7,6 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Dynamically import heavy UI components
-const DynamicBackgroundBeams = dynamic(() =>
-    import('../components/ui/background-beams').then((mod) => mod.BackgroundBeams)
-);
-
 const DynamicTypewriterEffect = dynamic(() =>
     import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
 );
@@ -84,44 +80,43 @@ const AboutPageClient = () => {
 
     if (loading) {
         return (
-            <div className="h-screen w-full flex items-center justify-center bg-black">
+            <div className="h-screen w-full flex items-center justify-center">
                 <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
             </div>
         );
     }
 
     return (
-        <div className="bg-black">
+        <div>
             <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
                 <div className="max-w-5xl mx-auto p-4">
                     <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
                         <DynamicTypewriterEffect words={words} />
                     </h1>
-                    <nav className="relative z-10 mt-4 text-sm md:text-base text-gray-400">
+                    <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
                         <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
                             <li>
                                 <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
                             </li>
                             <li>/</li>
-                            <li className="text-gray-300">About Us</li>
+                            <li className="text-white-300">About Us</li>
                         </ol>
                     </nav>
-                    <p className="relative z-10 mt-8 text-lg md:text-xl text-gray-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
+                    <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
                         We harness modern technology to build intelligent, scalable, and user-focused solutions. Our expertise includes Software Development, DevOps, UI/UX Design, Web Development, Machine Learning, and AI. With a focus on innovation and operational excellence, we help businesses enhance user experiences and stay ahead in a fast-changing digital world.
                     </p>
                 </div>
-                <DynamicBackgroundBeams />
             </div>
 
             <DynamicTracingBeam className="max-w-7xl">
-                <section className={`py-16 md:py-20 bg-black border-b ${sectionBorderStyle}`}>
+                <section className={`py-16 md:py-20 border-b ${sectionBorderStyle}`}>
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
                             <div className="md:w-2/5 text-center md:text-left">
                                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                                     Life at ElanTech
                                 </h2>
-                                <p className="text-gray-300 leading-relaxed mb-8 text-justify">
+                                <p className="text-white-300 leading-relaxed mb-8 text-justify">
                                     Discover the vibrant culture, collaborative spirit, and exciting opportunities
                                     that define working with us. We foster an environment where innovation thrives
                                     and every individual can make an impact.
@@ -166,14 +161,14 @@ const AboutPageClient = () => {
                     </div>
                 </section>
 
-                <section className={`py-16 md:py-20 bg-black border-b ${sectionBorderStyle}`}>
+                <section className={`py-16 md:py-20 border-b ${sectionBorderStyle}`}>
                     <div className="container mx-auto px-4">
                         <div className="flex flex-col lg:flex-row items-center gap-12">
                             <div className="lg:w-2/5 text-center lg:text-left">
                                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                                     Our Team
                                 </h2>
-                                <p className="text-gray-300 leading-relaxed mb-8 text-justify">
+                                <p className="text-white-300 leading-relaxed mb-8 text-justify">
                                     Our diverse and dynamic team is the driving force behind our success. Bringing together exceptional talent from around the world, we are united by a shared vision to deliver innovation and excellence. With deep expertise in Software Development, DevOps, UI/UX Design, Web Development, Machine Learning, and Artificial Intelligence, our collaborative approach fuels forward-thinking solutions that help our clients achieve their goals. Together, we are committed to building a brighter future through technology and fostering meaningful global connections.
                                 </p>
                                 <Link
