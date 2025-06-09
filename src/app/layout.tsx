@@ -32,10 +32,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} text-white-300 antialiased flex flex-col min-h-screen`}
       >
         <PageLoader />
-        <div className="fixed inset-0 z-[48]">
+        <div className="fixed inset-0 z-0">
           <StarsCanvas />
         </div>
-        
+
         <Navbar />
         <main className="flex-grow flex flex-col">{children}</main>
         <Footer />
