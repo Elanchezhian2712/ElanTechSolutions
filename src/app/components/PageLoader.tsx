@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import AstronautLoader from "./AstronautLoader";
 import StarsCanvas from "./StarBackground";
 
-
 export default function PageLoader() {
   const pathname = usePathname();
   const [loading, setLoading] = useState(false);
@@ -22,18 +21,14 @@ export default function PageLoader() {
   if (!loading) return null;
 
   return (
-    <div className="fixed inset-0 z-[999]">
-      {/* Background stars */}
+    <>
       <StarsCanvas />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-50 bg-black/20 backdrop-blur-sm" />
+      <div className="fixed inset-0 z-[45] backdrop-blur-sm transition-opacity duration-500" />
 
-
-      {/* Astronaut */}
-      <div className="absolute inset-0 z-60 flex items-center justify-center">
+      <div className="fixed inset-0 z-[50] flex items-center justify-center">
         <AstronautLoader />
       </div>
-    </div>
+    </>
   );
 }
