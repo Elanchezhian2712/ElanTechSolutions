@@ -8,8 +8,8 @@ import Lottie from "lottie-react";
 import animationData from "./Singing Contract.json";
 // Dynamically import heavy UI components
 
-const DynamicTypewriterEffect = dynamic(() =>
-  import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
+const DynamicSparklesText = dynamic(() =>
+    import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
 // TracingBeam often relies on window/document, so ssr: false is a good practice
@@ -40,16 +40,7 @@ const ContactPage = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
-  const words = [
-    {
-      text: "Contact",
-      className: "text-purple-500 dark:text-purple-500 text-4xl sm:text-4xl md:text-4xl lg:text-5xl"
-    },
-    {
-      text: "Us...",
-      className: "text-purple-500 dark:text-purple-500 text-4xl sm:text-4xl md:text-4xl lg:text-5xl"
-    },
-  ];
+  const contactText = "Contact Us";
 
   const [loading, setLoading] = useState(true);
 
@@ -72,7 +63,7 @@ const ContactPage = () => {
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
-            <DynamicTypewriterEffect words={words} />
+            <DynamicSparklesText>{contactText}</DynamicSparklesText>
           </h1>
           <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
             <ol className="list-reset flex justify-center space-x-2 md:space-x-4">

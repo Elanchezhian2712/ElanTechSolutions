@@ -7,8 +7,8 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Dynamically import heavy UI components
-const DynamicTypewriterEffect = dynamic(() =>
-    import('../components/ui/typewriter-effect').then((mod) => mod.TypewriterEffect)
+const DynamicSparklesText = dynamic(() =>
+    import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
 const DynamicTracingBeam = dynamic(() =>
@@ -41,16 +41,7 @@ const AboutPageClient = () => {
     ];
 
 
-    const words = [
-        {
-            text: "About",
-            className: "text-purple-500 dark:text-purple-500 text-4xl sm:text-4xl md:text-4xl lg:text-5xl",
-        },
-        {
-            text: "Us...",
-            className: "text-purple-500 dark:text-purple-500 text-4xl sm:text-4xl md:text-4xl lg:text-5xl",
-        },
-    ];
+    const aboutText = "About Us";
 
     
     const teamFocusCardsData = teamMemberImages.map((member, index) => ({
@@ -91,7 +82,7 @@ const AboutPageClient = () => {
             <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
                 <div className="max-w-5xl mx-auto p-4">
                     <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
-                        <DynamicTypewriterEffect words={words} />
+                        <DynamicSparklesText>{aboutText}</DynamicSparklesText>
                     </h1>
                     <nav className="relative z-10 mt-4 text-sm md:text-base text-white-400">
                         <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
@@ -99,7 +90,9 @@ const AboutPageClient = () => {
                                 <Link href="/" className="hover:text-purple-400 transition-colors">Home</Link>
                             </li>
                             <li>/</li>
-                            <li className="text-white-300">About Us</li>
+                            <li>
+                                <Link href="/about" className="hover:text-purple-400 transition-colors">About Us</Link>
+                            </li>
                         </ol>
                     </nav>
                     <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
