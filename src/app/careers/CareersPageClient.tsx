@@ -2,16 +2,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic'; 
+import dynamic from 'next/dynamic';
 
-// Dynamically import heavy UI components
+
 const DynamicSparklesText = dynamic(() =>
-    import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
+  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
 const DynamicHyperText = dynamic(() =>
-    import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
 );
 
 const DynamicTracingBeam = dynamic(() =>
@@ -72,22 +71,9 @@ const CareersPage = () => {
   const careersText = "Careers";
   const weAreHiringText = "We are Hiring!";
 
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="h-screen w-full flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
-      </div>
-    );
-  }
   return (
-    <div >
+    <div className='bg-black'>
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
@@ -106,7 +92,7 @@ const CareersPage = () => {
             Ready to kickstart your career? At Elan Tech Solutions, we offer a supportive, inclusive space where creativity and growth thrive. Join our team in Software Development, DevOps, UI/UX Design, Web Development, Machine Learning, or AI. Whether you&apos;re experienced or just starting out, if you&apos;re passionate about tech, we&apos;d love to hear from you. Let&apos;s build the future—together.
           </p>
         </div>
-        
+
       </div>
 
       <DynamicTracingBeam className="max-w-7xl">

@@ -2,12 +2,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import React from "react";
 import Image from 'next/image';
 import { AnimatePresence } from "motion/react";
-import { CanvasRevealEffect } from "../components/ui/canvas-reveal-effect";
+import type { SVGProps } from "react";
 
 const DynamicSparklesText = dynamic(() =>
   import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
@@ -20,6 +19,10 @@ const DynamicTracingBeam = dynamic(() =>
 
 const DynamicHyperText = dynamic(() =>
   import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+);
+
+const DynamicCanvasRevealEffect = dynamic(() =>
+  import('../components/ui/canvas-reveal-effect').then((mod) => mod.CanvasRevealEffect)
 );
 
 
@@ -40,7 +43,7 @@ const CardComponent = ({ iconColor, text, descriptions, colors }: CardProps) => 
 
       <AnimatePresence>
         <div className="h-full w-full absolute inset-0">
-          <CanvasRevealEffect
+          <DynamicCanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-black"
             colors={colors}
@@ -84,11 +87,6 @@ const AceternityIcon = () => {
   );
 };
 
-
-
-
-import type { SVGProps } from "react";
-
 export const Icon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => {
   return (
     <svg
@@ -108,28 +106,11 @@ export const Icon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => {
 
 const ServicesPage = () => {
   const sectionBorderStyle = "border-neutral-700/50";
-
   const serviceText = "Services";
   const subText = "Our Services";
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="h-screen w-full flex items-center justify-center ">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-purple-500 border-solid"></div>
-      </div>
-    );
-  }
-
   return (
-    <div>
-      {/* Header Section */}
+    <div className='bg-black'>
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
@@ -152,17 +133,14 @@ const ServicesPage = () => {
         </div>
       </div>
 
-
       <div className="text-center my-12">
         <h2 className="text-4xl md:text-5xl font-bold text-white">
           <DynamicHyperText>{subText}</DynamicHyperText>
         </h2>
-       <p className="text-white-300 text-sm md:text-base mt-3 max-w-xl mx-auto">
-  Feel free to get in touch with us — we&apos;re here to answer your questions and help you get started.
-</p>
-
+        <p className="text-white-300 text-sm md:text-base mt-3 max-w-xl mx-auto">
+          Feel free to get in touch with us — we&apos;re here to answer your questions and help you get started.
+        </p>
       </div>
-
 
       <DynamicTracingBeam className="max-w-7xl">
         <section className={`text-white py-6 md:py-10 border-b ${sectionBorderStyle}`}>

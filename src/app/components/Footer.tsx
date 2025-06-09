@@ -454,7 +454,7 @@ const Footer = () => {
     return (
         <>
 
-            <footer className={`text-white-400`}>
+            <footer className={`text-white-400 bg-black`}>
                 <section className="py-16 md:py-24 text-center">
                     <div className="container mx-auto px-4">
                         <AuroraBackground>
