@@ -1,11 +1,17 @@
 
 import React from 'react';
+import StarBackground from './StarBackground';
 import styled from 'styled-components';
 
 const AstronautLoader = () => {
   return (
     <StyledWrapper>
+      
       <div>
+         <div className="background-overlay">
+        <StarBackground />
+      </div>
+
         <div data-js="astro" className="astronaut">
           <div className="head" />
           <div className="arm arm-left" />
@@ -18,6 +24,7 @@ const AstronautLoader = () => {
           <div className="schoolbag" />
         </div>
       </div>
+      
     </StyledWrapper>
   );
 }

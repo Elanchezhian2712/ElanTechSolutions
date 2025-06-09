@@ -1,9 +1,10 @@
-// src/app/components/PageLoader.jsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import AstronautLoader from './AstronautLoader'; 
+import AstronautLoader from "./AstronautLoader";
+import StarsCanvas from "./StarBackground";
+
 
 export default function PageLoader() {
   const pathname = usePathname();
@@ -15,22 +16,24 @@ export default function PageLoader() {
       setLoading(false);
     }, 2500);
 
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearTimeout(timer);
   }, [pathname]);
 
-  if (!loading) {
-    return null;
-  }
+  if (!loading) return null;
 
   return (
-    <>
+    <div className="fixed inset-0 z-[999]">
+      {/* Background stars */}
+      <StarsCanvas />
 
-      <div className="fixed inset-0 z-[45] bg-black bg-opacity-70"></div>
-      <div className="fixed inset-0 z-[50] flex items-center justify-center">
-        <AstronautLoader /> 
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-50 bg-black/20 backdrop-blur-sm" />
+
+
+      {/* Astronaut */}
+      <div className="absolute inset-0 z-60 flex items-center justify-center">
+        <AstronautLoader />
       </div>
-    </>
+    </div>
   );
 }
