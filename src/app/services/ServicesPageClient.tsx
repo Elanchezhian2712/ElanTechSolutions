@@ -3,7 +3,7 @@
 
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import React from "react";
+import React, { useState } from "react";
 import Image from 'next/image';
 import { AnimatePresence } from "motion/react";
 import type { SVGProps } from "react";
@@ -32,10 +32,19 @@ type CardProps = {
   descriptions: string;
   colors: [number, number, number][];
 };
-
 const CardComponent = ({ iconColor, text, descriptions, colors }: CardProps) => {
+  const [isTapped, setIsTapped] = useState(false);
+
+  // Toggle on tap for mobile
+  const handleTap = () => {
+    setIsTapped((prev) => !prev);
+  };
+
   return (
-    <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem] ">
+    <div
+      onClick={handleTap}
+      className="border bg-black border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem] cursor-pointer"
+    >
       <Icon className={`absolute h-6 w-6 -top-3 -left-3 text-${iconColor}-500 dark:text-${iconColor}-400`} />
       <Icon className={`absolute h-6 w-6 -bottom-3 -left-3 text-${iconColor}-500 dark:text-${iconColor}-400`} />
       <Icon className={`absolute h-6 w-6 -top-3 -right-3 text-${iconColor}-500 dark:text-${iconColor}-400`} />
@@ -43,12 +52,7 @@ const CardComponent = ({ iconColor, text, descriptions, colors }: CardProps) => 
 
       <AnimatePresence>
         <div className="h-full w-full absolute inset-0">
-          <DynamicCanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-black"
-            colors={colors}
-            dotSize={2}
-          />
+          <DynamicCanvasRevealEffect animationSpeed={3} containerClassName="bg-black" colors={colors} dotSize={2} />
         </div>
       </AnimatePresence>
 
@@ -57,19 +61,32 @@ const CardComponent = ({ iconColor, text, descriptions, colors }: CardProps) => 
           <AceternityIcon />
         </div>
 
-        <h2 className="text-xl text-black dark:text-white mt-4 font-bold transition duration-200 
-          opacity-100 lg:opacity-0 lg:group-hover/canvas-card:opacity-100 
-          lg:group-hover/canvas-card:text-white 
-          lg:group-hover/canvas-card:-translate-y-2">
+        <h2
+          className={`
+            text-xl mt-4 font-bold transition duration-200
+            ${
+              // On desktop: show on hover; on mobile: show if tapped
+              isTapped
+                ? "opacity-100 text-black dark:text-white -translate-y-2"
+                : "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2"
+            }
+          `}
+        >
           {text}
         </h2>
 
-        <p className="text-sm mt-2 text-gray-700 dark:text-gray-300 transition duration-200 
-          opacity-100 lg:opacity-0 lg:group-hover/canvas-card:opacity-100 
-          lg:group-hover/canvas-card:-translate-y-1">
+        <p
+          className={`
+            text-sm mt-2 transition duration-200
+            ${
+              isTapped
+                ? "opacity-100 text-gray-700 dark:text-gray-300 -translate-y-1"
+                : "opacity-0 group-hover/canvas-card:opacity-100 group-hover/canvas-card:-translate-y-1"
+            }
+          `}
+        >
           {descriptions}
         </p>
-
       </div>
     </div>
   );
