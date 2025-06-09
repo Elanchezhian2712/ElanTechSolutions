@@ -6,13 +6,15 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Lottie from "lottie-react";
 import animationData from "./Singing Contract.json";
-// Dynamically import heavy UI components
 
 const DynamicSparklesText = dynamic(() =>
   import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
-// TracingBeam often relies on window/document, so ssr: false is a good practice
+const DynamicHyperText = dynamic(() =>
+  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+);
+
 const DynamicTracingBeam = dynamic(() =>
   import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
   { ssr: false }
@@ -45,6 +47,8 @@ const ContactPage = () => {
   };
 
   const contactText = "Contact Us";
+  const subText = "Get in Touch";
+
 
   const [loading, setLoading] = useState(true);
 
@@ -82,38 +86,34 @@ const ContactPage = () => {
             We&apos;re just one step away from connecting with you! Whether you have questions about our services, need expert support, or are looking to collaborate on something innovative, our team is here to help. Reach out via phone, email, or our contact form — and let&rsquo;s start a conversation that drives meaningful impact and lasting success for your business.
           </p>
         </div>
-
       </div>
-
-      <DynamicTracingBeam className="max-w-7xl">
-        <section className={`w-full mt-0 my-16  border-b ${sectionBorderStyle}`}>
-          <div className="container mx-auto mt-16 px-4 pb-24">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-50 items-center">
-
-              {/* <div className="w-full h-full ">
-                <Image
-                  src="/22.png"
-                  alt="Contact illustration"
-                  width={600}
-                  height={400}
-                  loading="lazy"
-                  className="w-full h-auto rounded-2xl shadow-lg object-cover"
-                />
-              </div> */}
-              <div className="w-full h-full">
-                <Lottie
-                  animationData={animationData}
-                  loop
-                  autoplay
-                  className="w-full h-auto rounded-2xl shadow-lg object-cover"
-                />
+      <DynamicTracingBeam className="max-w-7xl mx-auto">
+        <section className={`w-full my-16  border-b ${sectionBorderStyle}`}>
+          <div className="container mx-auto px-4 pb-16 md:pb-24">
+            <div className="mb-12 md:mb-16 text-center md:text-left">
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                <DynamicHyperText>{subText}</DynamicHyperText>
+              </h2>
+              <p className="text-neutral-300 text-sm md:text-base mt-3 md:mt-4 max-w-xl mx-auto md:mx-0">
+                We&apos;d love to hear from you — fill out the form and we&apos;ll get back to you soon.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-12 items-start">
+              <div className="flex justify-center md:justify-start md:-ml-4 lg:-ml-8">
+                <div className="w-full max-w-[400px] sm:max-w-[450px] md:max-w-full lg:max-w-[500px]">
+                  <Lottie
+                    animationData={animationData}
+                    loop
+                    autoplay
+                    className="w-full h-auto object-contain rounded-2xl"
+                  />
+                </div>
               </div>
 
-              {/* Right Side: Form */}
-              <DynamicMagicCard className="w-full -900 rounded-2xl p-8 shadow-xl border border-white-1000">
-                <form onSubmit={handleSubmit} className="space-y-2">
+              <DynamicMagicCard className="w-full rounded-2xl p-6 sm:p-8 shadow-xl border border-neutral-800">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-white-300 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-1.5">
                       Name :
                     </label>
                     <input
@@ -124,11 +124,12 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="Enter your name"
                       required
-                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
+                      className="mt-1 block w-full px-4 py-3 bg-black border border-neutral-700 rounded-md shadow-sm placeholder-neutral-500 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-white-300 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-1.5">
                       Email :
                     </label>
                     <input
@@ -139,11 +140,12 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="yourgmail@mail.com"
                       required
-                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
+                      className="mt-1 block w-full px-4 py-3 bg-black border border-neutral-700 rounded-md shadow-sm placeholder-neutral-500 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-white-300 mb-1">
+                    <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-1.5">
                       Subject :
                     </label>
                     <input
@@ -154,11 +156,12 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="I want to..."
                       required
-                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
+                      className="mt-1 block w-full px-4 py-3 bg-black border border-neutral-700 rounded-md shadow-sm placeholder-neutral-500 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-white-300 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-1.5">
                       Message :
                     </label>
                     <textarea
@@ -169,13 +172,14 @@ const ContactPage = () => {
                       onChange={handleChange}
                       placeholder="Hello,..."
                       required
-                      className="mt-1 block w-full px-4 py-3  border border-white-700 rounded-md shadow-sm placeholder-gray-500 text-white focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300 min-h-[120px]"
+                      className="mt-1 block w-full px-4 py-3 bg-black border border-neutral-700 rounded-md shadow-sm placeholder-neutral-500 text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 sm:text-sm transition-colors duration-300 min-h-[120px]"
                     ></textarea>
                   </div>
+
                   <div>
                     <button
                       type="submit"
-                      className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-purple-500 transition-colors duration-300"
+                      className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-purple-500 transition-colors duration-300 mt-2" // Added a little top margin
                     >
                       Send Message
                     </button>
