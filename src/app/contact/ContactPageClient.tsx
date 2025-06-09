@@ -3,13 +3,13 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic'; 
+import dynamic from 'next/dynamic';
 import Lottie from "lottie-react";
 import animationData from "./Singing Contract.json";
 // Dynamically import heavy UI components
 
 const DynamicSparklesText = dynamic(() =>
-    import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
+  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
 // TracingBeam often relies on window/document, so ssr: false is a good practice
@@ -18,6 +18,10 @@ const DynamicTracingBeam = dynamic(() =>
   { ssr: false }
 );
 
+const DynamicMagicCard = dynamic(() =>
+  import('../components/ui/magic-card').then((mod) => mod.MagicCard),
+  { ssr: false }
+);
 
 
 const ContactPage = () => {
@@ -78,7 +82,7 @@ const ContactPage = () => {
             We&apos;re just one step away from connecting with you! Whether you have questions about our services, need expert support, or are looking to collaborate on something innovative, our team is here to help. Reach out via phone, email, or our contact form — and let&rsquo;s start a conversation that drives meaningful impact and lasting success for your business.
           </p>
         </div>
-        
+
       </div>
 
       <DynamicTracingBeam className="max-w-7xl">
@@ -106,7 +110,7 @@ const ContactPage = () => {
               </div>
 
               {/* Right Side: Form */}
-              <div className="w-full -900 rounded-2xl p-8 shadow-xl border border-white-1000">
+              <DynamicMagicCard className="w-full -900 rounded-2xl p-8 shadow-xl border border-white-1000">
                 <form onSubmit={handleSubmit} className="space-y-2">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-white-300 mb-1">
@@ -177,7 +181,7 @@ const ContactPage = () => {
                     </button>
                   </div>
                 </form>
-              </div>
+              </DynamicMagicCard>
             </div>
           </div>
         </section>

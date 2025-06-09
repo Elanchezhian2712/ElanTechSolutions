@@ -10,6 +10,10 @@ const DynamicSparklesText = dynamic(() =>
     import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
+const DynamicHyperText = dynamic(() =>
+    import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+);
+
 const DynamicTracingBeam = dynamic(() =>
   import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
   { ssr: false }
@@ -66,6 +70,7 @@ const CareersPage = () => {
   ];
 
   const careersText = "Careers";
+  const weAreHiringText = "We are Hiring!";
 
   const [loading, setLoading] = useState(true);
 
@@ -110,7 +115,7 @@ const CareersPage = () => {
             <div className="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-16">
               <div className="md:w-1/3 w-full text-center md:text-left">
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                  We are Hiring
+                  <DynamicHyperText>{weAreHiringText}</DynamicHyperText>
                 </h2>
                 <Link
                   href="/contact"

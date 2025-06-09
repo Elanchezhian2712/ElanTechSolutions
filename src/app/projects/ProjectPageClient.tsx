@@ -18,6 +18,10 @@ const DynamicTracingBeam = dynamic(() =>
   { ssr: false }
 );
 
+const DynamicHyperText = dynamic(() =>
+    import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+);
+
 
 // const CardBody = dynamic(() =>
 //   import('../components/ui/3d-card').then((mod) => mod.CardBody),
@@ -100,7 +104,8 @@ const ProjectPage = () => {
                       ">
                 <div>
                   <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    {projectData.title}
+                    
+                    <DynamicHyperText>{projectData.title}</DynamicHyperText>
                   </h2>
                   <p className="text-white-300 leading-relaxed mb-8 text-sm md:text-base whitespace-pre-line text-justify">
                     {projectData.description}

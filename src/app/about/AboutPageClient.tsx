@@ -11,6 +11,10 @@ const DynamicSparklesText = dynamic(() =>
     import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
+const DynamicHyperText = dynamic(() =>
+    import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+);
+
 const DynamicTracingBeam = dynamic(() =>
     import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
     { ssr: false }
@@ -42,8 +46,9 @@ const AboutPageClient = () => {
 
 
     const aboutText = "About Us";
+    const lifeAtElanTech = "Life at ElanTech";
+    const ourTeam = "Our Team";
 
-    
     const teamFocusCardsData = teamMemberImages.map((member, index) => ({
         id: index,
         src: member.src,
@@ -107,7 +112,7 @@ const AboutPageClient = () => {
                         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
                             <div className="md:w-2/5 text-center md:text-left">
                                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                                    Life at ElanTech
+                                    <DynamicHyperText >{lifeAtElanTech}</DynamicHyperText>
                                 </h2>
                                 <p className="text-white-300 leading-relaxed mb-8 text-justify">
                                     Discover the vibrant culture, collaborative spirit, and exciting opportunities
@@ -159,7 +164,7 @@ const AboutPageClient = () => {
                         <div className="flex flex-col lg:flex-row items-center gap-12">
                             <div className="lg:w-2/5 text-center lg:text-left">
                                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                                    Our Team
+                                <DynamicHyperText >{ourTeam}</DynamicHyperText>
                                 </h2>
                                 <p className="text-white-300 leading-relaxed mb-8 text-justify">
                                     Our diverse and dynamic team is the driving force behind our success. Bringing together exceptional talent from around the world, we are united by a shared vision to deliver innovation and excellence. With deep expertise in Software Development, DevOps, UI/UX Design, Web Development, Machine Learning, and Artificial Intelligence, our collaborative approach fuels forward-thinking solutions that help our clients achieve their goals. Together, we are committed to building a brighter future through technology and fostering meaningful global connections.
