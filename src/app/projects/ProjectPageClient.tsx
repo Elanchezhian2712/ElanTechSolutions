@@ -1,6 +1,4 @@
-// src/app/projects/page.tsx
-'use client';
-
+'use client'; 
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
@@ -12,30 +10,35 @@ const DynamicSparklesText = dynamic(() =>
 
 const DynamicTracingBeam = dynamic(() =>
   import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
-  { ssr: false }
+  { ssr: false } 
 );
 
 const DynamicHyperText = dynamic(() =>
   import('../components/ui/hyper-text').then((mod) => mod.HyperText)
 );
 
-const ProjectPage = () => {
+
+interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
+
+interface ProjectPageClientProps {
+  projectData: ProjectData;
+  ProjectText: string;
+}
+
+const ProjectPageClient = ({ projectData, ProjectText }: ProjectPageClientProps) => {
   const sectionBorderStyle = "border-neutral-700/50";
-
-  const projectData = {
-    id: 'v-smart-aid',
-    title: 'V-Smart Aid',
-    description:
-      'Our project\'s mission is to revolutionize accessibility for physically disabled individuals, including those who are deaf, blind, or mute. We are harnessing the power of cutting-edge AI technology, combining image and speech processing, to facilitate seamless real-time communication between disabled individuals and their desktop or laptop devices. Our innovation empowers and enriches lives, transcending barriers and fostering inclusivity for all.',
-    imageUrl: 'project-showcase-mockup.jpg',
-    buttonText: 'REQUEST A PRODUCT',
-    buttonLink: '/contact',
-  };
-
-  const ProjectText = "Project";
 
   return (
     <div className='bg-black'>
+      {/* Hero Section */}
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
@@ -56,6 +59,7 @@ const ProjectPage = () => {
         </div>
       </div>
 
+      {/* Project Showcase Section */}
       <DynamicTracingBeam className="max-w-7xl">
         <section className={`text-white py-16 md:py-20 border-b ${sectionBorderStyle}`}>
           <div className="container mx-auto px-4">
@@ -76,6 +80,7 @@ const ProjectPage = () => {
                   </Link>
                 </div>
               </div>
+
               <div className="md:w-1/2 lg:w-7/12 mt-10 md:mt-0 flex items-center justify-center md:pl-6 lg:pl-8">
                 <div
                   className="relative shadow-2xl shadow-purple-500/[0.2] rounded-xl w-auto sm:w-[20rem] md:w-[30rem] overflow-hidden">
@@ -84,6 +89,7 @@ const ProjectPage = () => {
                     alt={`${projectData.title} interactive 3D mockup`}
                     width={800}
                     height={600}
+                    priority={true} 
                     className="block w-full h-auto rounded-xl border-0"
                   />
                 </div>
@@ -95,4 +101,5 @@ const ProjectPage = () => {
     </div>
   );
 };
-export default ProjectPage;
+
+export default ProjectPageClient;

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React from "react";
 import { motion } from "motion/react"; // Assuming "motion/react" is correct for your setup. If it's Framer Motion, it would be "framer-motion"
 import Image from "next/image"; // <--- Import Next.js Image component

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://elantechsolutions.vercel.app
+
+# Sitemaps
+Sitemap: https://elantechsolutions.vercel.app/sitemap.xml

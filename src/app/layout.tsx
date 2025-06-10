@@ -1,12 +1,11 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import Navbar from '../app/components/Navbar';
-import Footer from '../app/components/Footer';
-import StarsCanvas from "../app/components/StarBackground";
-import PageLoader from "../app/components/PageLoader";
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import StarsCanvas from "./components/StarBackground";
+import PageLoader from "./components/PageLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
