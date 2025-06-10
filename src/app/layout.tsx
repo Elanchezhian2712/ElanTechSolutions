@@ -27,17 +27,20 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} text-white-300 antialiased flex flex-col min-h-screen`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <PageLoader />
+        
+        {/* Layer 1: The Star Background. z-0 makes it the base layer. */}
         <div className="fixed inset-0 z-0">
           <StarsCanvas />
         </div>
 
-        <Navbar />
-        <main className="flex-grow flex flex-col">{children}</main>
-        <Footer />
+        {/* Layer 2: The Content. relative and z-10 lift this layer above the stars. */}
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow flex flex-col">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
