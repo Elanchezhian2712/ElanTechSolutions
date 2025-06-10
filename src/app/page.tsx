@@ -7,7 +7,7 @@ import { ArrowRightIcon, SparklesIcon } from "lucide-react";
 export default function HomePage() {
   return (
 
-    <div className="bg-black text-white w-full"> 
+    <div className="text-white w-full"> 
       <div className="w-full relative flex flex-col items-center antialiased mt-60 sm:mt-70"> 
         <section className="max-w-5xl text-center py-20 md:py-32 flex flex-col justify-center items-center px-4">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
