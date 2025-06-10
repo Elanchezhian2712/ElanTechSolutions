@@ -164,7 +164,7 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
             </ol>
           </nav>
           <p className="relative z-10 mt-8 text-lg md:text-xl text-neutral-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
-            We offer a comprehensive range of services including AI solutions, UI/UX design, Digital Marketing, Data Engineering, SaaS development, E-Commerce solutions, and Web Development. Our team delivers innovative, scalable, and user-centric solutions to help your business thrive in the digital world.
+            We offer a comprehensive range of services including AI solutions, UI/UX design, Digital Marketing, Mobile App Development, SaaS development, E-Commerce solutions, and Web Development. Our team delivers innovative, scalable, and user-centric solutions to help your business thrive in the digital world.
           </p>
         </div>
       </div>

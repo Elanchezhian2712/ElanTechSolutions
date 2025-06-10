@@ -4,12 +4,12 @@ import ProjectPageClient from './ProjectPageClient';
 
 export const metadata: Metadata = {
     title: 'Our Product | ElanTech Solutions',
-    description: 'Discover innovative projects by ElanTech Solutions, showcasing our expertise in Data Engineering and AI for real-world impact.',
+    description: 'Discover innovative projects by ElanTech Solutions, showcasing our expertise in Mobile App Development and AI for real-world impact.',
     keywords: ['ElanTech Solutions', 'Technology', 'Our Product', 'Software Development'],
     authors: [{ name: 'ElanTech Solutions', url: 'https://elantechsolutions.vercel.app' }],
     openGraph: {
          title: 'Our Projects | ElanTech Solutions',
-        description: 'Discover innovative projects by ElanTech Solutions, showcasing our expertise in Data Engineering and AI for real-world impact.',
+        description: 'Discover innovative projects by ElanTech Solutions, showcasing our expertise in Mobile App Development and AI for real-world impact.',
         url: 'https://elantechsolutions.vercel.app/about', 
         siteName: 'ElanTech Solutions',
         images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
          title: 'Our Projects | ElanTech Solutions',
-        description: 'Discover innovative projects by ElanTech Solutions, showcasing our expertise in Data Engineering and AI for real-world impact.',
+        description: 'Discover innovative projects by ElanTech Solutions, showcasing our expertise in Mobile App Development and AI for real-world impact.',
         images: ['/logo.png'], 
         creator: '@elantech',
     },

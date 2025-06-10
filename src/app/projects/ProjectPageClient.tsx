@@ -54,7 +54,7 @@ const ProjectPageClient = ({ projectData, ProjectText }: ProjectPageClientProps)
             </ol>
           </nav>
           <p className="relative z-10 mt-8 text-lg md:text-xl text-white-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
-            Our advanced products leverage the latest in Data Engineering and AI to deliver real-world impact. Built for business growth and social good, they combine cutting-edge tech with seamless user experience. From scalable data pipelines to AI-powered insights, we help organizations innovate, optimize, and thrive in today’s connected world.
+            Our advanced products leverage the latest in Mobile App Development and AI to deliver real-world impact. Built for business growth and social good, they combine cutting-edge tech with seamless user experience. From scalable data pipelines to AI-powered insights, we help organizations innovate, optimize, and thrive in today’s connected world.
           </p>
         </div>
       </div>

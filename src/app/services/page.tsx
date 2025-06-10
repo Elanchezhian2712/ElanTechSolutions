@@ -6,12 +6,12 @@ import ServicesPageClient, { type CardData } from './ServicesPageClient';
 
 export const metadata: Metadata = {
     title: 'Services | ElanTech Solutions',
-    description: 'Explore our range of services including Web Development, Data Engineering, AI, and more.',
+    description: 'Explore our range of services including Web Development, Mobile App Development, AI, and more.',
     keywords: ['ElanTech Solutions', 'Technology', 'Services', 'Software Development'],
     authors: [{ name: 'ElanTech Solutions', url: 'https://elantechsolutions.vercel.app' }],
     openGraph: {
         title: 'Services | ElanTech Solutions',
-        description: 'Explore our range of services including Web Development, Data Engineering, AI, and more.',
+        description: 'Explore our range of services including Web Development, Mobile App Development, AI, and more.',
         url: 'https://elantechsolutions.vercel.app/about', 
         siteName: 'ElanTech Solutions',
         images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Services | ElanTech Solutions',
-        description: 'Explore our range of services including Web Development, Data Engineering, AI, and more.',
+        description: 'Explore our range of services including Web Development, Mobile App Development, AI, and more.',
         images: ['/logo.png'], 
         creator: '@elantech',
     },
@@ -58,8 +58,8 @@ const cardData: CardData[] = [
     {
       id: "data-eng",
       iconColor: "purple",
-      text: "Data Engineering",
-      descriptions: "Unlock the full potential of your data with our comprehensive data engineering services. We help you design, build, and maintain robust data pipelines and architectures that drive insights and innovation.",
+      text: "Mobile App Development",
+       descriptions: "We design and build fast, scalable, and user-centric mobile apps for iOS and Android. From concept to deployment, our solutions are tailored to meet business goals while delivering seamless user experiences.",
       colors: [[168, 85, 247], [192, 132, 252]],
     },
     {

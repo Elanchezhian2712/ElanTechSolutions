@@ -6,8 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { AuroraBackground } from './ui/aurora-background';
 import { motion as framerMotion } from 'framer-motion';
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 const World = dynamic(() => import("./ui/globe").then((m) => m.World), {
@@ -451,6 +450,19 @@ const LinkedInIcon = () => (
 const Footer = () => {
     const borderStyle = "border-neutral-700";
     const horizontalPadding = "px-4 sm:px-6 lg:px-8";
+
+    // State to control globe rendering
+    const [isGlobeReady, setIsGlobeReady] = useState(false);
+
+    useEffect(() => {
+        // Delay mounting the globe to allow layout to stabilize
+        const timer = setTimeout(() => {
+            setIsGlobeReady(true);
+        }, 200); // Adjust this delay as needed (e.g., 100-500ms)
+
+        return () => clearTimeout(timer); // Cleanup timeout on unmount
+    }, []); // Empty dependency array ensures this runs only once on mount
+
     return (
         <>
 
@@ -492,9 +504,9 @@ const Footer = () => {
 
                                 <div className="relative w-full md:w-1/2 min-h-[24rem] sm:min-h-[28rem] z-0 md:-mt-2">
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        {typeof World !== 'undefined' && typeof sampleArcs !== 'undefined' && typeof globeConfig !== 'undefined' && (
-                                            <World data={sampleArcs} globeConfig={globeConfig} />
-                                        )}
+                                        {isGlobeReady && typeof World !== 'undefined' && typeof sampleArcs !== 'undefined' && typeof globeConfig !== 'undefined' && (
+        <World data={sampleArcs} globeConfig={globeConfig} />
+    )}
                                     </div>
                                 </div>
                             </div>
@@ -544,7 +556,7 @@ const Footer = () => {
 
                             <div className={`border-t ${borderStyle} pt-8 md:pt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4`}>
                                 {/* Head Office */}
-                                <div className={`group py-4 sm:pr-4 lg:border-r ${borderStyle} flex flex-col items-center text-center mb-6 sm:mb-0 transition-transform hover:scale-105`}>
+                                <div className={`group py-2 sm:py-4 sm:pr-4 lg:border-r ${borderStyle} flex flex-col items-center text-center mb-4 sm:mb-0 transition-transform hover:scale-105`}>
                                     <a
                                         href="https://www.google.com/maps?q=J4RV+2VV,+5,+Trichy+Branch+Rd,+Valluvar+Nagar,+Annathanapatti,+Police+Quarters,+Salem,+Tamil+Nadu+636002"
                                         target="_blank"
@@ -561,7 +573,7 @@ const Footer = () => {
                                 </div>
 
                                 {/* Hotline */}
-                                <div className={`group py-4 sm:px-2 lg:border-r ${borderStyle} flex flex-col items-center text-center mb-6 sm:mb-0 transition-transform hover:scale-105`}>
+                               <div className={`group py-2 sm:py-4 sm:px-2 lg:border-r ${borderStyle} flex flex-col items-center text-center mb-4 sm:mb-0 transition-transform hover:scale-105`}>
                                     <a
                                         href="https://wa.me/919789382712?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
                                         target="_blank"
@@ -580,7 +592,7 @@ const Footer = () => {
                                 </div>
 
                                 {/* Email */}
-                                <div className="group py-4 sm:pl-4 flex flex-col items-center text-center transition-transform hover:scale-105">
+                                <div className={`group py-2 sm:py-4 sm:pl-4 flex flex-col items-center text-center transition-transform hover:scale-105`}>
                                     <a
                                         href="mailto:elantechsolutions@gmail.com"
                                         target="_blank"
