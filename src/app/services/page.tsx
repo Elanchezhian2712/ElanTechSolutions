@@ -6,9 +6,37 @@ import ServicesPageClient, { type CardData } from './ServicesPageClient';
 
 export const metadata: Metadata = {
     title: 'Services | ElanTech Solutions',
-    description: 'Explore our range of services including Data Engineering, AI, and more.',
+    description: 'Explore our range of services including Web Development, Data Engineering, AI, and more.',
+    keywords: ['ElanTech Solutions', 'Technology', 'Services', 'Software Development'],
+    authors: [{ name: 'ElanTech Solutions', url: 'https://elantechsolutions.vercel.app' }],
+    openGraph: {
+        title: 'Services | ElanTech Solutions',
+        description: 'Explore our range of services including Web Development, Data Engineering, AI, and more.',
+        url: 'https://elantechsolutions.vercel.app/about', 
+        siteName: 'ElanTech Solutions',
+        images: [
+            {
+                url: '/logo.png', 
+                width: 1200,      
+                height: 630,      
+                alt: 'ElanTech Solutions Logo', 
+            },
+        ],
+        locale: 'en_US',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Services | ElanTech Solutions',
+        description: 'Explore our range of services including Web Development, Data Engineering, AI, and more.',
+        images: ['/logo.png'], 
+        creator: '@elantech',
+    },
+    metadataBase: new URL('https://elantechsolutions.vercel.app'),
+    alternates: {
+        canonical: '/about',
+    },
 };
-
 
 export const revalidate = 3600;
 
