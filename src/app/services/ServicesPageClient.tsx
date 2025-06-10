@@ -71,7 +71,7 @@ const CardComponent = ({ iconColor, text, descriptions, colors }: CardComponentP
 
       <AnimatePresence>
         <div className="h-full w-full absolute inset-0">
-          <DynamicCanvasRevealEffect animationSpeed={3} container colors={colors} dotSize={2} />
+          <DynamicCanvasRevealEffect animationSpeed={3} containerClassName="bg-black" colors={colors} dotSize={2} />
         </div>
       </AnimatePresence>
 
@@ -146,7 +146,7 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
   const subText = "Our Services";
 
   return (
-    <div >
+    <div className='bg-black'>
       <div className={`h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
         <div className="max-w-5xl mx-auto p-4">
           <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
