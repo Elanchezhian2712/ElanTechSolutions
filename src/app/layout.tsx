@@ -30,12 +30,10 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <PageLoader />
         
-        {/* Layer 1: The Star Background. z-0 makes it the base layer. */}
         <div className="fixed inset-0 z-0">
           <StarsCanvas />
         </div>
 
-        {/* Layer 2: The Content. relative and z-10 lift this layer above the stars. */}
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow flex flex-col">{children}</main>

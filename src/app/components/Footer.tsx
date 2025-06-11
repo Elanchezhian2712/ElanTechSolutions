@@ -451,17 +451,15 @@ const Footer = () => {
     const borderStyle = "border-neutral-700";
     const horizontalPadding = "px-4 sm:px-6 lg:px-8";
 
-    // State to control globe rendering
     const [isGlobeReady, setIsGlobeReady] = useState(false);
 
     useEffect(() => {
-        // Delay mounting the globe to allow layout to stabilize
         const timer = setTimeout(() => {
             setIsGlobeReady(true);
-        }, 200); // Adjust this delay as needed (e.g., 100-500ms)
+        }, 500); 
 
-        return () => clearTimeout(timer); // Cleanup timeout on unmount
-    }, []); // Empty dependency array ensures this runs only once on mount
+        return () => clearTimeout(timer); 
+    }, []); 
 
     return (
         <>
@@ -505,8 +503,8 @@ const Footer = () => {
                                 <div className="relative w-full md:w-1/2 min-h-[24rem] sm:min-h-[28rem] z-0 md:-mt-2">
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         {isGlobeReady && typeof World !== 'undefined' && typeof sampleArcs !== 'undefined' && typeof globeConfig !== 'undefined' && (
-        <World data={sampleArcs} globeConfig={globeConfig} />
-    )}
+                                            <World data={sampleArcs} globeConfig={globeConfig} />
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -514,7 +512,8 @@ const Footer = () => {
                     </div>
                 </section>
                 <div>
-                    <div className={`border-t ${borderStyle} grid grid-cols-1 md:grid-cols-12 gap-0 py-10 sm:py-12 ${horizontalPadding}`}>
+
+                   <div className={`rounded-t-3xl shadow-[0_-20px_12px_rgba(168,85,247,0.4)] ${borderStyle} grid grid-cols-1 md:grid-cols-12 gap-0 py-10 sm:py-12 ${horizontalPadding}`}>
                         <div className={`md:col-span-4 lg:col-span-5 md:border-r ${borderStyle} md:pr-6 lg:pr-8 py-4`}>
                             <div className="flex items-center mb-6">
                                 <Link href="/" className="flex-shrink-0">
