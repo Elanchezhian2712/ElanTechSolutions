@@ -17,6 +17,12 @@ import {
   Rocket,
   LifeBuoy,
 } from "lucide-react";
+import dynamic from "next/dynamic";
+
+
+const DynamicHyperText = dynamic(() =>
+  import('../app/components/ui/hyper-text').then((mod) => mod.HyperText)
+);
 
 const SectionWrapper: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = "", id }) => (
   <section id={id} className={`w-full py-16 md:py-24 px-4 sm:px-6 lg:px-8 ${className}`}>
@@ -33,7 +39,7 @@ interface FeatureCardProps {
 }
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
   <div className="bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-purple-500/40 transition-all duration-300 transform hover:-translate-y-1">
-    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/30 text-purple-400 mb-5">
+    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/30 text-purple-500 mb-5">
       {icon}
     </div>
     <h3 className="text-xl lg:text-2xl font-semibold mb-3 text-white">{title}</h3>
@@ -100,7 +106,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="text-white w-full overflow-x-hidden"> 
+    <div className="text-white w-full overflow-x-hidden">
       {/* Hero Section */}
       <div className="relative w-full min-h-screen flex flex-col items-center justify-center antialiased overflow-hidden pt-20 pb-10">
         <div aria-hidden="true" className="absolute inset-0 z-0">
@@ -117,65 +123,66 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             <Link
               href="/contact"
-              className="w-full sm:w-auto bg-purple-600 text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-purple-700 transition-colors duration-300 shadow-lg hover:shadow-purple-500/50 transform hover:scale-105"
+              className="w-full sm:w-auto bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3.5 rounded-lg hover:bg-purple-700 transition-colors duration-300 shadow-lg hover:shadow-purple-500/50 transform hover:scale-105"
             >
               Request a Demo
             </Link>
             <Link
               href="/solutions"
-              className="w-full sm:w-auto border-2 border-purple-500 text-purple-400 font-semibold px-8 py-3.5 rounded-lg hover:bg-purple-500 hover:text-white transition-colors duration-300 transform hover:scale-105"
+              className="w-full sm:w-auto border-1 border-purple-500 text-purple-500 font-semibold px-8 py-3.5 rounded-lg hover:bg-gradient-to-r from-purple-500 to-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-105"
             >
               Explore AI Solutions
             </Link>
           </div>
           <div className="mt-12 text-sm text-gray-400 flex items-center justify-center">
-            <SparklesIcon className="w-5 h-5 mr-2 text-purple-400" />
+            <SparklesIcon className="w-5 h-5 mr-2 text-purple-500" />
             Trusted by innovative startups and enterprises.
           </div>
         </section>
       </div>
 
       {/* About Section */}
-      <SectionWrapper className="bg-zinc-900" id="about"> 
+      <SectionWrapper className="bg-zinc-900" id="about">
         <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-center">
           <div className="md:w-1/2 w-full order-last md:order-first">
-            <span className="text-purple-400 font-semibold text-sm tracking-wider uppercase">Our Mission</span>
+            <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">Our Mission</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-              Pioneering AI-Powered Digital Transformation
+              <DynamicHyperText>Pioneering AI-Powered Digital Transformation</DynamicHyperText>
             </h2>
-            <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-              At <span className="font-semibold text-purple-300">ElanTech Solutions</span>, we fuse deep AI expertise with strategic business insight. We empower organizations to transcend traditional limitations, automating complex processes and unlocking new levels of efficiency and innovation.
+            <p className="text-gray-300 text-lg mb-6 leading-relaxed text-justify">
+              At <span className="font-semibold text-purple-500">ElanTech Solutions</span>, we fuse deep AI expertise with strategic business insight. We empower organizations to transcend traditional limitations, automating complex processes and unlocking new levels of efficiency and innovation.
             </p>
-            <p className="text-gray-300 text-md mb-8 leading-relaxed">
+            <p className="text-gray-300 text-md mb-8 leading-relaxed text-justify">
               From crafting intelligent automation for startups to deploying sophisticated machine learning models for enterprises, we build scalable AI systems that learn, adapt, and drive sustainable growth.
             </p>
+
             <Link
-              href="/about-us" 
-              className="inline-flex items-center bg-purple-600 text-white font-semibold px-7 py-3 rounded-lg hover:bg-purple-700 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+              href="/about"
+              className="inline-flex items-center bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-medium px-5 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
             >
               Learn More About Us <ArrowRightIcon className="w-5 h-5 ml-2" />
             </Link>
           </div>
           <div className="md:w-1/2 w-full order-first md:order-last">
-              <Image
-                src="/about-ai.jpg"
-                alt="AI Development Team Collaborating"
-                width={1200}
-                height={675}
-                quality={80}
-                className="rounded-xl shadow-2xl w-full object-cover aspect-video md:aspect-square lg:aspect-video"
-                loading="lazy" 
-              />
+            <Image
+              src="/about-ai.jpg"
+              alt="AI Development Team Collaborating"
+              width={1200}
+              height={675}
+              quality={80}
+              className="rounded-xl shadow-2xl w-full object-cover aspect-video md:aspect-square lg:aspect-video"
+              loading="lazy"
+            />
           </div>
         </div>
       </SectionWrapper>
 
       {/* Why Choose Us? Section */}
-      <SectionWrapper id="why-us"> 
+      <SectionWrapper id="why-us">
         <div className="text-center">
-          <span className="text-purple-400 font-semibold text-sm tracking-wider uppercase">Our Advantage</span>
+          <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">Our Advantage</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-            Why Partner with <span className="text-purple-400">ElanTech Solutions?</span>
+             <DynamicHyperText>Why Partner with ElanTech Solutions?</DynamicHyperText>
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
             Overcome manual bottlenecks, slow scaling, and fragmented systems. Our bespoke AI solutions automate workflows, provide actionable insights, and unlock exponential efficiencies.
@@ -202,11 +209,11 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Our Services Section */}
-      <SectionWrapper className="bg-gradient-to-b from-purple-900/20 via-zinc-900 to-zinc-900" id="services"> 
+      <SectionWrapper className="bg-gradient-to-b from-purple-900/20 via-zinc-900 to-zinc-900" id="services">
         <div className="text-center">
-          <span className="text-purple-400 font-semibold text-sm tracking-wider uppercase">What We Offer</span>
+          <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">What We Offer</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-            Comprehensive AI Development Services
+             <DynamicHyperText>Comprehensive AI Development Services</DynamicHyperText>
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
             From initial concept to full-scale deployment and beyond, we provide end-to-end AI services to transform your business.
@@ -218,12 +225,12 @@ export default function HomePage() {
               key={idx}
               className="bg-zinc-800/60 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-purple-500/20 transition-all duration-300 transform hover:scale-105 flex flex-col"
             >
-              <div className="flex-shrink-0 text-purple-400 mb-4">
+              <div className="flex-shrink-0 text-purple-500 mb-4">
                 {service.icon || <BrainCircuit className="w-7 h-7" />}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed flex-grow">{service.desc}</p> 
-              <Link href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`} className="mt-4 text-purple-400 hover:text-purple-300 font-medium inline-flex items-center text-sm">
+              <p className="text-gray-300 text-sm leading-relaxed flex-grow">{service.desc}</p>
+              <Link href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`} className="mt-4 text-purple-500 hover:text-purple-300 font-medium inline-flex items-center text-sm">
                 Learn More <ArrowRightIcon className="w-4 h-4 ml-1.5" />
               </Link>
             </div>
@@ -232,11 +239,11 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* FAQ Section */}
-      <SectionWrapper id="faq"> 
+      <SectionWrapper id="faq">
         <div className="max-w-3xl mx-auto text-left">
           <div className="text-center mb-12 md:mb-16">
-            <span className="text-purple-400 font-semibold text-sm tracking-wider uppercase">Got Questions?</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">Frequently Asked Questions</h2>
+            <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">Got Questions?</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight"> <DynamicHyperText>Frequently Asked Questions</DynamicHyperText></h2>
           </div>
           <div className="space-y-4">
             {faqs.map((item, idx) => (
@@ -244,11 +251,11 @@ export default function HomePage() {
                 key={idx}
                 className="group bg-zinc-800/70 backdrop-blur-sm p-5 rounded-lg shadow-md transition-all duration-300 hover:bg-zinc-700/80"
               >
-                <summary className="flex justify-between items-center cursor-pointer font-semibold text-lg text-white group-open:text-purple-400 list-none">
+                <summary className="flex justify-between items-center cursor-pointer font-semibold text-lg text-white group-open:text-purple-500 list-none">
                   {item.q}
-                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 group-open:rotate-180 text-purple-400" />
+                  <ChevronDownIcon className="w-5 h-5 transition-transform duration-300 group-open:rotate-180 text-purple-500" />
                 </summary>
-                <p className="mt-3 text-gray-300 leading-relaxed text-base"> 
+                <p className="mt-3 text-gray-300 leading-relaxed text-base">
                   {item.a}
                 </p>
               </details>

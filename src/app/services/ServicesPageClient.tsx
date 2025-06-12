@@ -18,9 +18,6 @@ const DynamicTracingBeam = dynamic(() =>
   { ssr: false }
 );
 
-const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
-);
 
 const DynamicCanvasRevealEffect = dynamic(() =>
   import('../components/ui/canvas-reveal-effect').then((mod) => mod.CanvasRevealEffect)
@@ -143,42 +140,45 @@ export const Icon = ({ className, ...rest }: SVGProps<SVGSVGElement>) => {
 const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
   const sectionBorderStyle = "border-neutral-700/50";
   const serviceText = "Services";
-  const subText = "Our Services";
 
   return (
-    <div>
-       <div className={`rounded-b-4xl h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased border-b ${sectionBorderStyle}`}>
-        <div className="max-w-5xl mx-auto p-4">
-          <h1 className="relative z-10 text-lg md:text-7xl text-purple-500 text-center font-sans font-bold">
-            <DynamicSparklesText>{serviceText}</DynamicSparklesText>
+    <div className={`bg-gradient-to-br from-purple-950/25 via-neutral-950 to-neutral-950 text-neutral-300 antialiased selection:bg-purple-500 selection:text-white min-h-screen`}>
+      {/* Hero Section */}
+      <div
+        className={`rounded-b-3xl md:rounded-b-4xl min-h-[70vh] sm:min-h-[80vh] md:h-auto md:min-h-[calc(100vh-80px)] xl:min-h-[45rem] w-full relative flex flex-col items-center justify-center border-b ${sectionBorderStyle} px-4 py-16 sm:py-20 md:py-24 overflow-hidden`}
+      >
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-neutral-950/0 to-neutral-950/0 opacity-75"></div>
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950/70 to-transparent z-0"></div> {/* Softer edge */}
+        <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight">
+           <DynamicSparklesText>{serviceText}</DynamicSparklesText>
           </h1>
-          <nav className="relative z-10 mt-4 text-sm md:text-base text-neutral-400">
-            <ol className="list-reset flex justify-center space-x-2 md:space-x-4">
+          <p className="mt-2 text-sm sm:text-base text-purple-500/80 tracking-wider uppercase font-medium">
+            Where Insight Meets Exceptional Service
+          </p>
+          <nav aria-label="Breadcrumb" className="relative z-10 mt-6 sm:mt-8 text-sm md:text-base text-neutral-400">
+            <ol className="list-none p-0 inline-flex items-center space-x-1.5 md:space-x-2">
               <li>
-                <Link href="/" className="hover:text-purple-400 transition-colors">
-                  Home
-                </Link>
+                <Link href="/" className="hover:text-purple-300 transition-colors duration-200">Home</Link>
               </li>
-              <li>/</li>
-              <li className="text-neutral-300">Services</li>
+              <li className="text-neutral-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </li>
+              <li>
+                <span className="text-purple-500/90 font-medium" aria-current="page">Services</span>
+              </li>
             </ol>
           </nav>
-          <p className="relative z-10 mt-8 text-lg md:text-xl text-neutral-300 leading-relaxed text-justify md:text-center max-w-4xl mx-auto">
+          <p className="relative z-10 mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-neutral-300/90 leading-relaxed max-w-3xl mx-auto">
             We offer a comprehensive range of services including AI solutions, UI/UX design, Digital Marketing, Mobile App Development, SaaS development, E-Commerce solutions, and Web Development. Our team delivers innovative, scalable, and user-centric solutions to help your business thrive in the digital world.
           </p>
         </div>
       </div>
 
-      <div className="text-center my-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-white">
-          <DynamicHyperText>{subText}</DynamicHyperText>
-        </h2>
-        <p className="text-neutral-300 text-sm md:text-base mt-3 max-w-xl mx-auto">
-         Feel free to get in touch with us — we&rsquo;re here to answer your questions and help you get started.
-        </p>
-      </div>
 
-      <DynamicTracingBeam className="max-w-7xl mx-auto">
+      <DynamicTracingBeam className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className={`text-white py-6 md:py-10 border-b ${sectionBorderStyle}`}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto ">
             {cardData.map((card) => (

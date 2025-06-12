@@ -20,7 +20,7 @@ const navItemsRight = [
 ];
 
 const Navbar = () => {
-  const pathname = usePathname(); // ✅ Always call hooks at top level
+  const pathname = usePathname();
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -42,7 +42,7 @@ const Navbar = () => {
                 linkBaseStyle,
                 pathname === item.href
                   ? 'text-white font-semibold'
-                  : 'text-neutral-400 hover:text-white'
+                  : 'text-white-400 hover:text-purple-500/90'
               )}
             >
               {item.label}
@@ -78,7 +78,7 @@ const Navbar = () => {
                 linkBaseStyle,
                 pathname === item.href
                   ? 'text-white font-semibold'
-                  : 'text-neutral-400 hover:text-white'
+                  : 'text-white-400 hover:text-purple-500/90'
               )}
             >
               {item.label}

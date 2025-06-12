@@ -1,23 +1,35 @@
+// app/careers/page.tsx
+
 import type { Metadata } from 'next';
 import CareersPageClient from './CareersPageClient'; 
 
 
+interface Job {
+  id: number;
+  title: string;
+  type: string;
+  location: string;
+  department: string;
+  descriptionSnippet: string;
+  link: string;
+}
+
 export const metadata: Metadata = {
     title: 'Careers | ElanTech Solutions',
-    description: 'Explore exciting career opportunities at ElanTech Solutions. Join our innovative team and shape the future of technology.',
-    keywords: ['ElanTech Solutions', 'Technology', 'Careers', 'Software Development'],
+    description: 'Explore exciting career opportunities at ElanTech Solutions. Join our innovative team and shape the future of technology and AI.', 
+    keywords: ['ElanTech Solutions', 'AI Careers', 'Tech Jobs', 'Software Development Careers', 'Machine Learning Jobs', 'Careers', 'Jobs'], 
     authors: [{ name: 'ElanTech Solutions', url: 'https://elantechsolutions.vercel.app' }],
     openGraph: {
         title: 'Careers | ElanTech Solutions',
-        description: 'Explore exciting career opportunities at ElanTech Solutions. Join our innovative team and shape the future of technology.',
-        url: 'https://elantechsolutions.vercel.app/about', 
+        description: 'Explore exciting career opportunities at ElanTech Solutions. Join our innovative team and shape the future of technology and AI.',
+        url: 'https://elantechsolutions.vercel.app/careers',
         siteName: 'ElanTech Solutions',
         images: [
             {
                 url: '/logo.png', 
-                width: 1200,      
-                height: 630,      
-                alt: 'ElanTech Solutions Logo', 
+                width: 1200,
+                height: 630,
+                alt: 'Join the ElanTech Solutions Team',
             },
         ],
         locale: 'en_US',
@@ -26,43 +38,98 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Careers | ElanTech Solutions',
-        description: 'Explore exciting career opportunities at ElanTech Solutions. Join our innovative team and shape the future of technology.',
-        images: ['/logo.png'], 
-        creator: '@elantech',
+        description: 'Explore exciting career opportunities at ElanTech Solutions. Join our innovative team and shape the future of technology and AI.',
+        images: ['/images/og/careers-twitter-image.jpg'], 
+        creator: '@elantech', 
     },
     metadataBase: new URL('https://elantechsolutions.vercel.app'),
     alternates: {
-        canonical: '/about',
+        canonical: '/careers',
     },
 };
 
 
-export const revalidate = 3600; 
+export const revalidate = 3600;
 
-
-const getCurrentJobs = async () => {
-
+const getCurrentJobs = async (): Promise<Job[]> => {
   return [
-    { id: 1, title: 'UI/UX Designer', type: 'Full-Time', location: 'On-Site', link: '/contact' },
-    { id: 2, title: 'Front-End Developer', type: 'Full-Time', location: 'On-Site', link: '/contact' },
-    { id: 3, title: 'Back-End Developer', type: 'Full-Time', location: 'On-Site', link: '/contact' },
-    { id: 4, title: 'QA Engineer', type: 'Full-Time', location: 'On-Site', link: '/contact' },
-    { id: 5, title: 'Business Analyst', type: 'Full-Time', location: 'On-Site', link: '/contact' },
-    { id: 6, title: 'Digital Marketing Specialist', type: 'Full-Time', location: 'On-Site', link: '/contact' },
+    {
+      id: 1,
+      title: 'UI/UX Designer - AI Platforms',
+      type: 'Full-Time',
+      location: 'On-Site / IN (New York)',
+      department: 'Design',
+      descriptionSnippet: 'Craft intuitive and visually stunning user experiences for our next-generation AI products and tools.',
+      link: '/careers/ui-ux-designer' 
+    },
+    {
+      id: 2,
+      title: 'Frontend Developer (React/Next.js)',
+      type: 'Full-Time',
+      location: 'Remote (IN)',
+      department: 'Engineering',
+      descriptionSnippet: 'Build responsive and high-performance user interfaces for our AI applications, leveraging modern web technologies.',
+      link: '/careers/frontend-developer'
+    },
+    {
+      id: 3,
+      title: 'Backend Developer (Python/Node.js)',
+      type: 'Full-Time',
+      location: 'On-Site (IN)',
+      department: 'Engineering',
+      descriptionSnippet: 'Develop robust and scalable backend systems, APIs, and data pipelines to power our AI services.',
+      link: '/careers/backend-developer'
+    },
+    {
+      id: 4,
+      title: 'AI/Machine Learning Engineer',
+      type: 'Full-Time',
+      location: 'Remote (IN)',
+      department: 'AI Research & Development',
+      descriptionSnippet: 'Research, design, and implement cutting-edge machine learning models to solve complex real-world problems.',
+      link: '/careers/ml-engineer'
+    },
+    {
+      id: 5,
+      title: 'QA Automation Engineer',
+      type: 'Full-Time',
+      location: 'Hybrid (IN)',
+      department: 'Quality Assurance',
+      descriptionSnippet: 'Design and implement automated testing frameworks to ensure the quality and reliability of our AI software.',
+      link: '/careers/qa-engineer'
+    },
+    {
+      id: 6,
+      title: 'Digital Marketing Lead - AI Products',
+      type: 'Full-Time',
+      location: 'Remote (IN)',
+      department: 'Marketing',
+      descriptionSnippet: 'Drive the digital marketing strategy for our AI solutions, focusing on growth, engagement, and brand awareness.',
+      link: '/careers/digital-marketing-lead'
+    },
   ];
 };
 
 
 const CareersPage = async () => {
     const jobs = await getCurrentJobs();
-    const careersText = "Careers";
-    const weAreHiringText = "We are Hiring!";
+
+    const careersPageContent = {
+        careersText: "Career", 
+        heroSubtitle: "Join Our Mission to Redefine AI.", 
+        heroParagraph: "At ElanTech, we're not just building software; we're crafting the future of intelligence. If you're passionate about innovation, eager to solve complex challenges, and want to make a real-world impact with AI, you've come to the right place. Explore opportunities to grow with a team that values creativity, collaboration, and continuous learning.",
+        weAreHiringText: "Current Openings", 
+        openApplicationText: "Don't see your ideal role? We're always looking for exceptional talent to join our mission.", 
+    };
 
     return (
         <CareersPageClient
             jobs={jobs}
-            careersText={careersText}
-            weAreHiringText={weAreHiringText}
+            careersText={careersPageContent.careersText}
+            heroSubtitle={careersPageContent.heroSubtitle}
+            heroParagraph={careersPageContent.heroParagraph}
+            weAreHiringText={careersPageContent.weAreHiringText}
+            openApplicationText={careersPageContent.openApplicationText}
         />
     );
 };
