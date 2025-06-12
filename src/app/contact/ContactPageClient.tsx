@@ -116,7 +116,7 @@ const ContactPageClient = ({
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-neutral-950/0 to-neutral-950/0 opacity-75"></div>
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950/70 to-transparent z-0"></div> {/* Softer edge */}
         <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight text-white">
             <DynamicSparklesText>{contactText}</DynamicSparklesText>
           </h1>
           <p className="mt-3 text-base sm:text-lg md:text-xl text-purple-500/80 tracking-wide font-medium">
