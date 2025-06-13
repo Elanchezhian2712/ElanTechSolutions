@@ -1,25 +1,40 @@
-
-
 import type { Metadata } from 'next';
-import ServicesPageClient, { type CardData } from './ServicesPageClient'; 
+import ServicesPageClient from './ServicesPageClient'; 
 
+
+export interface ServiceItemData {
+  id: string;
+  title: string;
+  description: string;
+  iconId: string;
+}
 
 export const metadata: Metadata = {
-    title: 'Services | ElanTech Solutions',
-    description: 'Explore our range of services including Web Development, Mobile App Development, AI, and more.',
-    keywords: ['ElanTech Solutions', 'Technology', 'Services', 'Software Development'],
-    authors: [{ name: 'ElanTech Solutions', url: 'https://elantechsolutions.vercel.app' }],
+    title: 'Our Services | ElanTech Solutions',
+    description: 'Discover ElanTech Solutions\' comprehensive services: AI Solutions, Web & App Development, UI/UX Design, Digital Marketing, and Business Analysis.', // Slightly more concise and covers all
+    keywords: [
+        'ElanTech Solutions',
+        'Technology Services',
+        'Software Development',
+        'AI Solutions',
+        'Web Application Development',
+        'Mobile App Development',
+        'UI/UX Design',
+        'Digital Marketing',
+        'Business Analysis',
+    ],
+    authors: [{ name: 'ElanTech Solutions', url: 'https://elantechsolutions.vercel.app' }], 
     openGraph: {
-        title: 'Services | ElanTech Solutions',
-        description: 'Explore our range of services including Web Development, Mobile App Development, AI, and more.',
-        url: 'https://elantechsolutions.vercel.app/about', 
+        title: 'Our Services | ElanTech Solutions',
+        description: 'Explore innovative AI, web, app, design, and marketing services from ElanTech Solutions.', 
+        url: 'https://elantechsolutions.vercel.app/services', 
         siteName: 'ElanTech Solutions',
         images: [
             {
-                url: '/logo.png', 
-                width: 1200,      
-                height: 630,      
-                alt: 'ElanTech Solutions Logo', 
+                url: '/opengraph-image.png', 
+                width: 1200,
+                height: 630,
+                alt: 'ElanTech Solutions Services Overview',
             },
         ],
         locale: 'en_US',
@@ -27,62 +42,58 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Services | ElanTech Solutions',
-        description: 'Explore our range of services including Web Development, Mobile App Development, AI, and more.',
-        images: ['/logo.png'], 
-        creator: '@elantech',
+        title: 'Our Services | ElanTech Solutions',
+        description: 'Explore innovative AI, web, app, design, and marketing services from ElanTech Solutions.',
+        images: ['/twitter-image.png'], 
+        creator: '@YourTwitterHandle', 
     },
     metadataBase: new URL('https://elantechsolutions.vercel.app'),
     alternates: {
-        canonical: '/about',
+        canonical: '/services',
     },
 };
 
+
 export const revalidate = 3600;
 
-const cardData: CardData[] = [
-    {
-      id: "ai-solutions",
-      iconColor: "purple",
-      text: "AI Solutions",
-      descriptions: "Harness the power of AI to transform your business processes. Our AI solutions include machine learning, natural language processing, and computer vision, tailored to meet your specific needs.",
-      colors: [[168, 85, 247], [192, 132, 252]],
-    },
-    {
-      id: "web-dev",
-      iconColor: "purple",
-      text: "Web Development",
-      descriptions: "Build robust and scalable web applications with our expert web development services. We specialize in creating dynamic, responsive, and user-friendly websites that enhance your online presence.",
-      colors: [[168, 85, 247], [192, 132, 252]],
-    },
-    {
-      id: "data-eng",
-      iconColor: "purple",
-      text: "Mobile App Development",
-       descriptions: "We design and build fast, scalable, and user-centric mobile apps for iOS and Android. From concept to deployment, our solutions are tailored to meet business goals while delivering seamless user experiences.",
-      colors: [[168, 85, 247], [192, 132, 252]],
-    },
-    {
-      id: "ui-ux",
-      iconColor: "purple",
-      text: "UI/UX Design",
-      descriptions: "Create intuitive and engaging user experiences with our UI/UX design services. We focus on understanding user needs and behaviors to deliver designs that are not only visually appealing but also highly functional.",
-      colors: [[168, 85, 247], [192, 132, 252]],
-    },
-    {
-      id: "digital-marketing",
-      iconColor: "purple",
-      text: "Digital Marketing",
-      descriptions: "Enhance your online visibility and reach your target audience with our digital marketing services. From SEO and content marketing to social media management and PPC campaigns, we provide comprehensive strategies to grow your business.",
-      colors: [[168, 85, 247], [192, 132, 252]],
-    },
-    {
-      id: "saas-dev",
-      iconColor: "purple",
-      text: "SaaS Development",
-      descriptions: "Leverage our expertise in SaaS development to build scalable and secure applications. We follow industry best practices to ensure your SaaS product is robust, user-friendly, and ready for the market.",
-      colors: [[168, 85, 247], [192, 132, 252]],
-    },
+
+const cardData: ServiceItemData[] = [
+  {
+    id: "ai-solutions", 
+    title: "AI Solutions",
+    description: "Custom AI applications, automation tools, and intelligent systems designed to solve real business problems and enhance efficiency.",
+    iconId: "webDev", 
+  },
+  {
+    id: "web-development",
+    title: "Web Development",
+    description: "Responsive and scalable websites and web apps built using modern frameworks to deliver seamless user experiences.",
+    iconId: "webApp", 
+  },
+  {
+    id: "app-development",
+    title: "APP Development", 
+    description: "Mobile app development for iOS and Android with user-friendly interfaces, native performance, and feature-rich designs.",
+    iconId: "appDev", 
+  },
+  {
+    id: "ui-ux-design",
+    title: "UI/UX Design",
+    description: "User-centric interface and experience design that combines aesthetics with usability to drive user engagement and satisfaction.",
+    iconId: "webDesign", 
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    description: "Performance-driven digital marketing strategies including SEO, content, paid ads, and social media to grow your brand online.",
+    iconId: "dataAnalysis", 
+  },
+  {
+    id: "business-analysis", 
+    title: "Business Analyst", 
+    description: "Bridge the gap between business needs and technology with expert analysis, process modeling, and solution recommendations.",
+    iconId: "dbMgmt", 
+  },
 ];
 
 
