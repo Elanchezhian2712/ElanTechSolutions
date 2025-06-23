@@ -2,13 +2,13 @@
   "name": "elan-tech-solutions",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "postbuild": "next-sitemap"
-  },
+"scripts": {
+  "dev": "bun run next dev",
+  "build": "bun run next build",
+  "start": "bun run next start",
+  "lint": "bun run next lint",
+  "postbuild": "bun run next-sitemap"
+},
   "dependencies": {
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.0.0-rc.2",
@@ -46,6 +46,7 @@
     "eslint-config-next": "^15.3.4",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.10",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "@types/bun": "latest"
   }
 }
