@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
-  // Add your actual config here if needed
+  webpack: (config) => {
+    config.resolve.alias['@'] = path.join(process.cwd(), 'src');
+    return config;
+  },
 };
 
 export default nextConfig;

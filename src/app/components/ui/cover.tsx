@@ -1,6 +1,9 @@
+// src/app/components/ui/cover.tsx
+
 "use client";
 import React, { useEffect, useId, useState, useRef } from "react";
-import { AnimatePresence, motion } from "motion/react"; // Assuming this import is correct for your project setup
+// 1. CHANGE THIS IMPORT from "motion/react" to "framer-motion"
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { SparklesCore } from "./sparkles";
 
@@ -17,20 +20,15 @@ export const Cover = ({
   const [beamPositions, setBeamPositions] = useState<number[]>([]);
 
   useEffect(() => {
-    const currentRef = ref.current; // Capture ref.current
-    if (!currentRef) {
-      return;
-    }
+    const currentRef = ref.current;
+    if (!currentRef) return;
 
     const updateDimensions = () => {
-      // Ensure currentRef is still valid if updateDimensions is called asynchronously
       if (currentRef) {
         const width = currentRef.clientWidth;
         const height = currentRef.clientHeight;
-
         setContainerWidth(width);
-
-        const numberOfBeams = Math.floor(height / 10); // Adjust the divisor to control the spacing
+        const numberOfBeams = Math.floor(height / 10);
         const positions = Array.from(
           { length: numberOfBeams },
           (_, i) => (i + 1) * (height / (numberOfBeams + 1))
@@ -39,22 +37,17 @@ export const Cover = ({
       }
     };
 
-    // Initial dimension update
     updateDimensions();
-
-    // Set up ResizeObserver to handle subsequent dimension changes
-    const resizeObserver = new ResizeObserver(() => {
-      updateDimensions();
-    });
-
+    const resizeObserver = new ResizeObserver(updateDimensions);
     resizeObserver.observe(currentRef);
 
-    // Cleanup observer on component unmount
     return () => {
-      resizeObserver.unobserve(currentRef);
+      if (currentRef) {
+        resizeObserver.unobserve(currentRef);
+      }
       resizeObserver.disconnect();
     };
-  }, []); // Empty dependency array: effect runs once on mount and cleans up on unmount.
+  }, []);
 
   return (
     <div
@@ -69,19 +62,15 @@ export const Cover = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{
-              opacity: {
-                duration: 0.2,
-              },
-            }}
             className="h-full w-full overflow-hidden absolute inset-0"
           >
             <motion.div
+              // 2. FIX: Use 'x' which is the Framer Motion shorthand for translateX
               animate={{
-                translateX: ["-50%", "0%"],
+                x: ["-50%", "0%"],
               }}
               transition={{
-                translateX: {
+                x: {
                   duration: 10,
                   ease: "linear",
                   repeat: Infinity,
@@ -114,14 +103,12 @@ export const Cover = ({
           key={index}
           hovered={hovered}
           duration={Math.random() * 2 + 1}
-          // delay prop in Beam component is used for repeatDelay, so it's correctly passed
           delay={Math.random() * 2 + 1}
           width={containerWidth}
-          style={{
-            top: `${position}px`,
-          }}
+          style={{ top: `${position}px` }}
         />
       ))}
+      {/* The rest of the component is already written correctly for Framer Motion */}
       <motion.span
         key={String(hovered)}
         animate={{
@@ -129,30 +116,10 @@ export const Cover = ({
           x: hovered ? [0, -30, 30, -30, 30, 0] : 0,
           y: hovered ? [0, 30, -30, 30, -30, 0] : 0,
         }}
-        exit={{
-          filter: "none",
-          scale: 1,
-          x: 0,
-          y: 0,
-        }}
         transition={{
           duration: 0.2,
-          x: {
-            duration: 0.2,
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-          y: {
-            duration: 0.2,
-            repeat: Infinity,
-            repeatType: "loop",
-          },
-          scale: {
-            duration: 0.2,
-          },
-          filter: {
-            duration: 0.2,
-          },
+          x: { duration: 0.2, repeat: Infinity, repeatType: "loop" },
+          y: { duration: 0.2, repeat: Infinity, repeatType: "loop" },
         }}
         className={cn(
           "dark:text-white inline-block text-neutral-900 relative z-20 group-hover/cover:text-white transition duration-200",
@@ -169,9 +136,11 @@ export const Cover = ({
   );
 };
 
+// All sub-components below are already using correct Framer Motion syntax.
+
 export const Beam = ({
   className,
-  delay, // Used for transition.repeatDelay
+  delay,
   duration,
   hovered,
   width = 600,
@@ -184,7 +153,6 @@ export const Beam = ({
   width?: number;
 } & React.ComponentProps<typeof motion.svg>) => {
   const id = useId();
-
   return (
     <motion.svg
       width={width ?? "600"}
@@ -195,34 +163,20 @@ export const Beam = ({
       className={cn("absolute inset-x-0 w-full", className)}
       {...svgProps}
     >
-      <motion.path
-        d={`M0 0.5H${width ?? "600"}`}
-        stroke={`url(#svgGradient-${id})`}
-      />
-
+      <motion.path d={`M0 0.5H${width ?? "600"}`} stroke={`url(#svgGradient-${id})`} />
       <defs>
         <motion.linearGradient
           id={`svgGradient-${id}`}
           key={String(hovered)}
           gradientUnits="userSpaceOnUse"
-          initial={{
-            x1: "0%",
-            x2: hovered ? "-10%" : "-5%",
-            y1: 0,
-            y2: 0,
-          }}
-          animate={{
-            x1: "110%",
-            x2: hovered ? "100%" : "105%",
-            y1: 0,
-            y2: 0,
-          }}
+          initial={{ x1: "0%", x2: hovered ? "-10%" : "-5%" }}
+          animate={{ x1: "110%", x2: hovered ? "100%" : "105%" }}
           transition={{
             duration: hovered ? 0.5 : duration ?? 2,
             ease: "linear",
             repeat: Infinity,
             delay: hovered ? Math.random() * (1 - 0.2) + 0.2 : 0,
-            repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1, // delay prop is used here
+            repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1,
           }}
         >
           <stop stopColor="#2EB9DF" stopOpacity="0" />
@@ -247,7 +201,7 @@ export const CircleIcon = ({
         `pointer-events-none animate-pulse group-hover/cover:hidden group-hover/cover:opacity-100 group h-2 w-2 rounded-full bg-neutral-600 dark:bg-white opacity-20 group-hover/cover:bg-white`,
         className
       )}
-      style={delay !== undefined ? { animationDelay: `${delay}s` } : {}} // Use the delay prop
+      style={delay !== undefined ? { animationDelay: `${delay}s` } : {}}
     ></div>
   );
 };
