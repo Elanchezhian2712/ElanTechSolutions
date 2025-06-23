@@ -1,7 +1,7 @@
 // HomePage.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { Cover } from "./components/ui/cover"; // Assuming these paths are correct
+import { Cover } from "./components/ui/cover"; 
 import { Marquee } from "./components/ui/marquee";
 import {
   ArrowRightIcon,
@@ -21,13 +21,13 @@ import {
 import dynamic from "next/dynamic";
 
 const DynamicHyperText = dynamic(() =>
-  import('../app/components/ui/hyper-text').then((mod) => mod.HyperText)
+  import('../app/components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
 );
 
-// SectionWrapper is used for other sections, keeping its definition
+
 const SectionWrapper: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = "", id }) => (
-  <section id={id} className={`w-full py-16 md:py-24 ${className}`}> {/* Removed default px here */}
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8"> {/* Apply padding inside container */}
+  <section id={id} className={`w-full py-16 md:py-24 ${className}`}> 
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8"> 
       {children}
     </div>
   </section>
@@ -89,7 +89,6 @@ export default function HomePage() {
   ];
 
   const faqs = [
-    // Your FAQ data remains the same
     {
       q: "What kind of AI solutions do you specialize in?",
       a: "We specialize in custom AI software, machine learning model development, LLM integration, natural language processing (NLP), computer vision, and AI-driven automation for various industries.",
@@ -113,7 +112,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="text-white w-full overflow-x-hidden"> {/* Ensures no horizontal scrollbar from layout itself */}
+    <div className="text-white w-full overflow-x-hidden"> 
       {/* Hero Section (remains the same) */}
       <div className="relative w-full min-h-screen flex flex-col items-center justify-center antialiased overflow-hidden pt-20 pb-10">
         <div aria-hidden="true" className="absolute inset-0 z-0">
@@ -134,7 +133,7 @@ export default function HomePage() {
               Request a Demo
             </Link>
             <Link
-              href="/solutions" // Consider linking to #services or a dedicated solutions page
+              href="/solutions" 
               className="w-full sm:w-auto border-1 border-purple-500 text-purple-500 font-semibold px-8 py-3.5 rounded-lg hover:bg-gradient-to-r from-purple-500 to-indigo-600 hover:text-white transition-colors duration-300 transform hover:scale-105"
             >
               Explore AI Solutions
@@ -214,7 +213,6 @@ export default function HomePage() {
 
       {/* Our Services Section - MODIFIED FOR FULL-WIDTH MARQUEE */}
       <section id="services" className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-900/20 via-zinc-900 to-zinc-900 overflow-hidden">
-        {/* Centered Title and Description */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">What We Offer</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
@@ -225,12 +223,9 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Full-width Marquee */}
-        {/* The Marquee component will take the full width of its parent <section> */}
-        {/* Add overflow-hidden to the section or a direct wrapper if Marquee itself doesn't handle it cleanly */}
-        <Marquee pauseOnHover className="[--duration:30s]"> {/* Increased duration for smoother scroll with potentially wider cards */}
-          {/* This div provides padding at the start/end of the card sequence within the marquee's scrollable area */}
-          <div className="flex gap-6 md:gap-8 w-max px-3 md:px-4"> {/* w-max makes it fit content. px provides edge spacing for first/last items */}
+
+        <Marquee pauseOnHover className="[--duration:30s]">
+          <div className="flex gap-6 md:gap-8 w-max px-3 md:px-4"> 
             {services.map((service, idx) => (
               <div
                 key={idx}
@@ -242,7 +237,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
                 <p className="text-gray-300 text-sm leading-relaxed flex-grow">{service.desc}</p>
                 <Link
-                  href={`/solutions/${service.slug}`} // Link to a hypothetical detailed service page
+                  href={`/solutions/${service.slug}`} 
                   className="mt-5 text-purple-400 hover:text-purple-300 font-medium inline-flex items-center text-sm group"
                 >
                   Learn More

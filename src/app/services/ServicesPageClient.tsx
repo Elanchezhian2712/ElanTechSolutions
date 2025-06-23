@@ -11,7 +11,7 @@ const DynamicTracingBeam = dynamic(() =>
 );
 
 const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
 );
 
 export type ServiceItemData = {

@@ -17,6 +17,7 @@
         "motion": "^12.16.0",
         "next": "15.3.3",
         "next-sitemap": "^4.2.3",
+        "nodemailer": "^7.0.3",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "styled-components": "^6.1.18",
@@ -31,6 +32,7 @@
         "@rushstack/eslint-patch": "^1.11.0",
         "@types/bun": "latest",
         "@types/node": "^24.0.3",
+        "@types/nodemailer": "^6.4.17",
         "@types/react": "^19.1.6",
         "@types/styled-components": "^5.1.34",
         "@types/three": "^0.177.0",
@@ -323,6 +325,8 @@
     "@types/json5": ["@types/json5@0.0.29", "", {}, "sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ=="],
 
     "@types/node": ["@types/node@24.0.3", "", { "dependencies": { "undici-types": "~7.8.0" } }, "sha512-R4I/kzCYAdRLzfiCabn9hxWfbuHS573x+r0dJMkkzThEa7pbrcDWK+9zu3e7aBOouf+rQAciqPFMnxwr0aWgKg=="],
+
+    "@types/nodemailer": ["@types/nodemailer@6.4.17", "", { "dependencies": { "@types/node": "*" } }, "sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww=="],
 
     "@types/offscreencanvas": ["@types/offscreencanvas@2019.7.3", "", {}, "sha512-ieXiYmgSRXUDeOntE1InxjWyvEelZGP63M+cGuquuRLuIKKT1osnkXjxev9B7d1nXSug5vpunx+gNlbVxMlC9A=="],
 
@@ -885,6 +889,8 @@
     "next-sitemap": ["next-sitemap@4.2.3", "", { "dependencies": { "@corex/deepmerge": "^4.0.43", "@next/env": "^13.4.3", "fast-glob": "^3.2.12", "minimist": "^1.2.8" }, "peerDependencies": { "next": "*" }, "bin": { "next-sitemap": "bin/next-sitemap.mjs", "next-sitemap-cjs": "bin/next-sitemap.cjs" } }, "sha512-vjdCxeDuWDzldhCnyFCQipw5bfpl4HmZA7uoo3GAaYGjGgfL4Cxb1CiztPuWGmS+auYs7/8OekRS8C2cjdAsjQ=="],
 
     "node-releases": ["node-releases@2.0.19", "", {}, "sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw=="],
+
+    "nodemailer": ["nodemailer@7.0.3", "", {}, "sha512-Ajq6Sz1x7cIK3pN6KesGTah+1gnwMnx5gKl3piQlQQE/PwyJ4Mbc8is2psWYxK3RJTVeqsDaCv8ZzXLCDHMTZw=="],
 
     "normalize-range": ["normalize-range@0.1.2", "", {}, "sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA=="],
 

@@ -6,11 +6,13 @@ import dynamic from 'next/dynamic';
 
 
 const DynamicSparklesText = dynamic(() =>
-  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
+  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText),
+  { ssr: false }
 );
 
 const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+  import('../components/ui/hyper-text').then((mod) => mod.HyperText),
+   { ssr: false } 
 );
 
 const DynamicTracingBeam = dynamic(() =>
@@ -36,24 +38,19 @@ interface SocialLink {
   href: string;
 }
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
 
 interface ContactPageClientProps {
-  contactText: string;
-  heroSubtitle: string;
-  heroParagraph: string;
-  formIntroText: string;
+  contactText?: string; 
+  heroSubtitle?: string;
+  heroParagraph?: string;
+  formIntroText?: string;
   contactPoints?: ContactPoint[];
   officeAddress?: string;
   googleMapsLink?: string;
   socialLinks?: SocialLink[];
-  faqItems?: FAQItem[];
 }
 
-// --- MOCK DATA (Remove this when passing real props from server component) ---
+
 const mockContactPoints: ContactPoint[] = [
   {
     iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>`,
@@ -80,10 +77,10 @@ const ContactPageClient = ({
   heroSubtitle = "Let's Build Something Intelligent Together.",
   heroParagraph = "Have a project in mind, a question about our AI services, or just want to connect with our team of innovators? We're here to listen and explore how we can help you achieve your goals. Reach out, and let's start the conversation.",
   formIntroText = "Fill out the form below, and one of our AI specialists will get back to you shortly.",
-  contactPoints = mockContactPoints,
+  contactPoints = mockContactPoints, 
   officeAddress = "Annathanapatty, Salem, Tamil Nadu, India, 636002",
   googleMapsLink = "https://www.google.com/maps?q=J4RV+2VV,+5,+Trichy+Branch+Rd,+Valluvar+Nagar,+Annathanapatti,+Police+Quarters,+Salem,+Tamil+Nadu+636002",
-  socialLinks = mockSocialLinks,
+  socialLinks = mockSocialLinks, 
 }: ContactPageClientProps) => {
   const sectionBorderStyle = "border-neutral-800/70";
   const [formData, setFormData] = useState({
@@ -92,8 +89,11 @@ const ContactPageClient = ({
     company: '',
     subject: '',
     message: '',
-    interest: 'General Inquiry',
+    interest: 'General Inquiry', 
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [statusMessage, setStatusMessage] = useState(''); 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -102,9 +102,32 @@ const ContactPageClient = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Form submitted (check console). Implement actual submission logic.');
-    setFormData({ name: '', email: '', company: '', subject: '', message: '', interest: 'General Inquiry' });
+    setIsSubmitting(true); 
+    setStatusMessage(''); 
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json(); 
+
+      if (response.ok) { 
+        setStatusMessage('Message sent successfully!');
+        setFormData({ name: '', email: '', company: '', subject: '', message: '', interest: 'General Inquiry' });
+      } else {
+        setStatusMessage(`Failed to send message: ${result.error || 'Unknown error'}`);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatusMessage('An error occurred while submitting the form.');
+    } finally {
+      setIsSubmitting(false); 
+    }
   };
 
   return (
@@ -117,6 +140,7 @@ const ContactPageClient = ({
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950/70 to-transparent z-0"></div> {/* Softer edge */}
         <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight text-white">
+            {/* Using DynamicSparklesText */}
             <DynamicSparklesText>{contactText}</DynamicSparklesText>
           </h1>
           <p className="mt-3 text-base sm:text-lg md:text-xl text-purple-500/80 tracking-wide font-medium">
@@ -143,6 +167,7 @@ const ContactPageClient = ({
         </div>
       </div>
 
+      {/* Using DynamicTracingBeam */}
       <DynamicTracingBeam className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Contact Info & Form Section */}
         <section id="contact-form-section" className={`w-full py-16 sm:py-20 md:py-24 lg:py-28 `}>
@@ -151,7 +176,9 @@ const ContactPageClient = ({
               <div className="lg:col-span-2 space-y-10">
                 <div className="mt-0 sm:mt-[100px]">
                   <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Direct Contact</h3>
-                  <div className="space-y-5 ml-20 sm:ml-0">
+                   {/* Corrected spacing and centering for contact points */}
+                  <div className="space-y-5 max-w-sm mx-auto sm:max-w-none sm:mx-0">
+                    {/* Using optional chaining ?.map */}
                     {contactPoints?.map((point) => (
                       <div key={point.title} className="flex items-start group">
                         <div
@@ -175,7 +202,8 @@ const ContactPageClient = ({
                 {officeAddress && (
                   <div>
                     <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Our Office</h3>
-                    <div className="flex items-start group space-y-5 ml-20 sm:ml-0">
+                     {/* Corrected spacing and centering for office address */}
+                    <div className="flex items-start group max-w-sm mx-auto sm:max-w-none sm:mx-0">
                       <div className="flex-shrink-0 w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-purple-500 group-hover:text-purple-300">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -200,8 +228,10 @@ const ContactPageClient = ({
                 {socialLinks && socialLinks.length > 0 && (
                   <div>
                     <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Connect With Us</h3>
-                    <div className="flex flex-wrap gap-3 space-y-5 ml-30 sm:ml-0">
-                      {socialLinks.map((social) => (
+                    {/* Corrected spacing and centering for social links */}
+                    <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+                       {/* Using optional chaining ?.map */}
+                      {socialLinks?.map((social) => (
                         <a
                           key={social.name}
                           href={social.href}
@@ -215,11 +245,26 @@ const ContactPageClient = ({
                     </div>
                   </div>
                 )}
+                 {/* Add FAQ Section here if needed, using faqItems prop */}
+                 {/* {faqItems && faqItems.length > 0 && (
+                  <div>
+                    <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">FAQs</h3>
+                     <div className="space-y-4">
+                       {faqItems.map((item, index) => (
+                         <details key={index} className="p-4 rounded-lg border border-neutral-700/80">
+                            <summary className="font-semibold text-neutral-200 cursor-pointer">{item.question}</summary>
+                            <p className="mt-2 text-neutral-400 text-sm">{item.answer}</p>
+                         </details>
+                       ))}
+                     </div>
+                  </div>
+                 )} */}
               </div>
 
               {/* Right Column: Form ONLY */}
               <div className="lg:col-span-3">
                 <div className="mb-8 md:mb-10 text-center lg:text-left">
+                  {/* Using DynamicHyperText */}
                   <h2 className="text-3xl sm:text-4xl font-bold text-neutral-100">
                     <DynamicHyperText>Send Us a Message</DynamicHyperText>
                   </h2>
@@ -228,7 +273,7 @@ const ContactPageClient = ({
                   </p>
                 </div>
 
-                {/* Form Card - Now takes full width of this column section */}
+                {/* Form Card - Using DynamicMagicCard */}
                 <DynamicMagicCard
                   className="w-full rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-neutral-800/70"
                 >
@@ -246,7 +291,7 @@ const ContactPageClient = ({
                       <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" required className="input-field-style" />
                     </div>
                     <div>
-                      <label htmlFor="interest" className="block text-xs sm:text-sm font-medium text-neutral-300 mb-1 sm:mb-1.5">I&apos;m interested in...</label>
+                      <label htmlFor="interest" className="block text-xs sm:text-sm font-medium text-neutral-300 mb-1 sm:mb-1.5">I'm interested in...</label>
                       <select
                         name="interest"
                         id="interest"
@@ -281,13 +326,24 @@ const ContactPageClient = ({
                         className="input-field-style min-h-[100px] sm:min-h-[120px]"
                       ></textarea>
                     </div>
+
+                    {/* Display status message */}
+                    {statusMessage && (
+                       <p className={`text-sm font-semibold ${statusMessage.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+                         {statusMessage}
+                       </p>
+                    )}
+
                     <div>
                       <button
                         type="submit"
-                        className="w-full group inline-flex items-center justify-center py-3 sm:py-3.5 px-4 sm:px-6 border border-transparent rounded-lg shadow-md text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-950 focus:ring-purple-500 transition-all duration-300 ease-in-out mt-1 transform hover:scale-[1.02]"
+                        disabled={isSubmitting} 
+                        className="w-full group inline-flex items-center justify-center py-3 sm:py-3.5 px-4 sm:px-6 border border-transparent rounded-lg shadow-md text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-950 focus:ring-purple-500 transition-all duration-300 ease-in-out mt-1 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
                       >
-                        Send Message
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"><path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                        {!isSubmitting && (
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1"><path strokeLinecap="round" strokeLinejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+                        )}
                       </button>
                     </div>
                   </form>
@@ -297,33 +353,33 @@ const ContactPageClient = ({
           </div>
         </section>
 
-
       </DynamicTracingBeam>
+      {/* Style block remains the same */}
       <style jsx global>{`
         .input-field-style {
-          margin-top: 0.25rem; 
+          margin-top: 0.25rem;
           display: block;
           width: 100%;
-          padding-left: 0.75rem;  
-          padding-right: 0.75rem; 
-          padding-top: 0.5rem;    
-          padding-bottom: 0.5rem; 
-          font-size: 0.875rem; 
-          line-height: 1.25rem; 
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
 
-          background-color: rgba(55, 65, 81, 0.7); 
+          background-color: rgba(55, 65, 81, 0.7);
           border-width: 1px;
-          border-color: rgba(75, 85, 99, 0.8); 
-          border-radius: 0.375rem; 
-          box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow); 
-          color: #f3f4f6; 
+          border-color: rgba(75, 85, 99, 0.8);
+          border-radius: 0.375rem;
+          box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow);
+          color: #f3f4f6;
           transition-property: all;
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-duration: 300ms;
         }
         .input-field-style::placeholder {
-          color: #6b7280; 
-          font-size: 0.875rem; 
+          color: #6b7280;
+          font-size: 0.875rem;
         }
         .input-field-style:focus {
           outline: 2px solid transparent;
@@ -331,8 +387,8 @@ const ContactPageClient = ({
           --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
           --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
           box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-          --tw-ring-color: rgba(168, 85, 247, 0.8); 
-          border-color: rgba(168, 85, 247, 0.9); 
+          --tw-ring-color: rgba(168, 85, 247, 0.8);
+          border-color: rgba(168, 85, 247, 0.9);
         }
         .input-field-style:hover {
             border-color: #4b5563;
@@ -340,15 +396,15 @@ const ContactPageClient = ({
 
         @media (min-width: 640px) {
           .input-field-style {
-            padding-left: 1rem;   
-            padding-right: 1rem;  
-            padding-top: 0.75rem;    
-            padding-bottom: 0.75rem; 
-            font-size: 0.875rem; 
-            line-height: 1.25rem; 
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
           }
           .input-field-style::placeholder {
-            font-size: 0.875rem; 
+            font-size: 0.875rem;
           }
         }
 `}</style>

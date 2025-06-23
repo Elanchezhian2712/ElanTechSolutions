@@ -8,11 +8,12 @@ import dynamic from 'next/dynamic';
 import { AwardIcon, HeartHandshakeIcon, RocketIcon } from 'lucide-react';
 
 const DynamicSparklesText = dynamic(() =>
-  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
+  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText),
+ { ssr: false }
 );
 
 const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
 );
 
 const DynamicTracingBeam = dynamic(() =>

@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 
 
 const DynamicSparklesText = dynamic(() =>
-  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
+  import('../components/ui/sparkles-text').then((mod) => mod.SparklesText), { ssr: false }
 );
 
 const DynamicTracingBeam = dynamic(() =>
@@ -14,7 +14,7 @@ const DynamicTracingBeam = dynamic(() =>
 );
 
 const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText)
+  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
 );
 
 
