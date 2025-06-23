@@ -291,7 +291,7 @@ const ContactPageClient = ({
                       <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" required className="input-field-style" />
                     </div>
                     <div>
-                      <label htmlFor="interest" className="block text-xs sm:text-sm font-medium text-neutral-300 mb-1 sm:mb-1.5">I'm interested in...</label>
+                      <label htmlFor="interest" className="block text-xs sm:text-sm font-medium text-neutral-300 mb-1 sm:mb-1.5">I&apos;m interested in...</label>
                       <select
                         name="interest"
                         id="interest"

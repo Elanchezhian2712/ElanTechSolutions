@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Target,
   Zap,
-  BrainCircuit, // Fallback icon
+  BrainCircuit, 
   Briefcase,
   Code,
   DatabaseZap,
@@ -21,7 +21,7 @@ import {
 import dynamic from "next/dynamic";
 
 const DynamicHyperText = dynamic(() =>
-  import('../app/components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
+  import('../app/components/ui/hyper-text').then((mod) => mod.HyperText)
 );
 
 
