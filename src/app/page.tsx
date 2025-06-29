@@ -18,7 +18,6 @@ import {
   Rocket,
   LifeBuoy,
 } from "lucide-react";
-import dynamic from "next/dynamic";
 
 
 const SectionWrapper: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = "", id }) => (
