@@ -8,9 +8,7 @@ const DynamicSparklesText = dynamic(() =>
   import('../components/ui/sparkles-text').then((mod) => mod.SparklesText), { ssr: false }
 );
 
-const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
-);
+
 
 const DynamicTracingBeam = dynamic(() =>
   import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
@@ -152,7 +150,7 @@ const CareersPageClient = ({
           <div className="container mx-auto">
             <div className="text-center mb-12 md:mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">
-                <DynamicHyperText>Why Join ElanTech?</DynamicHyperText>
+                Why Join ElanTech?
               </h2>
               <p className="text-neutral-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
                 We&apos; more than just a workplace. We&apos; a community of passionate individuals driven by innovation and a shared vision for the future of AI.
@@ -177,7 +175,7 @@ const CareersPageClient = ({
             <div className="container mx-auto">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">
-                        <DynamicHyperText>Life at ElanTech</DynamicHyperText>
+                        Life at ElanTech
                     </h2>
                     <p className="text-neutral-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
                         A glimpse into our vibrant culture, collaborative spaces, and the people who make it all happen.
@@ -202,7 +200,7 @@ const CareersPageClient = ({
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">
-                  <DynamicHyperText>Perks & Growth</DynamicHyperText>
+                  Perks & Growth
                 </h2>
                 <p className="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8">
                   We invest in our team&apos;s well-being and professional development, offering a comprehensive package to support you inside and outside of work.
@@ -238,7 +236,7 @@ const CareersPageClient = ({
           <div className="container mx-auto">
             <div className="text-center mb-12 md:mb-16">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">
-                <DynamicHyperText>{weAreHiringText}</DynamicHyperText>
+                {weAreHiringText}
               </h2>
               <p className="text-neutral-400 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
                 Find your next challenge and make your mark. We&apos; looking for talented individuals to join our growing team.

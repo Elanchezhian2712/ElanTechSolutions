@@ -20,10 +20,6 @@ import {
 } from "lucide-react";
 import dynamic from "next/dynamic";
 
-const DynamicHyperText = dynamic(() =>
-  import('../app/components/ui/hyper-text').then((mod) => mod.HyperText)
-);
-
 
 const SectionWrapper: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = "", id }) => (
   <section id={id} className={`w-full py-16 md:py-24 ${className}`}> 
@@ -155,7 +151,7 @@ export default function HomePage() {
           <div className="md:w-1/2 w-full order-last md:order-first">
             <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">Our Mission</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-              <DynamicHyperText>Pioneering AI-Powered Digital Transformation</DynamicHyperText>
+              Pioneering AI-Powered Digital Transformation
             </h2>
             <p className="text-gray-300 text-lg mb-6 leading-relaxed text-justify">
               At <span className="font-semibold text-purple-500">ElanTech Solutions</span>, we fuse deep AI expertise with strategic business insight. We empower organizations to transcend traditional limitations, automating complex processes and unlocking new levels of efficiency and innovation.
@@ -189,7 +185,7 @@ export default function HomePage() {
         <div className="text-center">
           <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">Our Advantage</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-             <DynamicHyperText>Why Partner with ElanTech Solutions?</DynamicHyperText>
+             Why Partner with ElanTech Solutions?
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
             Overcome manual bottlenecks, slow scaling, and fragmented systems. Our bespoke AI solutions automate workflows, provide actionable insights, and unlock exponential efficiencies.
@@ -222,7 +218,7 @@ export default function HomePage() {
   <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">What We Offer</span>
     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-      <DynamicHyperText>Comprehensive AI Development Services</DynamicHyperText>
+      Comprehensive AI Development Services
     </h2>
     <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
       From initial concept to full-scale deployment and beyond, we provide end-to-end AI services to transform your business.
@@ -259,7 +255,7 @@ export default function HomePage() {
         <div className="max-w-3xl mx-auto text-left">
           <div className="text-center mb-12 md:mb-16">
             <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">Got Questions?</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight"> <DynamicHyperText>Frequently Asked Questions</DynamicHyperText></h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight"> Frequently Asked Questions</h2>
           </div>
           <div className="space-y-4">
             {faqs.map((item, idx) => (

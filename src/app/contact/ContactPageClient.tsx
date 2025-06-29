@@ -10,10 +10,7 @@ const DynamicSparklesText = dynamic(() =>
   { ssr: false }
 );
 
-const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText),
-   { ssr: false } 
-);
+
 
 const DynamicTracingBeam = dynamic(() =>
   import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
@@ -266,7 +263,7 @@ const ContactPageClient = ({
                 <div className="mb-8 md:mb-10 text-center lg:text-left">
                   {/* Using DynamicHyperText */}
                   <h2 className="text-3xl sm:text-4xl font-bold text-neutral-100">
-                    <DynamicHyperText>Send Us a Message</DynamicHyperText>
+                    Send Us a Message
                   </h2>
                   <p className="text-neutral-400 text-base sm:text-lg mt-3 md:mt-4 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                     {formIntroText}

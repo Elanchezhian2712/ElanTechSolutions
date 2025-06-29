@@ -12,9 +12,7 @@ const DynamicSparklesText = dynamic(() =>
  { ssr: false }
 );
 
-const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
-);
+
 
 const DynamicTracingBeam = dynamic(() =>
   import('../components/ui/tracing-beam').then((mod) => mod.TracingBeam),
@@ -141,7 +139,7 @@ const AboutPageClient = () => {
 
               <div className="order-1 md:order-2 text-center md:text-left">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 my-3 sm:my-4">
-                  <DynamicHyperText>Our Mission & Vision</DynamicHyperText>
+                  Our Mission & Vision
                 </h2>
                 <p className="text-purple-500/80 text-sm uppercase tracking-wider mb-6">Our Purpose</p>
                 <p className="text-neutral-300/80 leading-relaxed mb-4 text-base text-justify sm:text-lg">
@@ -161,7 +159,7 @@ const AboutPageClient = () => {
             <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 xl:gap-20">
               <div className="md:w-2/5 text-center md:text-left">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  <DynamicHyperText>Life at ElanTech</DynamicHyperText>
+                  Life at ElanTech
                 </h2>
                 <p className="text-purple-500/80 text-sm uppercase tracking-wider mb-6">Innovate. Collaborate. Grow.</p>
                 <p className="text-neutral-300/80 leading-relaxed text-justify mb-8 sm:mb-10 text-base sm:text-lg">
@@ -214,7 +212,7 @@ const AboutPageClient = () => {
             <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 xl:gap-20">
               <div className="lg:w-2/5 text-center lg:text-left order-1 lg:order-2"> 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-3">
-                  <DynamicHyperText>Our Team</DynamicHyperText>
+                  Our Team
                 </h2>
                 <p className="text-purple-500/80 text-xs sm:text-sm uppercase tracking-wider mb-6">
                   Experts in AI & Beyond
@@ -246,7 +244,7 @@ const AboutPageClient = () => {
               {/* Section Header */}
               <div className="text-center mb-1 md:mb-1">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  <DynamicHyperText>Our Core Values</DynamicHyperText>
+                  Our Core Values
                 </h2>
 
                 <p className="text-purple-500/80 text-sm uppercase tracking-wider mb-2">

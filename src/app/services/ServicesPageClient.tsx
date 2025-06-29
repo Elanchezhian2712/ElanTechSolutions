@@ -10,9 +10,7 @@ const DynamicTracingBeam = dynamic(() =>
   { ssr: false }
 );
 
-const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
-);
+
 
 export type ServiceItemData = {
   id: string;
@@ -161,7 +159,7 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
           <DynamicTracingBeam className="px-6"> 
           <div className="text-center mb-12 md:mb-16">
             <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
-               <DynamicHyperText>Explore Our Core Offerings</DynamicHyperText>
+               Explore Our Core Offerings
             </h2>
             <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
               Each service is crafted with precision to meet your unique business needs and drive growth.

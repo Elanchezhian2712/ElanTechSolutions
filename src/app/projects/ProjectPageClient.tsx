@@ -13,9 +13,7 @@ const DynamicTracingBeam = dynamic(() =>
   { ssr: false } 
 );
 
-const DynamicHyperText = dynamic(() =>
-  import('../components/ui/hyper-text').then((mod) => mod.HyperText), { ssr: false }
-);
+
 
 
 interface ProjectData {
@@ -80,7 +78,7 @@ const ProjectPageClient = ({ projectData }: ProjectPageClientProps) => {
               <div className="md:w-1/2 lg:w-5/12 text-center md:text-left flex flex-col justify-center md:pr-6 lg:pr-8 md:border-r md:border-neutral-700/50 pb-10 md:pb-0">
                 <div>
                   <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                    <DynamicHyperText>{projectData.title}</DynamicHyperText>
+                    {projectData.title}
                   </h2>
                   <p className="text-white-300 leading-relaxed mb-8 text-sm md:text-base whitespace-pre-line text-justify">
                     {projectData.description}
