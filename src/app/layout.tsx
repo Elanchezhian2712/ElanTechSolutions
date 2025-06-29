@@ -4,7 +4,7 @@ import "./globals.css";
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import StarsCanvas from "./components/StarBackground";
+// import StarsCanvas from "./components/StarBackground";
 import PageLoader from "./components/PageLoader";
 
 const geistSans = Geist({
@@ -30,9 +30,9 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <PageLoader />
         
-        <div className="fixed inset-0 z-0">
+        {/* <div className="fixed inset-0 z-0">
           <StarsCanvas />
-        </div>
+        </div> */}
 
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />

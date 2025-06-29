@@ -39,8 +39,11 @@ interface FeatureCardProps {
   description: string;
 }
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
-  <div className="bg-zinc-900 rounded-xl p-6 shadow-lg hover:shadow-purple-500/40 transition-all duration-300 transform hover:-translate-y-1">
-    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/30 text-purple-500 mb-5">
+  <div
+    className="bg-zinc-900 rounded-xl p-6 shadow-md transition-transform duration-300 transform hover:-translate-y-1"
+    style={{ willChange: "transform" }}
+  >
+    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/20 text-purple-500 mb-5">
       {icon}
     </div>
     <h3 className="text-xl lg:text-2xl font-semibold mb-3 text-white">{title}</h3>
@@ -212,42 +215,44 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Our Services Section - MODIFIED FOR FULL-WIDTH MARQUEE */}
-      <section id="services" className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-900/20 via-zinc-900 to-zinc-900 overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">What We Offer</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
-             <DynamicHyperText>Comprehensive AI Development Services</DynamicHyperText>
-          </h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
-            From initial concept to full-scale deployment and beyond, we provide end-to-end AI services to transform your business.
-          </p>
+      <section
+  id="services"
+  className="w-full py-16 md:py-24 bg-gradient-to-b from-purple-900/20 via-zinc-900 to-zinc-900 overflow-hidden"
+>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span className="text-purple-500 font-semibold text-sm tracking-wider uppercase">What We Offer</span>
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold my-4 leading-tight">
+      <DynamicHyperText>Comprehensive AI Development Services</DynamicHyperText>
+    </h2>
+    <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed">
+      From initial concept to full-scale deployment and beyond, we provide end-to-end AI services to transform your business.
+    </p>
+  </div>
+
+  <Marquee pauseOnHover className="[--duration:30s]">
+    <div className="flex gap-6 md:gap-8 w-max px-3 md:px-4">
+      {services.map((service, idx) => (
+        <div
+          key={idx}
+          className="w-[300px] md:w-[360px] bg-zinc-800 rounded-xl p-6 shadow-md transition-all duration-300 transform hover:scale-[1.02]"
+          style={{ willChange: "transform" }}
+        >
+          <div className="text-purple-500 mb-4">{service.icon}</div>
+          <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
+          <p className="text-gray-300 text-sm leading-relaxed flex-grow">{service.desc}</p>
+          <Link
+            href={`/solutions/${service.slug}`}
+            className="mt-5 text-purple-400 hover:text-purple-300 font-medium inline-flex items-center text-sm group"
+          >
+            Learn More
+            <ArrowRightIcon className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
         </div>
+      ))}
+    </div>
+  </Marquee>
+</section>
 
-
-        <Marquee pauseOnHover className="[--duration:30s]">
-          <div className="flex gap-6 md:gap-8 w-max px-3 md:px-4"> 
-            {services.map((service, idx) => (
-              <div
-                key={idx}
-                className="w-[300px] sm:w-[340px] md:w-[360px] bg-zinc-800/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-purple-600/30 transition-all duration-300 transform hover:scale-[1.03] flex flex-col" // Slightly wider cards
-              >
-                <div className="flex-shrink-0 text-purple-500 mb-4">
-                  {service.icon || <BrainCircuit className="w-7 h-7" />}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
-                <p className="text-gray-300 text-sm leading-relaxed flex-grow">{service.desc}</p>
-                <Link
-                  href={`/solutions/${service.slug}`} 
-                  className="mt-5 text-purple-400 hover:text-purple-300 font-medium inline-flex items-center text-sm group"
-                >
-                  Learn More
-                  <ArrowRightIcon className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </Marquee>
-      </section>
 
       {/* FAQ Section (remains the same, uses SectionWrapper) */}
       <SectionWrapper id="faq">

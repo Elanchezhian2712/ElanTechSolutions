@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import AstronautLoader from "./AstronautLoader";
-import StarsCanvas from "./StarBackground";
+// import StarsCanvas from "./StarBackground";
 
 export default function PageLoader() {
   const pathname = usePathname();
@@ -22,7 +22,7 @@ export default function PageLoader() {
 
   return (
     <>
-      <StarsCanvas />
+      {/* <StarsCanvas /> */}
 
       <div className="fixed inset-0 z-[45] backdrop-blur-sm transition-opacity duration-500" />
 
