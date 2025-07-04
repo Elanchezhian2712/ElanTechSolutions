@@ -70,11 +70,34 @@ const ContactPageClient = ({
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true); 
-    setStatusMessage(''); 
-    // Form submission logic remains the same...
-  };
+  e.preventDefault();
+  setIsSubmitting(true);
+  setStatusMessage('');
+
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      setStatusMessage('✅ Message sent successfully!');
+      setFormData({ name: '', email: '', company: '', subject: '', message: '', interest: 'General Inquiry' });
+    } else {
+      setStatusMessage(`❌ ${data.error || 'Failed to send message'}`);
+    }
+  } catch {
+    setStatusMessage('❌ An unexpected error occurred.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <div className={`bg-gradient-to-br from-purple-950/25 via-neutral-950 to-neutral-950 text-neutral-300 antialiased selection:bg-purple-500 selection:text-white min-h-screen`}>
