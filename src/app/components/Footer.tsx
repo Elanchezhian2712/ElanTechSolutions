@@ -118,7 +118,7 @@ const Footer = () => {
   return (
     <footer className="relative mt-32">
       {/* Floating CTA Card Section */}
-      <div className="absolute inset-x-0 -top-32 flex justify-center px-4 z-10">
+      <div className="absolute inset-x-0 -top-40 flex justify-center px-4 z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -154,7 +154,7 @@ const Footer = () => {
 
               {/* Right visual element */}
               <div className="hidden md:block relative w-64 h-64 flex-shrink-0">
-                
+
                 {/* The central, static "planet" */}
                 <div className="absolute inset-8 flex items-center justify-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-indigo-700 rounded-full shadow-2xl" />
@@ -174,7 +174,7 @@ const Footer = () => {
                 <div className="absolute inset-6 animate-[spin_12s_linear_infinite_reverse]">
                   <div className="absolute top-1/2 -right-1 w-2.5 h-2.5 bg-purple-400 rounded-full shadow-lg" />
                 </div>
-                
+
                 {/* --- Orbit 3: Small, fastest, clockwise --- */}
                 <div className="absolute inset-12 animate-[spin_8s_linear_infinite]">
                   <div className="absolute -top-1 left-1/2 w-2 h-2 bg-white rounded-full shadow-lg" />
@@ -278,10 +278,9 @@ const Footer = () => {
                   className={`
                     group flex flex-col items-center text-center 
                     transition-transform hover:scale-105
-                    ${
-                      index === 2
-                        ? "sm:col-span-2 lg:col-span-1"
-                        : "sm:col-span-1"
+                    ${index === 2
+                      ? "sm:col-span-2 lg:col-span-1"
+                      : "sm:col-span-1"
                     } 
                     mx-auto w-full max-w-xs sm:max-w-none
                   `}
@@ -302,43 +301,27 @@ const Footer = () => {
         </div>
 
         <div
-          className={`border-t ${borderStyle} mt-0 sm:mt-10 py-6 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-white/60 ${horizontalPadding}`}
+          className={`border-t ${borderStyle} mt-1 sm:mt-2 py-6 flex flex-col sm:flex-row justify-between items-center text-xs sm:text-sm text-white/60 ${horizontalPadding}`}
         >
           <p className="mb-4 sm:mb-0 text-center sm:text-left">
-            © {new Date().getFullYear()} Elan Tech Solutions. All rights
-            reserved.
+            © {new Date().getFullYear()} Elan Tech Solutions. All rights reserved.
           </p>
           <div className="flex gap-4">
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="hover:text-purple-500 transition-colors"
-            >
+            <a href="#" aria-label="Instagram" className="hover:text-purple-500 transition-colors">
               <InstagramIcon />
             </a>
-            <a
-              href="#"
-              aria-label="Twitter"
-              className="hover:text-purple-500 transition-colors"
-            >
+            <a href="#" aria-label="Twitter" className="hover:text-purple-500 transition-colors">
               <TwitterIcon />
             </a>
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="hover:text-purple-500 transition-colors"
-            >
+            <a href="#" aria-label="Facebook" className="hover:text-purple-500 transition-colors">
               <FacebookIcon />
             </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="hover:text-purple-500 transition-colors"
-            >
+            <a href="#" aria-label="LinkedIn" className="hover:text-purple-500 transition-colors">
               <LinkedInIcon />
             </a>
           </div>
         </div>
+
       </div>
     </footer>
   );
