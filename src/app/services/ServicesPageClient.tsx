@@ -15,15 +15,14 @@ const DynamicSparklesText = dynamic(() =>
 const FadeInContainer = ({ children }: { children: ReactNode }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.2,   
+    threshold: 0.2,
   });
 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-in-out ${
-        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
+      className={`transition-all duration-1000 ease-in-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
     >
       {children}
     </div>
@@ -103,118 +102,118 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
   const serviceText = "Our Services";
 
   return (
-  <div className="bg-gradient-to-br from-purple-950/25 via-neutral-950 to-neutral-950 text-neutral-300 antialiased selection:bg-purple-500 selection:text-white min-h-screen">
-      
+    <div className="bg-gradient-to-br from-purple-950/25 via-neutral-950 to-neutral-950 text-neutral-300 antialiased selection:bg-purple-500 selection:text-white min-h-screen">
+
       {/* Hero Section */}
       <div
         className={`rounded-b-3xl md:rounded-b-4xl min-h-[70vh] sm:min-h-[80vh] md:min-h-[calc(100vh-80px)] xl:min-h-[45rem] w-full relative flex flex-col items-center justify-center border-b ${sectionBorderStyle} px-4 py-16 sm:py-20 md:py-24 overflow-hidden`}
       >
-        
+
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-neutral-950/0 to-neutral-950/0 opacity-75"></div>
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950/70 to-transparent z-0"></div>
         <FadeInContainer>
-            <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight text-white">
-            <DynamicSparklesText>{serviceText}</DynamicSparklesText>
-          </h1>
-          <p className="mt-2 text-sm sm:text-base text-purple-500/80 tracking-wider uppercase font-medium">
-            Where Insight Meets Exceptional Service
-          </p>
+          <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight text-white">
+              <DynamicSparklesText>{serviceText}</DynamicSparklesText>
+            </h1>
+            <p className="mt-2 text-sm sm:text-base text-purple-500/80 tracking-wider uppercase font-medium">
+              Where Insight Meets Exceptional Service
+            </p>
 
-          <nav aria-label="Breadcrumb" className="mt-6 sm:mt-8 text-sm md:text-base text-neutral-400">
-            <ol className="inline-flex items-center space-x-1.5 md:space-x-2">
-              <li>
-                <Link href="/" className="hover:text-purple-300 transition-colors duration-200">
-                  Home
-                </Link>
-              </li>
-              <li className="text-neutral-600">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </li>
-              <li>
-                <span className="text-purple-500/90 font-medium" aria-current="page">Services</span>
-              </li>
-            </ol>
-          </nav>
+            <nav aria-label="Breadcrumb" className="mt-6 sm:mt-8 text-sm md:text-base text-neutral-400">
+              <ol className="inline-flex items-center space-x-1.5 md:space-x-2">
+                <li>
+                  <Link href="/" className="hover:text-purple-300 transition-colors duration-200">
+                    Home
+                  </Link>
+                </li>
+                <li className="text-neutral-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </li>
+                <li>
+                  <span className="text-purple-500/90 font-medium" aria-current="page">Services</span>
+                </li>
+              </ol>
+            </nav>
 
-          <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-neutral-300/90 leading-relaxed max-w-3xl mx-auto">
-            We offer a comprehensive range of services including AI solutions, UI/UX design, Digital Marketing, Mobile App Development, SaaS development, E-Commerce solutions, and Web Development. Our team delivers innovative, scalable, and user-centric solutions to help your business thrive in the digital world.
-          </p>
-        </div>
-        </FadeInContainer>
-      </div>
-  <main>
-    {/* Our Process Section */}
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <section className="py-20 md:py-28">
-        <FadeInContainer>
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">Our Proven Process</h2>
-          <p className="text-lg text-neutral-400 max-w-2xl mx-auto mt-3">
-            We follow a four-step process to ensure quality, transparency, and success at every stage of your project.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {processSteps.map((step, index) => (
-            <div key={index} className="text-center p-6 bg-neutral-900/40 rounded-xl border border-neutral-800">
-              <div className="flex items-center justify-center h-16 w-16 rounded-full bg-purple-950/50 border border-purple-800/50 mx-auto mb-5">
-                <step.icon className="h-7 w-7 text-purple-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-neutral-100 mb-2">{step.title}</h3>
-              <p className="text-sm text-neutral-400">{step.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      </FadeInContainer>
-    </section>
-
-    {/* Services Grid Section */}
-            <section
-          id="services-grid"
-          aria-labelledby="services-heading"
-          className="py-20 md:py-28 mb-32 border-t border-neutral-800"
-        >
-
- <FadeInContainer>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-20">
-            <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
-              Explore Our Core Offerings
-            </h2>
-            <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
-              Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
+            <p className="mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-neutral-300/90 leading-relaxed max-w-3xl mx-auto">
+              We offer a comprehensive range of services including AI solutions, UI/UX design, Digital Marketing, Mobile App Development, SaaS development, E-Commerce solutions, and Web Development. Our team delivers innovative, scalable, and user-centric solutions to help your business thrive in the digital world.
             </p>
           </div>
-
-          {cardData && cardData.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {cardData.map((card) => (
-                <ServiceCard
-                  key={card.id}
-                  title={card.title}
-                  description={card.description}
-                  iconId={card.iconId}
-                  features={card.features}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-xl text-neutral-400">
-                No services currently available. Please check back later.
-              </p>
-            </div>
-          )}
-        </div>
         </FadeInContainer>
-    </section>
+      </div>
+      <main>
+        {/* Our Process Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="py-20 md:py-28">
+            <FadeInContainer>
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-12 md:mb-16">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-white">Our Proven Process</h2>
+                  <p className="text-lg text-neutral-400 max-w-2xl mx-auto mt-3">
+                    We follow a four-step process to ensure quality, transparency, and success at every stage of your project.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {processSteps.map((step, index) => (
+                    <div key={index} className="text-center p-6 bg-neutral-900/40 rounded-xl border border-neutral-800">
+                      <div className="flex items-center justify-center h-16 w-16 rounded-full bg-purple-950/50 border border-purple-800/50 mx-auto mb-5">
+                        <step.icon className="h-7 w-7 text-purple-400" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-neutral-100 mb-2">{step.title}</h3>
+                      <p className="text-sm text-neutral-400">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </FadeInContainer>
+          </section>
+
+          {/* Services Grid Section */}
+          <section
+            id="services-grid"
+            aria-labelledby="services-heading"
+            className="py-20 md:py-28 mb-32 border-t border-neutral-800"
+          >
+
+            <FadeInContainer>
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-12 md:mb-20">
+                  <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
+                    Explore Our Core Offerings
+                  </h2>
+                  <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
+                    Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
+                  </p>
+                </div>
+
+                {cardData && cardData.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {cardData.map((card) => (
+                      <ServiceCard
+                        key={card.id}
+                        title={card.title}
+                        description={card.description}
+                        iconId={card.iconId}
+                        features={card.features}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-xl text-neutral-400">
+                      No services currently available. Please check back later.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </FadeInContainer>
+          </section>
+        </div>
+      </main>
     </div>
-  </main>
-</div>
 
   );
 };

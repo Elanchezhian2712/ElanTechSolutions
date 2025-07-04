@@ -265,9 +265,9 @@ const Footer = () => {
                 },
                 {
                   title: "Mail Us",
-                  text: "elantechsolutions@gmail.com",
+                  text: "elanchezhian2712.m@gmail.com",
                   icon: <PaperAirplaneIcon />,
-                  href: "mailto:elantechsolutions@gmail.com",
+                  href: "mailto:elanchezhian2712.m@gmail.com",
                 },
               ].map(({ title, text, icon, href }, index) => (
                 <a
