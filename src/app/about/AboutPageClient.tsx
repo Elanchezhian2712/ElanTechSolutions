@@ -27,12 +27,21 @@ const AboutPageClient = () => {
     { icon: <AwardIcon className="w-10 h-10 text-purple-500" />, title: "Pursuit of Excellence", description: "We are committed to the highest standards of quality, precision, and performance in everything we do." },
   ];
   const teamMemberImages = [
-    { src: '/team-bw-1.png', alt: 'Team Member 1' }, { src: '/team-bw-2.png', alt: 'Team Member 2' }, { src: '/team-bw-3.png', alt: 'Team Member 3' },
-    { src: '/team-bw-4.png', alt: 'Team Member 4' }, { src: '/team-bw-5.png', alt: 'Team Member 5' }, { src: '/team-bw-6.png', alt: 'Team Member 6' },
-  ];
+  { src: '/Images/elanchezhian.jpg', alt: 'Elanchezhian M', role: 'Founder & CEO' },
+  { src: '/Images/elanchezhian.jpg', alt: 'Team Member 2', role: 'AI Engineer' },
+  { src: '/Images/elanchezhian.jpg', alt: 'Team Member 3', role: 'UI/UX Designer' },
+  { src: '/Images/elanchezhian.jpg', alt: 'Team Member 4', role: 'DevOps Specialist' },
+  { src: '/Images/elanchezhian.jpg', alt: 'Team Member 5', role: 'Web Developer' },
+  { src: '/Images/elanchezhian.jpg', alt: 'Team Member 6', role: 'Digital Marketer' },
+];
 
-  const teamFocusCardsData = teamMemberImages.map((member, index) => ({ id: index, src: member.src, title: member.alt, }));
-  
+const teamFocusCardsData = teamMemberImages.map((member, index) => ({
+  id: index,
+  src: member.src,
+  title: member.alt,
+  role: member.role,
+}));
+
   const initialImageLoadedState = Array(companyLifeImages.length + 1).fill(false);
   const [imageLoaded, setImageLoaded] = useState<boolean[]>(initialImageLoadedState);
   const MISSION_VISION_IMG_INDEX = companyLifeImages.length;
@@ -123,27 +132,57 @@ const AboutPageClient = () => {
         </section>
 
         <section className={`py-16 sm:py-20 md:py-24 lg:py-28 border-b ${sectionBorderStyle}`}>
-          <FadeInContainer>
-            <div className="container mx-auto">
-              <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 xl:gap-20">
-                <div className="lg:w-2/5 text-center lg:text-left order-1 lg:order-2"> 
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-3">Our Team</h2>
-                  <p className="text-purple-500/80 text-xs sm:text-sm uppercase tracking-wider mb-6">Experts in AI & Beyond</p>
-                  <p className="text-neutral-300/80 leading-relaxed text-justify mb-8 sm:mb-10 text-base sm:text-lg">Our diverse and dynamic team is the driving force behind our success. We bring together exceptional talent from around the world, united by a shared vision to deliver innovation and excellence. With deep expertise in various tech domains, we build forward-thinking solutions that help clients thrive.</p>
-                  <Link href="/careers" className="mt-4 inline-block bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-medium px-5 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-300">JOIN OUR TEAM</Link>
-                </div>
-                <div className="lg:w-3/5 w-full order-2 lg:order-1 mt-10 lg:mt-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                  {teamFocusCardsData.map((card) => (
-                    <div key={card.id} className="bg-neutral-800/50 p-4 rounded-xl shadow text-center transition-transform transform hover:scale-105">
-                      <Image src={card.src} alt={card.title} width={150} height={150} className="mx-auto rounded-full mb-4" />
-                      <h3 className="text-white font-semibold">{card.title}</h3>
-                    </div>
-                  ))}
-                </div>
-              </div>
+  <FadeInContainer>
+    <div className="container mx-auto px-4">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-20">
+        
+        {/* Left Section */}
+        
+
+        {/* Right Section */}
+        <div className="lg:w-3/5 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {teamFocusCardsData.map((card) => (
+            <div
+              key={card.id}
+              className="bg-gradient-to-br from-neutral-800/60 to-neutral-700/60 p-5 rounded-2xl shadow-lg hover:shadow-xl transition-all text-center hover:scale-[1.03]"
+            >
+              <Image
+                src={card.src}
+                alt={card.title}
+                width={120}
+                height={120}
+                className="mx-auto rounded-full border-4 border-purple-500/40 mb-4"
+              />
+              <h3 className="text-white text-lg font-semibold">{card.title}</h3>
+              {card.role && (
+                <p className="text-sm text-neutral-400 mt-1">{card.role}</p>
+              )}
             </div>
-          </FadeInContainer>
-        </section>
+          ))}
+        </div>
+
+        <div className="lg:w-2/5 text-center lg:text-left">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-3">
+            Our Team
+          </h2>
+          <p className="text-purple-500/80 text-xs sm:text-sm uppercase tracking-wider mb-5">
+            Experts in AI & Beyond
+          </p>
+          <p className="text-neutral-300/80 leading-relaxed text-justify sm:text-left text-base sm:text-lg mb-8">
+            Our diverse and dynamic team is the driving force behind our success. We unite global talent with a shared vision to drive innovation, deliver excellence, and build future-ready solutions across industries.
+          </p>
+          <Link
+            href="/careers"
+            className="inline-block bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-medium px-6 py-2.5 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            Join Our Team
+          </Link>
+        </div>
+      </div>
+    </div>
+  </FadeInContainer>
+</section>
+
 
         <section className={`py-16 sm:py-20 md:py-24 lg:py-28`}>
           <FadeInContainer>

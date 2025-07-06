@@ -51,21 +51,21 @@ const CheckIcon = (props: SVGProps<SVGSVGElement>) => <svg {...props} xmlns="htt
 
 const ProcessIcons = {
   Discover: (props: SVGProps<SVGSVGElement>) => <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" /></svg>,
- Design: (props: SVGProps<SVGSVGElement>) => (
+  Design: (props: SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75A2.25 2.25 0 016 4.5h12A2.25 2.25 0 0120.25 6.75v10.5A2.25 2.25 0 0118 19.5H6A2.25 2.25 0 013.75 17.25V6.75z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5" />
     </svg>
   ),
-    Develop: (props: SVGProps<SVGSVGElement>) => <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 12" /></svg>,
-  
+  Develop: (props: SVGProps<SVGSVGElement>) => <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 12" /></svg>,
+
   // Corrected: An arc/spinner icon to match the new "Deploy & Scale" image.
   Deploy: (props: SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
     </svg>
   ),
-  };
+};
 
 const iconMap: Record<string, React.FC<SVGProps<SVGSVGElement>>> = {
   webApp: WebAppIcon, webDev: WebDevIcon, appDev: AppDevIcon, dbMgmt: DbMgmtIcon, dataAnalysis: DataAnalysisIcon, webDesign: WebDesignIcon,
@@ -187,44 +187,43 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
 
           {/* Services Grid Section */}
           <section
-  id="services-grid"
-  aria-labelledby="services-heading"
-className="pt-10 md:pt-16 pb-20 md:pb-28 mb-32 border-t border-neutral-800"
->
-  <FadeInContainer>
-    <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-12 md:mb-20">
-        <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
-          Explore Our Core Offerings
-        </h2>
-        <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
-          Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
-        </p>
-      </div>
+            id="services-grid"
+            aria-labelledby="services-heading"
+            className="pt-10 md:pt-16 pb-20 md:pb-28 mb-32 border-t border-neutral-800"
+          >
+            <FadeInContainer>
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-12 md:mb-20">
+                  <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
+                    Explore Our Core Offerings
+                  </h2>
+                  <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
+                    Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
+                  </p>
+                </div>
 
-      {cardData && cardData.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {cardData.map((card) => (
-            <ServiceCard
-              key={card.id}
-              title={card.title}
-              description={card.description}
-              iconId={card.iconId}
-              features={card.features}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-xl text-neutral-400">
-            No services currently available. Please check back later.
-          </p>
-        </div>
-      )}
-    </div>
-  </FadeInContainer>
-</section>
-
+                {cardData && cardData.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {cardData.map((card) => (
+                      <ServiceCard
+                        key={card.id}
+                        title={card.title}
+                        description={card.description}
+                        iconId={card.iconId}
+                        features={card.features}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-12">
+                    <p className="text-xl text-neutral-400">
+                      No services currently available. Please check back later.
+                    </p>
+                  </div>
+                )}
+              </div>
+            </FadeInContainer>
+          </section>
         </div>
       </main>
     </div>
