@@ -57,7 +57,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       id: 1,
       title: 'UI/UX Designer - AI Platforms',
       type: 'Full-Time',
-      location: 'On-Site / IN (New York)',
+      location: 'Remote (IN)',
       department: 'Design',
       descriptionSnippet: 'Craft intuitive and visually stunning user experiences for our next-generation AI products and tools.',
       link: '/careers/ui-ux-designer' 
@@ -75,7 +75,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       id: 3,
       title: 'Backend Developer (Python/Node.js)',
       type: 'Full-Time',
-      location: 'On-Site (IN)',
+      location: 'Remote (IN)',
       department: 'Engineering',
       descriptionSnippet: 'Develop robust and scalable backend systems, APIs, and data pipelines to power our AI services.',
       link: '/careers/backend-developer'
@@ -93,7 +93,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       id: 5,
       title: 'QA Automation Engineer',
       type: 'Full-Time',
-      location: 'Hybrid (IN)',
+      location: 'Remote (IN)',
       department: 'Quality Assurance',
       descriptionSnippet: 'Design and implement automated testing frameworks to ensure the quality and reliability of our AI software.',
       link: '/careers/qa-engineer'

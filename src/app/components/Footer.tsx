@@ -136,10 +136,10 @@ const Footer = () => {
               {/* Left content */}
               <div className="flex-1 text-center md:text-left">
                 <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-white transition-all duration-500">
-                  Let’s Build Something Amazing
+                  Let&apos;s Build Something Amazing
                 </h2>
                 <p className="mt-4 text-lg text-neutral-300 leading-relaxed">
-                  Your vision, our expertise — a perfect collaboration for digital excellence.
+                  Your vision. Our intelligence. Together, we shape the future of innovation.
                 </p>
 
                 <div className="mt-8 relative group inline-block">
@@ -171,12 +171,12 @@ const Footer = () => {
 
                 {/* --- Orbit 2: Medium, faster, counter-clockwise --- */}
                 {/* The 'reverse' keyword makes it spin the other way */}
-                <div className="absolute inset-6 animate-[spin_12s_linear_infinite_reverse]">
+                <div className="absolute inset-5 animate-[spin_12s_linear_infinite_reverse]">
                   <div className="absolute top-1/2 -right-1 w-2.5 h-2.5 bg-purple-400 rounded-full shadow-lg" />
                 </div>
 
                 {/* --- Orbit 3: Small, fastest, clockwise --- */}
-                <div className="absolute inset-12 animate-[spin_8s_linear_infinite]">
+                <div className="absolute inset-10 animate-[spin_8s_linear_infinite]">
                   <div className="absolute -top-1 left-1/2 w-2 h-2 bg-white rounded-full shadow-lg" />
                 </div>
 
@@ -216,7 +216,7 @@ const Footer = () => {
             </div>
             <p className="text-sm sm:text-base text-white/70 leading-relaxed text-justify">
               Elan Tech Solutions transforms ideas into impactful digital
-              experiences — from AI-powered applications to scalable web
+              experiences from AI-powered applications to scalable web
               platforms. We help businesses thrive with intuitive design, DevOps
               automation, and cutting-edge technology.
             </p>

@@ -68,7 +68,7 @@ const AboutPageClient = () => {
             </ol>
           </nav>
           <p className="relative z-10 mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-neutral-300/90 leading-relaxed max-w-3xl mx-auto">
-            We harness modern technology to build intelligent, scalable, and user-focused solutions. Our expertise includes Software Development, DevOps, UI/UX Design, Web Development, Machine Learning, and AI. With a focus on innovation and operational excellence, we help businesses enhance user experiences and stay ahead in a fast-changing digital world.
+             At ElanTech, we don&apos;t just build software. We craft smarter digital futures through a blend of creativity, innovation, and advanced AI. Our team designs intuitive interfaces and scalable systems that help businesses transform bold ideas into intelligent and impactful digital solutions.
           </p>
         </div>
       </FadeInContainer>

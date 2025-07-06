@@ -64,19 +64,21 @@ const CareersPageClient = ({
   openApplicationText = "Don't see your ideal role? We're always looking for exceptional talent to join our mission."
 }: CareersPageClientProps) => {
   const sectionBorderStyle = "border-neutral-800/70"; 
-
   const cultureItems: CultureItem[] = [
     {
-      iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-purple-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.355a7.5 7.5 0 0 1-4.5 0m4.5 0v-7.5m0 7.5h.008v.008h-.008v-.008Zm0 0c.002 0 .004 0 .005 0a.002.002 0 1 1-.005 0Z" /></svg>`,
+      // SVG for sparkles, representing the spark of creation and experimentation.
+      iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-purple-500"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></svg>`,
       title: 'Innovate Fearlessly',
       description: 'We tackle ambitious problems and encourage experimentation. Your ideas can shape the future of AI.',
     },
     {
-      iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-purple-500"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M12 12.75v-6m0 6h.008v.008H12v-.008Zm0-6v-3.75m0 3.75h.008v.008H12v-.008Zm0 0L9.75 5.25m0 0L12 3m0 0l2.25 2.25M9.75 5.25v1.5"/></svg>`,
+      // Corrected: SVG now matches the person/joystick icon for collaboration.
+      iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-purple-500"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m-2.25-4.5L12 6l2.25 2.25M7.5 16.5a4.5 4.5 0 0 1 9 0" /></svg>`,
       title: 'Collaborate Radically',
       description: 'Our best work happens together. We foster a supportive environment for diverse minds to connect.',
     },
     {
+      // Unchanged: This icon was not present in the provided image.
       iconSVG: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-purple-500"><path stroke-linecap="round" stroke-linejoin="round" d="m4.26 10.147 8.052 4.263a.75.75 0 0 0 .376 0l8.052-4.263a.75.75 0 0 0-.01-1.332l-8.053-4.262a.75.75 0 0 0-.354 0l-8.053 4.262a.75.75 0 0 0-.01 1.332Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147v6.862a.75.75 0 0 0 .375.666l7.5 4.016a.75.75 0 0 0 .75 0l7.5-4.016a.75.75 0 0 0 .375-.666v-6.862M4.26 10.147 12 14.41l7.74-4.263" /></svg>`,
       title: 'Grow Continuously',
       description: 'The field of AI is always evolving, and so are we. We invest in your learning and development.',

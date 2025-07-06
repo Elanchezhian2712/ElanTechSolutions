@@ -152,7 +152,10 @@ const ContactPageClient = ({
                         <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Our Office</h3>
                         <div className="flex items-start group max-w-sm mx-auto sm:max-w-none sm:mx-0">
                           <div className="flex-shrink-0 w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-purple-500 group-hover:text-purple-300"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 11.25h6m-6 4.5h6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-purple-500 group-hover:text-purple-300">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+</svg>
                           </div>
                           <div>
                             <h4 className="font-semibold text-neutral-200 group-hover:text-purple-300 transition-colors duration-300">Location</h4>
