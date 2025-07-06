@@ -147,7 +147,7 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
 
         {/* === SECTION 3: How It Works (NEW) === */}
         <FadeInContainer>
-            <section className={`pt-4 sm:pt-6 pb-24 sm:pb-32 border-b ${sectionBorderStyle}`}>
+            <section className={`pt-4 sm:pt-6 pb-24 sm:pb-32`}>
                 <div className="text-center max-w-2xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold text-white">How It Works</h2>
                     <p className="mt-4 text-lg text-neutral-400">Discover the simple steps to get started with our V-Smart Aid product.</p>
@@ -167,7 +167,7 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
         </FadeInContainer>
         
         {/* === SECTION 4: Visual Gallery (Unchanged, will use placeholder data) === */}
-        <FadeInContainer>
+        {/* <FadeInContainer>
           <section className="pt-4 sm:pt-6 pb-12 sm:pb-16">
             <div className="text-center max-w-2xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-white">See It In Action</h2>
@@ -188,7 +188,7 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
               ))}
             </div>
           </section>
-        </FadeInContainer>
+        </FadeInContainer> */}
       </main>
     </div>
   );

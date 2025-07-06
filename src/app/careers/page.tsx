@@ -60,7 +60,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       location: 'Remote (IN)',
       department: 'Design',
       descriptionSnippet: 'Craft intuitive and visually stunning user experiences for our next-generation AI products and tools.',
-      link: '/careers/ui-ux-designer' 
+      link: '/contact' 
     },
     {
       id: 2,
@@ -69,7 +69,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       location: 'Remote (IN)',
       department: 'Engineering',
       descriptionSnippet: 'Build responsive and high-performance user interfaces for our AI applications, leveraging modern web technologies.',
-      link: '/careers/frontend-developer'
+      link: '/contact'
     },
     {
       id: 3,
@@ -78,7 +78,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       location: 'Remote (IN)',
       department: 'Engineering',
       descriptionSnippet: 'Develop robust and scalable backend systems, APIs, and data pipelines to power our AI services.',
-      link: '/careers/backend-developer'
+      link: '/contact'
     },
     {
       id: 4,
@@ -87,7 +87,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       location: 'Remote (IN)',
       department: 'AI Research & Development',
       descriptionSnippet: 'Research, design, and implement cutting-edge machine learning models to solve complex real-world problems.',
-      link: '/careers/ml-engineer'
+      link: '/contact'
     },
     {
       id: 5,
@@ -96,7 +96,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       location: 'Remote (IN)',
       department: 'Quality Assurance',
       descriptionSnippet: 'Design and implement automated testing frameworks to ensure the quality and reliability of our AI software.',
-      link: '/careers/qa-engineer'
+      link: '/contact'
     },
     {
       id: 6,
@@ -105,7 +105,7 @@ const getCurrentJobs = async (): Promise<Job[]> => {
       location: 'Remote (IN)',
       department: 'Marketing',
       descriptionSnippet: 'Drive the digital marketing strategy for our AI solutions, focusing on growth, engagement, and brand awareness.',
-      link: '/careers/digital-marketing-lead'
+      link: '/contact'
     },
   ];
 };

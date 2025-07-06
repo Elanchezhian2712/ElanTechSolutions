@@ -187,44 +187,44 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
 
           {/* Services Grid Section */}
           <section
-            id="services-grid"
-            aria-labelledby="services-heading"
-            className="py-20 md:py-28 mb-32 border-t border-neutral-800"
-          >
+  id="services-grid"
+  aria-labelledby="services-heading"
+className="pt-10 md:pt-16 pb-20 md:pb-28 mb-32 border-t border-neutral-800"
+>
+  <FadeInContainer>
+    <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-12 md:mb-20">
+        <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
+          Explore Our Core Offerings
+        </h2>
+        <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
+          Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
+        </p>
+      </div>
 
-            <FadeInContainer>
-              <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-12 md:mb-20">
-                  <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
-                    Explore Our Core Offerings
-                  </h2>
-                  <p className="text-lg text-neutral-400 max-w-3xl mx-auto">
-                    Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
-                  </p>
-                </div>
+      {cardData && cardData.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {cardData.map((card) => (
+            <ServiceCard
+              key={card.id}
+              title={card.title}
+              description={card.description}
+              iconId={card.iconId}
+              features={card.features}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-xl text-neutral-400">
+            No services currently available. Please check back later.
+          </p>
+        </div>
+      )}
+    </div>
+  </FadeInContainer>
+</section>
 
-                {cardData && cardData.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {cardData.map((card) => (
-                      <ServiceCard
-                        key={card.id}
-                        title={card.title}
-                        description={card.description}
-                        iconId={card.iconId}
-                        features={card.features}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-12">
-                    <p className="text-xl text-neutral-400">
-                      No services currently available. Please check back later.
-                    </p>
-                  </div>
-                )}
-              </div>
-            </FadeInContainer>
-          </section>
         </div>
       </main>
     </div>
