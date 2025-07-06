@@ -69,7 +69,7 @@ const getProjectDetails = async (): Promise<ProjectData> => {
     title: 'V-Smart Aid',
     tagline: 'Technology Without Barriers.',
     description: "V-Smart Aid provides a user-friendly and intuitive interface for effortless interaction. It’s designed to provide hands-free control and smart automation, making digital navigation accessible to everyone. With advanced virtual interaction capabilities tailored to visual, auditory, and mobility impairments, it empowers individuals with personalized, inclusive digital experiences.",
-    imageUrl: 'project-showcase-mockup.jpg',
+    imageUrl: 'vsmart.jpg',
     buttonText: 'Learn More',
     buttonLink: '/contact',
     features: [

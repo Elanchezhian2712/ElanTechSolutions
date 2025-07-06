@@ -229,7 +229,7 @@ const Footer = () => {
                   {[
                     { href: "/", label: "Home" },
                     { href: "/about", label: "About us" },
-                    { href: "/product", label: "Product" },
+                    { href: "/products", label: "Product" },
                     { href: "/services", label: "Services" },
                     { href: "/careers", label: "Career" },
                     { href: "/contact", label: "Contact us" },

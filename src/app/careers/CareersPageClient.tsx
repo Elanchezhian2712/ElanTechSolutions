@@ -138,7 +138,7 @@ const CareersPageClient = ({
                   <div key={item.title} className="bg-neutral-900/50 p-6 sm:p-8 rounded-xl border border-neutral-800/60 shadow-lg hover:border-purple-500/50 hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-1">
                     <div className="flex items-center justify-center mb-5 w-12 h-12 rounded-full bg-purple-500/10 border border-purple-500/30" dangerouslySetInnerHTML={{ __html: item.iconSVG || '' }}></div>
                     <h3 className="text-xl sm:text-2xl font-semibold text-neutral-100 mb-2.5">{item.title}</h3>
-                    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed">{item.description}</p>
+                    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed text-justify">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -151,8 +151,12 @@ const CareersPageClient = ({
             <div className="container mx-auto">
               <div className="grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                 <div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4">Perks & Growth</h2>
-                  <p className="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8">We invest in our team&apos;s well-being and professional development, offering a comprehensive package to support you inside and outside of work.</p>
+                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4 text-center sm:text-left">
+                    Perks & Growth
+                  </h2>
+                  <p className="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 text-center sm:text-left">
+                    We invest in our team's well-being and professional development, offering a comprehensive package to support you inside and outside of work.
+                  </p>
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                     {perks.map((perk) => (
                       <div key={perk.name} className="flex items-center">
@@ -163,7 +167,7 @@ const CareersPageClient = ({
                   </div>
                 </div>
                 <div className="hidden md:block"> 
-                  <Image src="/growth-mindset.jpg" alt="Growth and Development at ElanTech" width={500} height={400} style={{objectFit: 'cover'}} className="rounded-xl shadow-xl border border-neutral-800/60" />
+                  <Image src="/Images/growth_mindset.jpg" alt="Growth and Development at ElanTech" width={800} height={800} style={{objectFit: 'cover'}} className="rounded-xl shadow-xl border border-neutral-800/60" />
                 </div>
               </div>
             </div>

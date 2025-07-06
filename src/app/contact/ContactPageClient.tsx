@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react'; 
+import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import { FadeInContainer } from '../components/FadeInContainer';
 
@@ -29,7 +29,7 @@ interface SocialLink {
 }
 
 interface ContactPageClientProps {
-  contactText?: string; 
+  contactText?: string;
   heroSubtitle?: string;
   heroParagraph?: string;
   formIntroText?: string;
@@ -54,15 +54,15 @@ const ContactPageClient = ({
   heroSubtitle = "Let's Build Something Intelligent Together.",
   heroParagraph = "Have a project in mind, a question about our AI services, or just want to connect with our team of innovators? We're here to listen and explore how we can help you achieve your goals. Reach out, and let's start the conversation.",
   formIntroText = "Fill out the form below, and one of our AI specialists will get back to you shortly.",
-  contactPoints = mockContactPoints, 
-  officeAddress = "Annathanapatty, Salem, Tamil Nadu, India, 636002",
+  contactPoints = mockContactPoints,
+  officeAddress = "Salem, Tamil Nadu, India, 636002",
   googleMapsLink = "https://www.google.com/maps?q=J4RV+2VV,+5,+Trichy+Branch+Rd,+Valluvar+Nagar,+Annathanapatti,+Police+Quarters,+Salem,+Tamil+Nadu+636002",
-  socialLinks = mockSocialLinks, 
+  socialLinks = mockSocialLinks,
 }: ContactPageClientProps) => {
   const sectionBorderStyle = "border-neutral-800/70";
   const [formData, setFormData] = useState({ name: '', email: '', company: '', subject: '', message: '', interest: 'General Inquiry' });
-  const [isSubmitting, setIsSubmitting] = useState(false); 
-  const [statusMessage, setStatusMessage] = useState(''); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -70,33 +70,33 @@ const ContactPageClient = ({
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setStatusMessage('');
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatusMessage('');
 
-  try {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (res.ok) {
-      setStatusMessage('✅ Message sent successfully!');
-      setFormData({ name: '', email: '', company: '', subject: '', message: '', interest: 'General Inquiry' });
-    } else {
-      setStatusMessage(`❌ ${data.error || 'Failed to send message'}`);
+      if (res.ok) {
+        setStatusMessage('✅ Message sent successfully!');
+        setFormData({ name: '', email: '', company: '', subject: '', message: '', interest: 'General Inquiry' });
+      } else {
+        setStatusMessage(`❌ ${data.error || 'Failed to send message'}`);
+      }
+    } catch {
+      setStatusMessage('❌ An unexpected error occurred.');
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch {
-    setStatusMessage('❌ An unexpected error occurred.');
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
 
   return (
@@ -106,21 +106,21 @@ const ContactPageClient = ({
         className={`rounded-b-3xl md:rounded-b-4xl min-h-[70vh] sm:min-h-[80vh] md:h-auto md:min-h-[calc(100vh-80px)] xl:min-h-[45rem] w-full relative flex flex-col items-center justify-center border-b ${sectionBorderStyle} px-4 py-16 sm:py-20 md:py-24 overflow-hidden`}
       >
         <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-neutral-950/0 to-neutral-950/0 opacity-75"></div>
-      
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950/70 to-transparent z-0"></div> 
+
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-neutral-950/70 to-transparent z-0"></div>
         <FadeInContainer>
-        <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight text-white"><DynamicSparklesText>{contactText}</DynamicSparklesText></h1>
-          <p className="mt-3 text-base sm:text-lg md:text-xl text-purple-500/80 tracking-wide font-medium">{heroSubtitle}</p>
-          <nav aria-label="Breadcrumb" className="relative z-10 mt-8 sm:mt-10 text-sm md:text-base text-neutral-400">
-            <ol className="list-none p-0 inline-flex items-center space-x-1.5 md:space-x-2">
-              <li><Link href="/" className="hover:text-purple-300 transition-colors duration-200">Home</Link></li>
-              <li className="text-neutral-600"><svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg></li>
-              <li><span className="text-purple-500/90 font-medium" aria-current="page">Contact</span></li>
-            </ol>
-          </nav>
-          <p className="relative z-10 mt-8 sm:mt-10 text-base sm:text-lg md:text-xl text-neutral-300/90 leading-relaxed max-w-3xl mx-auto">{heroParagraph}</p>
-        </div>
+          <div className="max-w-4xl 2xl:max-w-5xl mt-30 mx-auto text-center relative z-10">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-bold font-sans !leading-tight text-white"><DynamicSparklesText>{contactText}</DynamicSparklesText></h1>
+            <p className="mt-3 text-base sm:text-lg md:text-xl text-purple-500/80 tracking-wide font-medium">{heroSubtitle}</p>
+            <nav aria-label="Breadcrumb" className="relative z-10 mt-8 sm:mt-10 text-sm md:text-base text-neutral-400">
+              <ol className="list-none p-0 inline-flex items-center space-x-1.5 md:space-x-2">
+                <li><Link href="/" className="hover:text-purple-300 transition-colors duration-200">Home</Link></li>
+                <li className="text-neutral-600"><svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg></li>
+                <li><span className="text-purple-500/90 font-medium" aria-current="page">Contact</span></li>
+              </ol>
+            </nav>
+            <p className="relative z-10 mt-8 sm:mt-10 text-base sm:text-lg md:text-xl text-neutral-300/90 leading-relaxed max-w-3xl mx-auto">{heroParagraph}</p>
+          </div>
         </FadeInContainer>
       </div>
 
@@ -134,43 +134,110 @@ const ContactPageClient = ({
                   <div className="space-y-10">
                     <div className="mt-0 sm:mt-[100px]">
                       <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Direct Contact</h3>
-                      <div className="space-y-5 max-w-sm mx-auto sm:max-w-none sm:mx-0">
+                      <div className="space-y-5 max-w-sm mx-auto sm:max-w-none sm:mx-0 text-center sm:text-left">
                         {contactPoints?.map((point) => (
-                          <div key={point.title} className="flex items-start group">
-                            <div className="flex-shrink-0 w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300" dangerouslySetInnerHTML={{ __html: point.iconSVG || '' }}/>
+                          <div key={point.title} className="flex flex-col sm:flex-row items-center sm:items-start group">
+                            <div
+                              className="flex-shrink-0 w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center mb-2 sm:mb-0 sm:mr-4 group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300"
+                              dangerouslySetInnerHTML={{ __html: point.iconSVG || '' }}
+                            />
                             <div>
-                              <h4 className="font-semibold text-neutral-200 group-hover:text-purple-300 transition-colors duration-300">{point.title}</h4>
-                              {point.href ? (<a href={point.href} className="text-purple-500 hover:text-purple-300 transition-colors duration-300 text-sm break-all">{point.value}</a>) : (<p className="text-neutral-400 text-sm">{point.value}</p>)}
+                              <h4 className="font-semibold text-neutral-200 group-hover:text-purple-300 transition-colors duration-300">
+                                {point.title}
+                              </h4>
+                              {point.href ? (
+                                <a
+                                  href={point.href}
+                                  className="text-purple-500 hover:text-purple-300 transition-colors duration-300 text-sm break-all"
+                                >
+                                  {point.value}
+                                </a>
+                              ) : (
+                                <p className="text-neutral-400 text-sm">{point.value}</p>
+                              )}
                             </div>
                           </div>
                         ))}
                       </div>
+
                     </div>
 
                     {officeAddress && (
                       <div>
-                        <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Our Office</h3>
-                        <div className="flex items-start group max-w-sm mx-auto sm:max-w-none sm:mx-0">
-                          <div className="flex-shrink-0 w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center mr-4 group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-purple-500 group-hover:text-purple-300">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-</svg>
+                        <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">
+                          Our Office
+                        </h3>
+
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start group max-w-sm mx-auto sm:max-w-none sm:mx-0">
+                          <div className="flex-shrink-0 w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 group-hover:bg-purple-500/10 group-hover:border-purple-500/30 transition-all duration-300">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-5 h-5 text-purple-500 group-hover:text-purple-300"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                              />
+                            </svg>
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-neutral-200 group-hover:text-purple-300 transition-colors duration-300">Location</h4>
-                            <address className="text-neutral-400 text-sm not-italic leading-relaxed">{officeAddress.split(',').map((line, i) => <span key={i} className="block">{line.trim()}</span>)}</address>
-                            {googleMapsLink && (<a href={googleMapsLink} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center text-sm text-purple-500 hover:text-purple-300 transition-colors duration-300">View on Map<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 ml-1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg></a>)}
+
+                          <div className="text-center sm:text-left">
+                            <h4 className="font-semibold text-neutral-200 group-hover:text-purple-300 transition-colors duration-300">
+                              Location
+                            </h4>
+                            <address className="text-neutral-400 text-sm not-italic leading-relaxed">
+                              {officeAddress.split(',').map((line, i) => (
+                                <span key={i} className="block">
+                                  {line.trim()}
+                                </span>
+                              ))}
+                            </address>
+
+                            {googleMapsLink && (
+                              <a
+                                href={googleMapsLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2 inline-flex items-center text-sm text-purple-500 hover:text-purple-300 transition-colors duration-300"
+                              >
+                                View on Map
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth={2}
+                                  stroke="currentColor"
+                                  className="w-4 h-4 ml-1.5"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                                  />
+                                </svg>
+                              </a>
+                            )}
                           </div>
                         </div>
                       </div>
                     )}
-                    
+
+
                     {socialLinks && socialLinks.length > 0 && (
                       <div>
                         <h3 className="text-2xl font-semibold text-neutral-100 mb-6 text-center sm:text-left">Connect With Us</h3>
                         <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
-                          {socialLinks?.map((social) => (<a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center text-neutral-400 hover:text-purple-500 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300" dangerouslySetInnerHTML={{ __html: social.iconSVG || '' }}/>))}
+                          {socialLinks?.map((social) => (<a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-10 h-10 bg-neutral-800/70 border border-neutral-700/80 rounded-lg flex items-center justify-center text-neutral-400 hover:text-purple-500 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300" dangerouslySetInnerHTML={{ __html: social.iconSVG || '' }} />))}
                         </div>
                       </div>
                     )}

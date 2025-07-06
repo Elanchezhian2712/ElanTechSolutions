@@ -1,33 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode } from 'react'; // <-- Import ReactNode
 import dynamic from 'next/dynamic';
-import { useInView } from 'react-intersection-observer'; // <-- Import the hook
 import type { SVGProps } from "react";
-
-
+import { FadeInContainer } from '../components/FadeInContainer';
+import { FadeIn } from '../components/FadeIn';
 const DynamicSparklesText = dynamic(() =>
   import('../components/ui/sparkles-text').then((mod) => mod.SparklesText)
 );
 
-
-const FadeInContainer = ({ children }: { children: ReactNode }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-1000 ease-in-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-    >
-      {children}
-    </div>
-  );
-};
 
 // --- TYPE DEFINITIONS ---
 export type ServiceItemData = {
@@ -191,8 +172,9 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
             aria-labelledby="services-heading"
             className="pt-10 md:pt-16 pb-20 md:pb-28 mb-32 border-t border-neutral-800"
           >
-            <FadeInContainer>
-              <div className="max-w-7xl mx-auto">
+
+            <div className="max-w-7xl mx-auto">
+              <FadeInContainer>
                 <div className="text-center mb-12 md:mb-20">
                   <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-white mb-3">
                     Explore Our Core Offerings
@@ -201,28 +183,20 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
                     Each service is a comprehensive solution designed to address specific business challenges and unlock new opportunities for growth.
                   </p>
                 </div>
-
-                {cardData && cardData.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {cardData.map((card) => (
-                      <ServiceCard
-                        key={card.id}
-                        title={card.title}
-                        description={card.description}
-                        iconId={card.iconId}
-                        features={card.features}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="text-center py-12">
-                    <p className="text-xl text-neutral-400">
-                      No services currently available. Please check back later.
-                    </p>
-                  </div>
-                )}
+              </FadeInContainer>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {cardData.map((card, index) => (
+                  <FadeIn key={card.id} delay={index * 150}>
+                    <ServiceCard
+                      title={card.title}
+                      description={card.description}
+                      iconId={card.iconId}
+                      features={card.features}
+                    />
+                  </FadeIn>
+                ))}
               </div>
-            </FadeInContainer>
+            </div>
           </section>
         </div>
       </main>

@@ -98,10 +98,10 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
             <div className="relative shadow-2xl shadow-purple-900/20 rounded-2xl overflow-hidden group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition duration-500"></div>
               <Image
-                src={`/${projectData.imageUrl}`}
+                src={`/Images/${projectData.imageUrl}`}
                 alt={`${projectData.title} mockup`}
-                width={800}
-                height={600}
+                width={600}
+                height={400}
                 priority={true}
                 className="relative block w-full h-auto rounded-xl border border-neutral-800"
               />
@@ -137,7 +137,7 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
                   <div className="flex-shrink-0 text-purple-400">{feature.icon}</div>
                   <div>
                     <h3 className="text-xl font-bold text-white">{feature.title}</h3>
-                    <p className="mt-2 text-base text-neutral-400">{feature.description}</p>
+                    <p className="mt-2 text-base text-neutral-400 text-justify">{feature.description}</p>
                   </div>
                 </div>
               ))}
