@@ -155,7 +155,7 @@ const CareersPageClient = ({
                     Perks & Growth
                   </h2>
                   <p className="text-neutral-400 text-base sm:text-lg leading-relaxed mb-8 text-center sm:text-left">
-                    We invest in our team's well-being and professional development, offering a comprehensive package to support you inside and outside of work.
+                    We invest in our team&apos;s well-being and professional development, offering a comprehensive package to support you inside and outside of work.
                   </p>
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                     {perks.map((perk) => (
