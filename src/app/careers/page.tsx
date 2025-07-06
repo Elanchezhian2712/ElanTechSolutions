@@ -115,7 +115,7 @@ const CareersPage = async () => {
     const jobs = await getCurrentJobs();
 
     const careersPageContent = {
-        careersText: "Career", 
+        careersText: "Careers", 
         heroSubtitle: "Join Our Mission to Redefine AI.", 
         heroParagraph: "At ElanTech, we're not just building software; we're crafting the future of intelligence. If you're passionate about innovation, eager to solve complex challenges, and want to make a real-world impact with AI, you've come to the right place. Explore opportunities to grow with a team that values creativity, collaboration, and continuous learning.",
         weAreHiringText: "Current Openings", 
