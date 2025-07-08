@@ -82,8 +82,8 @@ const Navbar = () => {
            <Image
               src="/Images/logo-elantech.png"
               alt="ElanTech Solutions"
-              width={110}
-              height={30}
+              width={120}
+              height={40}
               className="hidden lg:block ml-2 h-6 w-auto"
             />
           </Link>
