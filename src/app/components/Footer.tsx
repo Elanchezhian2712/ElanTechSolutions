@@ -111,7 +111,6 @@ const LinkedInIcon = () => (
 );
 
 const Footer = () => {
-  // --- DEFINED MISSING VARIABLES ---
   const borderStyle = "border-neutral-700";
   const horizontalPadding = "px-4 sm:px-6 lg:px-8";
 

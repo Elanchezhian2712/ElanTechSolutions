@@ -39,8 +39,6 @@ const ProcessIcons = {
     </svg>
   ),
   Develop: (props: SVGProps<SVGSVGElement>) => <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 12" /></svg>,
-
-  // Corrected: An arc/spinner icon to match the new "Deploy & Scale" image.
   Deploy: (props: SVGProps<SVGSVGElement>) => (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -80,7 +78,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, iconId, f
   );
 };
 
-// --- MAIN PAGE COMPONENT ---
 type ServicesPageClientProps = {
   cardData: ServiceItemData[];
 };
@@ -98,8 +95,6 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
 
   return (
     <div className="bg-gradient-to-br from-purple-950/25 via-neutral-950 to-neutral-950 text-neutral-300 antialiased selection:bg-purple-500 selection:text-white min-h-screen">
-
-      {/* Hero Section */}
       <div
         className={`rounded-b-3xl md:rounded-b-4xl min-h-[70vh] sm:min-h-[80vh] md:min-h-[calc(100vh-80px)] xl:min-h-[45rem] w-full relative flex flex-col items-center justify-center border-b ${sectionBorderStyle} px-4 py-16 sm:py-20 md:py-24 overflow-hidden`}
       >
@@ -140,7 +135,6 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
         </FadeInContainer>
       </div>
       <main>
-        {/* Our Process Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section className="py-20 md:py-28">
             <FadeInContainer>
@@ -166,7 +160,6 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
             </FadeInContainer>
           </section>
 
-          {/* Services Grid Section */}
           <section
             id="services-grid"
             aria-labelledby="services-heading"

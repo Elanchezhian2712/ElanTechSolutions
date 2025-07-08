@@ -15,8 +15,6 @@ const DynamicSparklesText = dynamic(() =>
   { ssr: false }
 );
 
-
-
 const AboutPageClient = () => {
   const sectionBorderStyle = 'border-neutral-700/50';
   const companyLifeImages = [
@@ -27,84 +25,84 @@ const AboutPageClient = () => {
 
 
   const teamMembers = [
-  {
-    name: 'Elanchezhian M',
-    role: 'Founder & CEO',
-    linkedin: 'https://www.linkedin.com/in/elanchezhian-dev/',
-    github: 'https://github.com/Elanchezhian2712',
-  },
-  {
-    name: 'Nawin A',
-    role: 'AI Engineer',
-    linkedin: 'https://www.linkedin.com/in/nawin-a-dev/',
-    github: '#',
-  },
-  {
-    name: 'Dewahar K',
-    role: 'DevOps Engineer',
-    linkedin: 'https://www.linkedin.com/in/dewahar-kalamani/',
-    github: '#',
-  },
-   {
-    name: 'Sonesh Kumar K',
-    role: 'Content Moderation Associate',
-    linkedin: 'https://www.linkedin.com/in/soneshkumar-kumar-98b752245/',
-    github: '#',
-  },
-     {
-    name: 'AJAY A',
-    role: 'Data Scientist',
-    linkedin: 'https://www.linkedin.com/in/ajay-arul-a022681aa/',
-    github: '#',
-  },
-
-   {
-    name: 'Manikandan S',
-    role: '.NET Developer',
-    linkedin: 'https://www.linkedin.com/in/manikandan-s/',
-    github: '#',
-  },
-
-   {
-    name: 'Gangatharan S',
-    role: 'Web Developer',
-    linkedin: 'https://www.linkedin.com/in/gangatharan-subramani-810b56223/',
-    github: '#',
-  },
+    {
+      name: 'Elanchezhian M',
+      role: 'Founder & CEO',
+      linkedin: 'https://www.linkedin.com/in/elanchezhian-dev/',
+      github: 'https://github.com/Elanchezhian2712',
+    },
+    {
+      name: 'Nawin A',
+      role: 'AI Engineer',
+      linkedin: 'https://www.linkedin.com/in/nawin-a-dev/',
+      github: '#',
+    },
+    {
+      name: 'Dewahar K',
+      role: 'DevOps Engineer',
+      linkedin: 'https://www.linkedin.com/in/dewahar-kalamani/',
+      github: '#',
+    },
+    {
+      name: 'Sonesh Kumar K',
+      role: 'Content Moderation Associate',
+      linkedin: 'https://www.linkedin.com/in/soneshkumar-kumar-98b752245/',
+      github: '#',
+    },
+    {
+      name: 'AJAY A',
+      role: 'Data Scientist',
+      linkedin: 'https://www.linkedin.com/in/ajay-arul-a022681aa/',
+      github: '#',
+    },
 
     {
-    name: 'Venkatesh Prasath M',
-    role: 'Robot System Engineer',
-    linkedin: 'https://www.linkedin.com/in/vp300801/',
-    github: '#',
-  },
-     {
-    name: 'Senthilnathan E',
-    role: 'React Developer',
-    linkedin: 'https://www.linkedin.com/in/senthilnathan-dev2/',
-    github: '#',
-  },
-     {
-    name: 'Vigneshwaran K',
-    role: 'Flutter Developer',
-    linkedin: 'https://www.linkedin.com/in/vigneshwaran-k-71a616234/',
-    github: '#',
-  },
-     {
-    name: 'Vijayaprabakaran E',
-    role: "UI/UX Designer",
-    linkedin: 'https://www.linkedin.com/in/vijayaprabakaran-elangovan-558553237/',
-    github: '#',
-  },
+      name: 'Manikandan S',
+      role: '.NET Developer',
+      linkedin: 'https://www.linkedin.com/in/manikandan-s/',
+      github: '#',
+    },
 
-  {
-    name: 'Rakeshkumar S A',
-    role: "Full Stack Developer",
-    linkedin: 'https://www.linkedin.com/in/rakeshkumar-s-a-b055291b9/',
-    github: '#',
-  },
-  
-];
+    {
+      name: 'Gangatharan S',
+      role: 'Web Developer',
+      linkedin: 'https://www.linkedin.com/in/gangatharan-subramani-810b56223/',
+      github: '#',
+    },
+
+    {
+      name: 'Venkatesh Prasath M',
+      role: 'Robot System Engineer',
+      linkedin: 'https://www.linkedin.com/in/vp300801/',
+      github: '#',
+    },
+    {
+      name: 'Senthilnathan E',
+      role: 'React Developer',
+      linkedin: 'https://www.linkedin.com/in/senthilnathan-dev2/',
+      github: '#',
+    },
+    {
+      name: 'Vigneshwaran K',
+      role: 'Flutter Developer',
+      linkedin: 'https://www.linkedin.com/in/vigneshwaran-k-71a616234/',
+      github: '#',
+    },
+    {
+      name: 'Vijayaprabakaran E',
+      role: "UI/UX Designer",
+      linkedin: 'https://www.linkedin.com/in/vijayaprabakaran-elangovan-558553237/',
+      github: '#',
+    },
+
+    {
+      name: 'Pradeep M',
+      role: "Full Stack Developer",
+      linkedin: 'https://www.linkedin.com/in/pradeepsimba',
+      github: '#',
+    },
+
+  ];
 
   const coreValues = [
     { icon: <RocketIcon className="w-10 h-10 text-purple-500" />, title: "Innovation First", description: "We constantly explore new horizons and push the boundaries of technology to deliver cutting-edge solutions." },
@@ -155,7 +153,6 @@ const AboutPageClient = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <section id="mission-vision" className={`py-16 sm:py-20 md:py-24 lg:py-28 border-b ${sectionBorderStyle}`}>
-          {/* We wrap the content container, not the whole section */}
           <FadeInContainer>
             <div className="container mx-auto">
               <div className="grid md:grid-cols-2 gap-10 lg:gap-16 xl:gap-20 items-center">
@@ -201,78 +198,69 @@ const AboutPageClient = () => {
           </FadeInContainer>
         </section>
 
-       <section className={`py-20 sm:py-24 md:py-32 border-b ${sectionBorderStyle}`}>
- 
-    <div className="container mx-auto px-4">
-       <FadeInContainer>
-      <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white">Our Team</h2>
-        <p className="mt-4 text-sm uppercase tracking-widest text-purple-400 font-semibold">
-          Experts in AI & Beyond
-        </p>
-        <p className="mt-6 text-lg text-neutral-400">
-          Our diverse and dynamic team drives innovation. We unite global talent to deliver excellence and build future-ready solutions.
-        </p>
-        <div className="mt-10 flex justify-center">
-          <Link
-            href="/careers"
-            className="inline-block rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105"
-          >
-            Join Our Team
-          </Link>
-        </div>
-      </div>
- </FadeInContainer>
-  <FadeIn>
-      {/* Team Cards */}
-      <div className="mx-auto mt-20 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {teamMembers.map((member, index) => (
-          <div
-            key={index}
-            className="relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-600/20"
-          >
-            {/* Initials Circle Avatar */}
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-600 text-xl font-bold text-white shadow-md">
-              {member.name
-                .split(' ')
-                .map((n) => n[0])
-                .join('')
-                .toUpperCase()}
-            </div>
-
-            <h3 className="text-lg font-semibold text-white">{member.name}</h3>
-            <p className="text-purple-400 text-sm mb-4">{member.role}</p>
-
-            {/* Icons */}
-            <div className="mt-auto flex gap-4">
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-white/10 p-3 hover:bg-purple-500 transition-colors"
-              >
-                {/* 2. Replace <i> tag with FontAwesomeIcon component */}
-                <FontAwesomeIcon icon={faLinkedin} className="text-white h-5 w-5" />
-              </a>
-              <a
-                href={member.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-white/10 p-3 hover:bg-purple-500 transition-colors"
-              >
-                {/* 3. Replace <i> tag with FontAwesomeIcon component */}
-                <FontAwesomeIcon icon={faGithub} className="text-white h-5 w-5" />
-              </a>
-            </div>
+        <section className={`py-20 sm:py-24 md:py-32 border-b ${sectionBorderStyle}`}>
+          <div className="container mx-auto px-4">
+            <FadeInContainer>
+              <div className="mx-auto max-w-3xl text-center">
+                <h2 className="text-4xl sm:text-5xl font-bold text-white">Our Team</h2>
+                <p className="mt-4 text-sm uppercase tracking-widest text-purple-400 font-semibold">
+                  Experts in AI & Beyond
+                </p>
+                <p className="mt-6 text-lg text-neutral-400">
+                  Our diverse and dynamic team drives innovation. We unite global talent to deliver excellence and build future-ready solutions.
+                </p>
+                <div className="mt-10 flex justify-center">
+                  <Link
+                    href="/careers"
+                    className="inline-block rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105"
+                  >
+                    Join Our Team
+                  </Link>
+                </div>
+              </div>
+            </FadeInContainer>
+            <FadeIn>
+              <div className="mx-auto mt-20 grid grid-cols-2 gap-4 sm:gap-6">
+                {teamMembers.map((member, index) => (
+                  <div
+                    key={index}
+                    className="relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-600/20"
+                  >
+                    <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-purple-600 text-lg font-bold text-white shadow-md">
+                      {member.name
+                        .split(' ')
+                        .map((n) => n[0])
+                        .join('')
+                        .toUpperCase()}
+                    </div>
+                    <h3 className="text-base sm:text-lg font-semibold text-white text-center">{member.name}</h3>
+                    <p className="text-purple-400 text-sm mb-3 text-center">{member.role}</p>
+                    <div className="mt-auto flex gap-3">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-white/10 p-2 hover:bg-purple-500 transition-colors"
+                      >
+                        <FontAwesomeIcon icon={faLinkedin} className="text-white h-4 w-4" />
+                      </a>
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-white/10 p-2 hover:bg-purple-500 transition-colors"
+                      >
+                        <FontAwesomeIcon icon={faGithub} className="text-white h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
           </div>
-        ))}
-      </div>
-      </FadeIn>
-    </div>
- 
-</section>
+        </section>
 
-        
+
         <section className={`py-16 sm:py-20 md:py-24 lg:py-28`}>
           <FadeInContainer>
             <div className="container mx-auto">

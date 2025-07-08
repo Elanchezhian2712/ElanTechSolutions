@@ -39,7 +39,6 @@ export const metadata: Metadata = {
 };
 
 
-// Define your premium service data here
 const premiumServiceData: ServiceItemData[] = [
   {
     id: 'enterprise-web-apps',
@@ -81,7 +80,7 @@ const premiumServiceData: ServiceItemData[] = [
     id: 'cloud-devops',
     title: 'Cloud & DevOps Engineering',
     description: 'Accelerate your development lifecycle and enhance scalability with our DevOps and cloud solutions. We implement CI/CD pipelines, automate infrastructure, and ensure your applications are resilient.',
-    iconId: 'dbMgmt', // You can create a new, more fitting icon
+    iconId: 'dbMgmt', 
     features: [
       'CI/CD Pipeline Implementation',
       'Infrastructure as Code (IaC)',
@@ -93,7 +92,7 @@ const premiumServiceData: ServiceItemData[] = [
     id: 'ai-ml',
     title: 'AI & Machine Learning',
     description: 'Leverage the power of artificial intelligence to unlock data-driven insights and automate processes. We develop custom AI models and integrate intelligent features into your applications.',
-    iconId: 'dataAnalysis', // You can create a new, more fitting icon
+    iconId: 'dataAnalysis', 
     features: [
       'Custom Machine Learning Models',
       'Natural Language Processing (NLP)',
@@ -105,7 +104,7 @@ const premiumServiceData: ServiceItemData[] = [
     id: 'ecommerce-saas',
     title: 'E-commerce & SaaS Platforms',
     description: 'Launch and scale your digital products with our expertise in building multi-tenant SaaS applications and conversion-optimized e-commerce platforms. We focus on monetization and growth.',
-    iconId: 'webDev', // You can create a new, more fitting icon
+    iconId: 'webDev',
     features: [
       'Subscription & Billing Integration',
       'Multi-Tenant Architectures',
@@ -117,7 +116,7 @@ const premiumServiceData: ServiceItemData[] = [
   id: 'seo-digital-marketing',
   title: 'SEO & Digital Marketing',
   description: 'Enhance your online visibility and drive traffic with strategic SEO and multi-channel digital marketing campaigns tailored to your audience.',
-  iconId: 'webDev', // You can add a separate icon if needed
+  iconId: 'webDev', 
   features: [
     'Search Engine Optimization (On-page & Off-page)',
     'Performance-Based PPC & Google Ads',
@@ -129,7 +128,7 @@ const premiumServiceData: ServiceItemData[] = [
   id: 'startup-mvp',
   title: 'MVP Development for Startups',
   description: 'Turn your startup idea into a functional Minimum Viable Product (MVP) that’s ready to test, validate, and scale in the market.',
-  iconId: 'appDev', // Or create a dedicated "startup" icon
+  iconId: 'appDev', 
   features: [
     'Lean Product Strategy',
     'Rapid Prototyping',

@@ -136,7 +136,6 @@ export const About = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col md:flex-row gap-10 md:gap-16 items-center text-center md:text-left"
         >
-          {/* Left - Text Content */}
           <div className="w-full lg:w-1/2 order-last md:order-first">
             <span className="text-purple-400 font-semibold text-sm tracking-wider uppercase">
               Our Mission

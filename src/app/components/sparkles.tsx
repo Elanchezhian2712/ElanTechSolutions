@@ -80,10 +80,8 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: "repulse",
                 },
-                // Corrected line: use an object for resize
                 resize: {
                   enable: true,
-                  // delay: 200, // Optional: if you want to debounce/throttle resize events
                 },
               },
               modes: {
@@ -97,7 +95,6 @@ export const SparklesCore = (props: ParticlesProps) => {
               },
             },
             particles: {
-              // ... (rest of your particles configuration remains the same)
               bounce: {
                 horizontal: {
                   value: 1,

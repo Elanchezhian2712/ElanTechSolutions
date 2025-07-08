@@ -16,7 +16,7 @@ const StarBackground = () => {
   );
 
   useFrame((state, delta) => {
-    const cappedDelta = Math.min(delta, 0.05); // cap to 50ms max
+    const cappedDelta = Math.min(delta, 0.05); 
     if (ref.current) {
       ref.current.rotation.x -= cappedDelta / 10;
       ref.current.rotation.y -= cappedDelta / 15;

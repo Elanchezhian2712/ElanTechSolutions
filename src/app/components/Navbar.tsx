@@ -27,9 +27,6 @@ const Navbar = () => {
     setMounted(true);
   }, []);
 
-
-  // UPDATED: Removed horizontal padding and tracking from the base style.
-  // It will now be applied contextually for desktop view only.
   const linkBaseStyle =
     "uppercase font-medium transition-colors duration-200 ease-in-out whitespace-nowrap";
 
@@ -43,9 +40,6 @@ const Navbar = () => {
   return (
     <div className="fixed top-4 sm:top-6 md:top-8 inset-x-0 z-50 px-4">
       <div className="bg-black/10 backdrop-blur-md border border-white/20 text-white flex items-center w-full py-4 px-4 sm:px-6 rounded-full max-w-[95%] sm:max-w-4xl lg:max-w-6xl mx-auto relative overflow-hidden">
-
-        {/* --- MOBILE LAYOUT --- */}
-        {/* UPDATED: Switched to `justify-around` for better space distribution on small screens. */}
         <nav className="flex md:hidden items-center justify-around w-full">
           {allNavItems.map((item) => (
             <Link
@@ -53,7 +47,6 @@ const Navbar = () => {
               href={item.href}
               className={cn(
                 getLinkClassName(item.href),
-                // UPDATED: Removed letter-spacing and reduced padding to save crucial space.
                 'text-[10px] sm:text-xs text-center px-0.5' 
               )}
             >
@@ -62,9 +55,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* --- DESKTOP/TABLET LAYOUT --- */}
         <nav className="hidden md:flex flex-1 items-center justify-between">
-          {/* Left nav items */}
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             {navItemsLeft.map((item) => (
               <Link
@@ -72,7 +63,6 @@ const Navbar = () => {
                 href={item.href}
                 className={cn(
                   getLinkClassName(item.href),
-                  // UPDATED: Added back tracking and padding specifically for desktop.
                   'md:text-sm tracking-wide px-1'
                 )}
               >
@@ -81,7 +71,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Logo */}
           <Link href="/" className="flex items-center justify-center shrink-0 mx-2 sm:mx-3">
             <Image
               src="/Images/logo.png"
@@ -90,16 +79,15 @@ const Navbar = () => {
               height={32}
               className="w-8 h-8"
             />
-            <Image
+           <Image
               src="/Images/logo-elantech.png"
               alt="ElanTech Solutions"
-              width={150}
-              height={50}
-              className="hidden lg:block ml-2 h-8 w-auto"
+              width={110}
+              height={30}
+              className="hidden lg:block ml-2 h-6 w-auto"
             />
           </Link>
 
-          {/* Right nav items */}
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             {navItemsRight.map((item) => (
               <Link
@@ -107,7 +95,6 @@ const Navbar = () => {
                 href={item.href}
                 className={cn(
                   getLinkClassName(item.href),
-                  // UPDATED: Added back tracking and padding specifically for desktop.
                   'md:text-sm tracking-wide px-1'
                 )}
               >
@@ -116,8 +103,6 @@ const Navbar = () => {
             ))}
           </div>
         </nav>
-
-        {/* Border animation */}
         {mounted && <BorderBeam duration={8} size={100} />}
       </div>
     </div>

@@ -3,7 +3,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import ProductPageClient from './ProductPageClient';
-import type { ProjectData } from './ProductPageClient'; // Import the full interface
+import type { ProjectData } from './ProductPageClient'; 
 
 // --- NEW ICONS for the updated features ---
 const EyeIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -16,7 +16,6 @@ const HandRaisedIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}><path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5" /></svg>
 );
 
-// You can name this whatever you like, e.g., BrailleKeyboardIcon or CustomKeyboardIcon
 const SquaresPlusIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
     <path
@@ -27,7 +26,6 @@ const SquaresPlusIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-// Your metadata remains the same, it's already great.
 export const metadata: Metadata = {
     title: 'Our Product | ElanTech Solutions',
     description: "Elan Tech Solutions specializes in custom software, AI integrations, and scalable web platforms, tailored to drive business success.",
@@ -62,7 +60,7 @@ export const metadata: Metadata = {
     },
 };
 
-// This function now provides the complete data structure with your new content
+
 const getProjectDetails = async (): Promise<ProjectData> => {
   return {
     id: 'v-smart-aid',
@@ -111,7 +109,6 @@ const getProjectDetails = async (): Promise<ProjectData> => {
             description: "You're all set! Start enjoying the full benefits and newfound digital freedom right away."
         }
     ],
-    // These are placeholders. You should update them with real content.
     galleryImages: [
       'gallery/v-smart-dashboard.png', 
       'gallery/v-smart-voice-ui.png',

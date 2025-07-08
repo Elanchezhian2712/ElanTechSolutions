@@ -5,7 +5,6 @@ import { Cover } from "./ui/cover";
 import { SparklesIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
-// 👇 Predefined positions (looks random but stable)
 const SHAPE_POSITIONS = [
   { top: "20%", left: "30%" },
   { top: "40%", left: "70%" },
@@ -15,7 +14,6 @@ const SHAPE_POSITIONS = [
   { top: "85%", left: "10%" },
 ];
 
-// Floating Shape Component with fixed position
 const FloatingShape = ({
   delay = 0,
   top,
@@ -48,15 +46,10 @@ const FloatingShape = ({
 export const Hero = () => {
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden antialiased pt-24 pb-16">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-zinc-950 to-zinc-950 z-0" />
-
-      {/* ✅ Fixed-position floating shapes for SSR compatibility */}
       {SHAPE_POSITIONS.map((pos, index) => (
         <FloatingShape key={index} delay={index * 1.5} top={pos.top} left={pos.left} />
       ))}
-
-      {/* Content */}
       <div className="relative z-20 max-w-5xl text-center px-4 sm:px-6 lg:px-8">
         <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}

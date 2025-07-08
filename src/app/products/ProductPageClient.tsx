@@ -36,10 +36,8 @@ export interface ProjectData {
   features: Feature[];
   galleryImages: string[];
   testimonial: Testimonial;
-  howItWorks: HowItWorksStep[]; // NEW: Added property
+  howItWorks: HowItWorksStep[]; 
 }
-
-// --- PROPS INTERFACE FOR THIS COMPONENT ---
 interface ProductPageClientProps {
   projectData: ProjectData;
 }
@@ -48,7 +46,6 @@ const DynamicSparklesText = dynamic(() =>
   import('../components/ui/sparkles-text').then((mod) => mod.SparklesText), { ssr: false }
 );
 
-// --- THE MAIN COMPONENT - ACCEPTS PROPS ---
 const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
   const sectionBorderStyle = "border-neutral-800";
 
@@ -92,7 +89,6 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        {/* === SECTION 1: Product Intro === */}
         <FadeInContainer>
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="relative shadow-2xl shadow-purple-900/20 rounded-2xl overflow-hidden group">
@@ -124,7 +120,6 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
           </section>
         </FadeInContainer>
 
-        {/* === SECTION 2: Key Features === */}
         <FadeInContainer>
           <section className="py-24 sm:py-32">
             <div className="text-center max-w-2xl mx-auto">
@@ -145,7 +140,6 @@ const ProductPageClient = ({ projectData }: ProductPageClientProps) => {
           </section>
         </FadeInContainer>
 
-        {/* === SECTION 3: How It Works (NEW) === */}
         <FadeInContainer>
             <section className={`pt-4 sm:pt-6 pb-24 sm:pb-32`}>
                 <div className="text-center max-w-2xl mx-auto">
