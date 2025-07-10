@@ -198,7 +198,7 @@ const AboutPageClient = () => {
           </FadeInContainer>
         </section>
 
-        <section className={`py-20 sm:py-24 md:py-32 border-b ${sectionBorderStyle}`}>
+        <section className={`py-10 sm:py-16 md:py-20 border-b ${sectionBorderStyle}`}>
           <div className="container mx-auto px-4">
             <FadeInContainer>
               <div className="mx-auto max-w-3xl text-center">
@@ -220,13 +220,13 @@ const AboutPageClient = () => {
               </div>
             </FadeInContainer>
             <FadeIn>
-              <div className="mx-auto mt-20 grid grid-cols-2 gap-4 sm:gap-6">
+              <div className="mx-auto mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl px-4">
                 {teamMembers.map((member, index) => (
                   <div
                     key={index}
-                    className="relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-600/20"
+                    className="relative flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:shadow-purple-600/20 w-full h-full sm:h-auto"
                   >
-                    <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-purple-600 text-lg font-bold text-white shadow-md">
+                    <div className="mb-3 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-purple-600 text-lg font-bold text-white shadow-md">
                       {member.name
                         .split(' ')
                         .map((n) => n[0])
