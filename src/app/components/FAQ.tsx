@@ -37,7 +37,7 @@ export const FAQ = () => {
 
   return (
     <SectionWrapper id="faq" className="py-16">
-      <div className="max-w-4xl mx-auto text-left">
+      <div className="max-w-4xl mx-auto text-left mb-24">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-purple-400 font-semibold text-sm tracking-widest uppercase">

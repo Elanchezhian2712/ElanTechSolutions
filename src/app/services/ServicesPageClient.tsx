@@ -134,7 +134,7 @@ const ServicesPageClient = ({ cardData }: ServicesPageClientProps) => {
           </div>
         </FadeInContainer>
       </div>
-      <main>
+      <main className="mb-64">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <section className="py-20 md:py-28">
             <FadeInContainer>

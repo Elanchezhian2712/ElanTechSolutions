@@ -261,7 +261,7 @@ const AboutPageClient = () => {
         </section>
 
 
-        <section className={`py-16 sm:py-20 md:py-24 lg:py-28`}>
+        <section className="py-16 sm:py-20 md:py-24 lg:py-28 mb-64">
           <FadeInContainer>
             <div className="container mx-auto">
               <div className="flex flex-col items-center gap-10 lg:gap-16 xl:gap-20">

@@ -125,7 +125,7 @@ const ContactPageClient = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <section id="contact-form-section" className={`w-full py-16 sm:py-20 md:py-24 lg:py-28`}>
+        <section id="contact-form-section" className={`w-full py-16 sm:py-20 md:py-24 lg:py-28 mb-64`}>
           <div className="container mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 xl:gap-20 items-start">
               {/* Left Column with Fade-in */}
